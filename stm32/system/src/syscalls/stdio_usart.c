@@ -1,0 +1,174 @@
+/*
+ * Copyright (c) 2015 Francesco Balducci
+ *
+ * This file is part of nucleo_tests.
+ *
+ *    nucleo_tests is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU Lesser General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    nucleo_tests is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU Lesser General Public License for more details.
+ *
+ *    You should have received a copy of the GNU Lesser General Public License
+ *    along with nucleo_tests.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#include <file.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+
+#include "diag/Trace.h"
+
+
+// ----------------------------------------------------------------------------
+
+
+extern
+void stdio_init(void);
+
+extern
+void stdio_delete(void);
+
+static
+int stdio_usart_write(int fd, char *ptr, int len)
+{
+	struct fd *f;
+
+	f = file_struct_get(fd);
+	if (!f->isatty) {
+		  errno = ENOSYS;
+		  return -1;
+	}
+#if defined(TRACE)
+
+	return trace_write (ptr, len);
+#else
+    /* TODO: non-blocking */
+    for(int i = 0; i < len; i++)
+    {
+        if ((ptr[i] == '\n'))
+        {
+            usart_send_blocking(USART2, '\r');
+        }
+        usart_send_blocking(USART2, ptr[i]);
+    }
+    return len;
+#endif
+}
+
+static
+int stdio_usart_read(int fd, char *ptr, int len)
+{
+	struct fd *f;
+
+	f = file_struct_get(fd);
+	if (!f->isatty) {
+		  errno = ENOSYS;
+		  return -1;
+	}
+#if defined(TRACE)
+	errno = ENOSYS;
+	return -1;
+#else
+    if (len > 0)
+    {
+        usart_wait_recv_ready(USART2);
+        do {
+            ptr[nread] = usart_recv(USART2);
+            nread++;
+        } while ((nread < len) && (USART_SR(USART2) & USART_SR_RXNE));
+        if (nread == 0)
+        {
+            errno = EAGAIN;
+            nread = -1;
+        }
+    }
+    return nread;
+#endif
+}
+
+static
+void stdio_usart_init(void)
+{
+#if !defined(TRACE)
+    uint32_t baud = 57600;
+    rcc_periph_clock_enable(RCC_GPIOA);
+    rcc_periph_clock_enable(RCC_USART2);
+    
+#ifdef STM32F1
+    gpio_set_mode(GPIOA, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_ALTFN_PUSHPULL, GPIO_USART2_TX);
+    gpio_set_mode(GPIOA, GPIO_MODE_INPUT, GPIO_CNF_INPUT_FLOAT, GPIO_USART2_RX);
+#elif defined(STM32F4)
+    gpio_set_af(GPIOA, GPIO_AF7, GPIO2 | GPIO3);
+    gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2|GPIO3);
+#endif
+	USART2_BRR = ((2 * rcc_ahb_frequency) + baud) / (2 * baud);
+    
+	usart_set_databits(USART2, 8);
+	usart_set_stopbits(USART2, USART_STOPBITS_1);
+	usart_set_mode(USART2, USART_MODE_TX_RX);
+	usart_set_parity(USART2, USART_PARITY_NONE);
+	usart_set_flow_control(USART2, USART_FLOWCONTROL_NONE);
+	usart_enable(USART2);
+#endif
+}
+
+static
+void fileno_out_init(int fd)
+{
+    struct fd *f;
+
+    f = file_struct_get(fd);
+
+    f->fd = fd;
+    f->stat.st_mode = S_IFCHR|S_IWUSR|S_IWGRP|S_IWOTH;
+    f->status_flags = O_WRONLY;
+    f->write = stdio_usart_write;
+    f->isatty = 1;
+    f->isopen = 1;
+}
+
+static
+void fileno_in_init(int fd)
+{
+    struct fd *f;
+    f = file_struct_get(fd);
+
+    f->fd = fd;
+    f->stat.st_mode = S_IFCHR|S_IRUSR|S_IRGRP|S_IROTH;
+    f->status_flags = O_RDONLY;
+    f->read = stdio_usart_read;
+    f->read = NULL;
+    f->isatty = 1;
+    f->isopen = 1;
+}
+
+__attribute__((__constructor__))
+void stdio_init(void)
+{
+    stdio_usart_init();
+    fileno_in_init(STDIN_FILENO);
+    fileno_out_init(STDOUT_FILENO);
+    fileno_out_init(STDERR_FILENO);
+}
+
+static
+void fileno_delete(int fd)
+{
+    struct fd *f;
+    f = file_struct_get(fd);
+    f->isopen = 0;
+}
+
+__attribute__((__destructor__))
+void stdio_delete(void)
+{
+    fileno_delete(STDIN_FILENO);
+    fileno_delete(STDOUT_FILENO);
+    fileno_delete(STDERR_FILENO);
+}
+

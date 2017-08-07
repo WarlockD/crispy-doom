@@ -16,6 +16,8 @@
 //
 
 #include "SDL.h"
+#include <SDL.h>
+#include <SDL_video.h>
 
 #include <ctype.h>
 #include <stdio.h>

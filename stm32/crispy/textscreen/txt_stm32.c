@@ -24,6 +24,8 @@
 
 #include <string.h>
 #include <assert.h>
+#include <stdbool.h>
+
 
 #include <txt_stm32.h>
 
@@ -35,11 +37,17 @@
 // has the hal usart drivers here
 #include "main.h"
 
+#define BLOCK_SEND
 #if !defined(__cplusplus) || defined(_GCC)
 #define inline __inline
 #endif
 
-
+static void debug_char(const char* msg, int c) {
+	if(isprint(c))
+		fprintf(stderr, "%s '%c'(%u)\n", msg, (char)c,c);
+	else
+		fprintf(stderr, "%s <%2.2X>(%u)\n", msg, (char)c,c);
+}
 
 // Fonts:
 #if 0
@@ -52,10 +60,44 @@
 
 #define BLINK_PERIOD 250
 
-static unsigned char *screendata;
+//static unsigned char *screendata;
+
+static unsigned char prev_screendata[TXT_SCREEN_W * TXT_SCREEN_H * 2];
+static unsigned char screendata[TXT_SCREEN_W * TXT_SCREEN_H * 2];
 static int key_mapping = 1;
 static UART_HandleTypeDef txt_usart;
 static DMA_HandleTypeDef txt_usart1_tx;
+#if 0
+static inline bool uart_busy() {
+	HAL_UART_StateTypeDef state = HAL_UART_GetState(&txt_usart);
+	assert(HAL_UART_STATE_RESET != state);
+	assert(HAL_UART_STATE_TIMEOUT != state);
+	assert(HAL_UART_STATE_ERROR != state);
+	if(state  == HAL_UART_STATE_READY) return false;
+	else {
+#if 0
+		  HAL_UART_STATE_BUSY              = 0x24U,   /*!< an internal process is ongoing
+		                                                   Value is allowed for gState only */
+		  HAL_UART_STATE_BUSY_TX           = 0x21U,   /*!< Data Transmission process is ongoing
+		                                                   Value is allowed for gState only */
+		  HAL_UART_STATE_BUSY_RX           = 0x22U,   /*!< Data Reception process is ongoing
+		                                                   Value is allowed for RxState only */
+		  HAL_UART_STATE_BUSY_TX_RX        = 0x23U,   /*!< Data Transmission and Reception process is ongoing */
+#endif
+		return true;
+	}
+}
+#endif
+static inline bool uart_busy(){
+
+	uint32_t isrflags = READ_REG(USART1->ISR);
+	return (isrflags & (USART_ISR_RXNE|USART_ISR_TC)) != RESET;
+
+}
+inline static void screen_wait() {
+	//while(screen_state.updating || uart_busy()) __WFI();
+	while(uart_busy());
+}
 
 static TxtUartEventCallbackFunc event_callback;
 static void *event_callback_data;
@@ -70,122 +112,482 @@ struct txt_rect {
 };
 
 
-static volatile uint8_t dma_tx_buffer[512];
-static volatile int screen_updating = 0;
-static volatile struct txt_rect screen_rect_queue = { 0,0,0,0 }; // rect being updated
+static uint8_t dma_tx_buffer[512];
+static uint8_t dma_rx_buffer[64];
+typedef struct {
+	uint8_t* ptr;
+	size_t size;
+	size_t pos;
+}buffer_t;
 
+typedef struct {
+	uint8_t* ptr;
+	size_t size;
+	size_t head;
+	size_t tail;
+}circle_t;
 
-
-
-#define ANSI_PUTC(P,C)   do { *P++ = (C); } while(0)
-#define ANSI_CSI(P) do { ANSI_PUTC(P,'\027'); ANSI_PUTC(P,'['); } while(0)
-#define ANSI_SCP(P) do { ANSI_CSI(P); ANSI_PUTC(P,'s'); } while(0) /* save cursor */
-#define ANSI_RCP(P) do { ANSI_CSI(P); ANSI_PUTC(P,'u'); } while(0) /* restore cursor */
-#define PUT_NUMBER(P, N) \
-	do {\
-		int __n = (N);\
-		while (__n != 0) {\
-			ANSI_PUTC(P,(__n % 10) + '0'); \
-			__n = __n/10;\
-		}\
-	} while(0)
-
-static inline uint8_t* ANSI_POS(uint8_t* p, int x, int y) {
-	ANSI_CSI(p);
-	PUT_NUMBER(p,x);
-	ANSI_PUTC(p,';');
-	PUT_NUMBER(p,y);
-	ANSI_PUTC(p,'H');
-	return p;
+inline static void circle_clear(circle_t* circle){
+	circle->head = circle->tail = 0;
 }
-#define ANSI_SGR(P,N) do { ANSI_CSI(P); PUT_NUMBER(P,N); ANSI_PUTC(P,'m');} while(0) /* restore cursor */
+inline static void circle_init(circle_t* circle, uint8_t* ptr, size_t size){
+	circle->ptr = ptr;
+	circle->size  = size;
+	circle_clear(circle);
+}
+inline static bool circle_empty(circle_t* circle) { return circle->head == circle->tail; }
+inline static bool circle_putc(circle_t* circle, uint8_t c){
+	volatile size_t head = circle->head;
+	circle->ptr[head] = c;
+	if(++head > circle->size) head = 0;
+	circle->head = head;
+	return circle->head == circle->tail;
+}
 
+inline static size_t circle_puts(circle_t* circle, const char* str) {
+	size_t cnt=0;
+	while(*str) { if(circle_putc(circle,*str++)) break;++cnt; }
+	return cnt;
+}
+inline static size_t circle_write(circle_t* circle, const uint8_t* data,size_t len) {
+	size_t cnt=0;
+	while(len--) { if(circle_putc(circle,*data++)) break;++cnt; }
+	return cnt;
+}
+inline static size_t circle_number(circle_t* circle, int num) {
+	char nbuf[9];
+	return circle_puts(circle,itoa(num,nbuf,10));
+}
+
+inline static bool circle_getc(circle_t* circle, uint8_t* c){
+	if(circle_empty(circle)) return false;
+	volatile size_t tail = circle->tail;
+	*c = circle->ptr[tail];
+	if(++tail > circle->size) tail = 0;
+	circle->tail = tail;
+	return true;
+}
+inline static void buffer_init(buffer_t* buffer, uint8_t* ptr, size_t size){
+	buffer->ptr = ptr;
+	buffer->size  = size;
+	buffer->pos = 0;
+}
+inline static void buffer_clear(buffer_t* buffer) {
+	buffer->pos = 0;
+}
+inline static void buffer_putc(buffer_t* buffer, uint8_t c) {
+	assert(buffer->size > buffer->pos);
+	buffer->ptr[buffer->pos++] = c;
+}
+
+inline static void buffer_puts(buffer_t* buffer,const char* str) {
+	while(*str) buffer_putc(buffer,*str++);
+}
+inline static void buffer_write(buffer_t* buffer,const uint8_t* data,size_t len) {
+	while(len--) buffer_putc(buffer,*data++);
+}
+inline static void buffer_number(buffer_t* buffer, int num) {
+	char nbuf[8];
+	buffer_puts(buffer,itoa(num,nbuf,10));
+#if 0
+	// stupid simple
+	if(num == 0) buffer_putc(buffer,'0');
+	if(num > 999) {
+		buffer_putc(buffer,num%1000 + '0');
+		num/=1000;
+	}
+	if(num > 99) {
+		buffer_putc(buffer,num%100 + '0');
+		num/=100;
+	}
+	if(num > 9) {
+		buffer_putc(buffer,num%10+ '0');
+		num/=10;
+	}
+	if(num > 0){
+		buffer_putc(buffer,num+ '0');
+	}
+#endif
+}
+typedef struct  {
+	uint8_t begin_x;
+	uint8_t end_x;
+} line_info_t;
+typedef struct screen_state_s {
+	int updating;
+	struct txt_rect rect;
+	circle_t tx_buffer;
+	circle_t rx_buffer;
+	size_t cur_y;
+	size_t end_y;
+	int last_attrib;
+	line_info_t lines[TXT_SCREEN_H];
+	void (*update)();
+}screen_state_t;
+
+static struct screen_state_s screen_state;
+
+void hal_assert(HAL_StatusTypeDef status) {
+	if(status == HAL_OK)return;
+	switch(status){
+	case  HAL_ERROR:
+		fprintf(stderr,"HAL ERROR");
+		break;
+	case HAL_BUSY:
+		fprintf(stderr,"HAL BUSY");
+		break;
+	case  HAL_TIMEOUT:
+		fprintf(stderr,"HAL TIMEOUT");
+		break;
+	default:
+		fprintf(stderr,"HAL UNKNOWN");
+		break;
+	}
+	fprintf(stderr," (%u)\n\n",status);
+	assert(0);
+
+}
+void buffer_trasmit(const buffer_t* buffer) {
+	screen_wait();
+
+
+#ifdef BLOCK_SEND
+	hal_assert(HAL_UART_Transmit(&txt_usart, buffer->ptr, buffer->pos, 500));
+#else
+	hal_assert(HAL_UART_Transmit_DMA(&txt_usart, buffer->ptr, buffer->pos));
+#endif
+}
+
+void trasmit_buffer(){
+	screen_wait();
+	uint8_t c;
+	if(circle_getc(&screen_state.tx_buffer,&c)){
+		//txt_usart.Instance->TDR = c;
+		SET_BIT(txt_usart.Instance->CR1, USART_CR1_TXEIE);
+	}
+}
+void send_uart_blocking(const char* message){
+	circle_clear(&screen_state.tx_buffer);
+	circle_puts(&screen_state.tx_buffer,message);
+	trasmit_buffer();
+}
+void uart_putc(int c) {
+	while((USART1->ISR & USART_ISR_TXE)==0);
+	USART1->TDR = (uint8_t)(c & 0xFF);
+}
+void uart_puts(const char* str){
+	while(*str) uart_putc(*str++);
+}
+void uart_write(const uint8_t* data,size_t len){
+	while(len--) uart_putc(*data++);
+}
+void uart_write_circle(circle_t* circle){
+	uint8_t c;
+	while(circle_getc(circle,&c))
+		uart_putc(c);
+}
+void usart_gotoxy(int x, int y) {
+	char num[9];
+	uart_putc(27);
+	uart_putc('[');
+	uart_puts(itoa(y+1,num,10)+1);
+	uart_putc(';');
+	uart_puts(itoa(y+1,num,10)+1);
+	uart_putc('H');
+}
+
+#define GET_SCREEN_BUFFER (&screen_state.tx_buffer)
+#define ANSI_PUTC(C) do { circle_putc(GET_SCREEN_BUFFER,(C)); } while(0) /* save cursor */
+#define PUT_NUMBER(N) do { circle_number(GET_SCREEN_BUFFER,(N)); } while(0) /* save cursor */
+#define DEBUG_ANSI
+#ifdef DEBUG_ANSI
+#define ANSI_CSI() do { ANSI_PUTC('\n');  ANSI_PUTC('\r'); ANSI_PUTC(':'); ANSI_PUTC('['); } while(0)
+#else
+#define ANSI_CSI() do { ANSI_PUTC(27); ANSI_PUTC('['); } while(0)
+#endif
+
+
+#define ANSI_SCP() do { ANSI_CSI(); ANSI_PUTC('s'); } while(0) /* save cursor */
+#define ANSI_RCP() do { ANSI_CSI(); ANSI_PUTC('u'); } while(0) /* restore cursor */
 
 #define BUF_LEFT(P) (size_t)(((size_t)(P))-((size_t)&dma_tx_buffer))
 
 #define GET_FG(X) ((X) & 0x7)
 #define GET_BG(X) (((X)>>4) & 0x7)
-#define GET_BLINK(X) (((X)>>7) & 0x1)
-#define GET_BOLD(X) (((X)>>3) & 0x1)
+#define GET_BLINK(X) (((X)&0x80) >> 7)
+#define GET_BOLD(X) (((X)&0x08) >>3)
 
-uint8_t* init_attrib(uint8_t * tx, int attr, int* last) {
-	if(last) {
-		if(*last == attr) return tx;
+
+static void ANSI_POS(int x, int y) {
+	assert(x < TXT_SCREEN_W);
+	assert(y < TXT_SCREEN_H);
+	ANSI_CSI();
+	char nbuf[15];
+	circle_puts(&screen_state.tx_buffer,itoa(y+1,nbuf,10));
+	//PUT_NUMBER(y+1);
+	ANSI_PUTC(';');
+	//PUT_NUMBER(x+1);
+	circle_puts(&screen_state.tx_buffer,itoa(x+1,nbuf,10));
+	ANSI_PUTC('H');
+}
+
+
+#if 0
+void position_report(size_t* x, size_t* y) {
+	screen_buffer_clear();
+	screen_buffer_puts("\033[6n");
+}
+NCURSES_SP_NAME(_nc_flush) (NCURSES_SP_ARG);
+memset(buf, '\0', sizeof(buf));
+NCURSES_PUTP2_FLUSH("cpr", "\033[6n");	/* only works on ANSI-compatibles */
+*(s = buf) = 0;
+do {
+int ask = sizeof(buf) - 1 - (s - buf);
+int got = read(0, s, ask);
+if (got == 0)
+    break;
+s += got;
+} while (strchr(buf, 'R') == 0);
+_tracef("probe returned %s", _nc_visbuf(buf));
+
+/* try to interpret as a position report */
+if (sscanf(buf, "\033[%d;%dR", &y, &x) != 2) {
+_tracef("position probe failed in %s", legend);
+} else {
+}
+}
+#endif
+
+int assert_range(volatile int value, volatile int begin,volatile int end) {
+	assert(value >= begin && value <= end);
+	return value;
+}
+static void init_attrib_change(int attr, int last){
+	int semi = 0;
+	ANSI_CSI();
+
+	if( (GET_FG(attr) != GET_FG(last))) {
+		assert_range(GET_FG(attr)+30,30,37);
+		PUT_NUMBER(GET_FG(attr)+30); // forground color
+		semi = 1;
+	}
+	if( (GET_BG(attr) != GET_BG(last))) {
+		assert_range(GET_BG(attr)+40,40,47);
+		if(semi) ANSI_PUTC(';'); else semi = 1;
+		PUT_NUMBER(GET_BG(attr)+40); // background color
+	}
+	if( (GET_BLINK(attr) != GET_BLINK(last))) {
+		if(semi) ANSI_PUTC(';'); else semi = 1;
+		if(GET_BLINK(attr)) PUT_NUMBER(5); else PUT_NUMBER(25); // blink
+	}
+	if((GET_BOLD(attr) != GET_BOLD(last))) {
+		if(semi) ANSI_PUTC(';'); else semi = 1;
+		if(GET_BOLD(attr)) PUT_NUMBER(1); else PUT_NUMBER(22); // bold
+	}
+}
+static void init_attrib(int attr, int* last) {
+
+//	return tx; // ignore attribs for right now
+	if(last && *last !=-1) {
+		if(*last == attr) return;
 		int semi = 0;
-		ANSI_CSI(tx);
+		ANSI_CSI();
 
 		if( (GET_FG(attr) != GET_FG(*last))) {
-			if(semi) ANSI_PUTC(tx,';'); else semi = 1;
-			PUT_NUMBER(tx,GET_FG(attr)+30); // forground color
+			assert_range(GET_FG(attr)+30,30,37);
+			PUT_NUMBER(GET_FG(attr)+30); // forground color
 			semi = 1;
 		}
 		if( (GET_BG(attr) != GET_BG(*last))) {
-			if(semi) ANSI_PUTC(tx,';'); else semi = 1;
-			PUT_NUMBER(tx,GET_BG(attr)+40); // background color
+			assert_range(GET_BG(attr)+40,40,47);
+			if(semi) ANSI_PUTC(';'); else semi = 1;
+			PUT_NUMBER(GET_BG(attr)+40); // background color
 		}
 		if( (GET_BLINK(attr) != GET_BLINK(*last))) {
-			if(semi) ANSI_PUTC(tx,';'); else semi = 1;
-			if(GET_BLINK(attr)) PUT_NUMBER(tx,5); else PUT_NUMBER(tx,25); // blink
+			if(semi) ANSI_PUTC(';'); else semi = 1;
+			if(GET_BLINK(attr)) PUT_NUMBER(5); else PUT_NUMBER(25); // blink
 		}
 		if((GET_BOLD(attr) != GET_BOLD(*last))) {
-			if(semi) ANSI_PUTC(tx,';'); else semi = 1;
-			if(GET_BOLD(attr)) PUT_NUMBER(tx,1); else PUT_NUMBER(tx,21); // bold
+			if(semi) ANSI_PUTC(';'); else semi = 1;
+			if(GET_BOLD(attr)) PUT_NUMBER(1); else PUT_NUMBER(22); // bold
 		}
 		*last = attr;
 	} else {
-		ANSI_CSI(tx);
-		PUT_NUMBER(tx,GET_FG(attr)+30); // forground color
-		ANSI_PUTC(tx,';');
-		PUT_NUMBER(tx,GET_BG(attr)+30); // background color
-		ANSI_PUTC(tx,';');
-		if(GET_BLINK(attr)) PUT_NUMBER(tx,5); else PUT_NUMBER(tx,25); // blink
-		ANSI_PUTC(tx,';');
-		if(GET_BOLD(attr)) PUT_NUMBER(tx,1); else PUT_NUMBER(tx,21); // bold
+		ANSI_CSI();
+		PUT_NUMBER(GET_FG(attr)+30); // forground color
+		ANSI_PUTC(';');
+		PUT_NUMBER(GET_BG(attr)+40); // background color
+		ANSI_PUTC(';');
+		if(GET_BLINK(attr)) PUT_NUMBER(5); else PUT_NUMBER(25); // blink
+		ANSI_PUTC(';');
+		if(GET_BOLD(attr)) PUT_NUMBER(1); else PUT_NUMBER(22); // bold
+		if(last) *last = attr;
 	}
-	ANSI_PUTC(tx,'m');
-	return tx;
+	ANSI_PUTC('m');
 }
 
-static void updating_screen_pump(volatile struct txt_rect* rect) {
-	if(!rect || rect->height ==0) {
-		screen_updating = 0;
-		return;
-	}
-	uint8_t* tx = &dma_tx_buffer[0];
+#include "cp437_to_utf.h"
+#if 0
+static size_t code_to_utf8(unsigned char *const buffer, const unsigned int code)
+{
+    if (code <= 0x7F) {
+        buffer[0] = code;
+        return 1;
+    }
+    if (code <= 0x7FF) {
+        buffer[0] = 0xC0 | (code >> 6);            /* 110xxxxx */
+        buffer[1] = 0x80 | (code & 0x3F);          /* 10xxxxxx */
+        return 2;
+    }
+    if (code <= 0xFFFF) {
+        buffer[0] = 0xE0 | (code >> 12);           /* 1110xxxx */
+        buffer[1] = 0x80 | ((code >> 6) & 0x3F);   /* 10xxxxxx */
+        buffer[2] = 0x80 | (code & 0x3F);          /* 10xxxxxx */
+        return 3;
+    }
+    if (code <= 0x10FFFF) {
+        buffer[0] = 0xF0 | (code >> 18);           /* 11110xxx */
+        buffer[1] = 0x80 | ((code >> 12) & 0x3F);  /* 10xxxxxx */
+        buffer[2] = 0x80 | ((code >> 6) & 0x3F);   /* 10xxxxxx */
+        buffer[3] = 0x80 | (code & 0x3F);          /* 10xxxxxx */
+        return 4;
+    }
+    return 0;
+}
+#endif
+void screen_utf8(const uint32_t code) {
 
-	size_t x = rect->x;
-	uint8_t* p = &screendata[(rect->y * TXT_SCREEN_W + x) * 2];
-	int last_attrib = p[1];
-	// set inital settings and first char
-	tx = init_attrib(tx, last_attrib,NULL);
-	do {
-		tx = ANSI_POS(tx,x+1,rect->y+1); // set the line position
-		do {
-			tx = init_attrib(tx,p[1],&last_attrib); // do attribs
-			ANSI_PUTC(tx,p[0]);
-			x++; p+=2;
-		} while(x < rect->width);
-		--rect->y;
-		if(--rect->height == 0) break;
-		x = rect->x;
-		p = &screendata[(rect->y * TXT_SCREEN_W + x) * 2];
-	} while((BUF_LEFT(tx)+100) < rect->width);
-	if(tx != &dma_tx_buffer[0]) {
-		assert(HAL_UART_Transmit_DMA(&txt_usart, (uint8_t*)dma_tx_buffer, BUF_LEFT(tx))== HAL_OK);
-		screen_updating = 1;
+	if(code < 0x80)
+		ANSI_PUTC(code);
+	else if(code < 0x800) {
+		ANSI_PUTC(0xC0 | (code >> 6));
+		ANSI_PUTC(0x80 | (code & 0x3F));
+	} else if(code<0x1000) {
+		ANSI_PUTC(0xE0 | (code >> 12));
+		ANSI_PUTC(0x80 | ((code >> 6) & 0x3F));
+		ANSI_PUTC(0x80 | (code & 0x3F));
 	} else {
-		screen_updating = 0;
+		ANSI_PUTC(0xF0 | (code >> 18));
+		ANSI_PUTC(0x80 | ((code >> 12) & 0x3F));
+		ANSI_PUTC(0x80 | ((code >> 6) & 0x3F));
+		ANSI_PUTC(0x80 | (code & 0x3F));
 	}
 }
-static void update_screen(const struct txt_rect* rect) {
-	while(screen_updating);
-	screen_rect_queue = *rect;
-	updating_screen_pump(&screen_rect_queue);
+void vga_to_utf8(int c) {
+	//if(c < 32)
+//		screen_utf8(vga_cp437_to_utf[c]);
+	//else {
+		screen_utf8(cp437_to_utf[c]);
+	//}
 }
+static  int last_attrib=-1;
+static void trasform_line(size_t line, size_t first, size_t len, uint16_t* src){
+	ANSI_POS(first,line);
+	while(len--)	{
+	//	init_attrib(*src >> 8,&last_attrib); // do attribs
+		uint8_t c = *src & 0xFF;
+		vga_to_utf8(c);
+		src++;
+	}
+}
+
+static bool do_update(size_t line) {
+	bool ret = false;
+	volatile size_t first = 0;
+	size_t last = TXT_SCREEN_W-1;
+	size_t len = 0;
+	uint16_t* src = (uint16_t*)&screendata[(line * TXT_SCREEN_W)];// * 2];
+	uint16_t* dest = (uint16_t*)&prev_screendata[(line * TXT_SCREEN_W)];// * 2];
+    while (first <= last)  {
+	  /* build up a run of changed cells; if two runs are
+		 separated by a single unchanged cell, ignore the
+		 break */
+        while ((first + len) <= last &&
+               (src[first + len] != dest[first + len] ||
+                (len && first + len < last &&
+                 src[first + len + 1] != dest[first + len + 1])
+               )
+              )
+            len++;
+              /* update the screen, and pdc_lastscr */
+
+              if (len)
+              {
+            	  trasform_line(line, first, len, src + first);
+                  memcpy(dest + first, src + first, len * sizeof(uint16_t));
+                  first += len;
+                  ret = true;
+              }
+
+              /* skip over runs of unchanged cells */
+
+              while (first <= last && src[first] == dest[first])
+                  first++;
+    }
+    return ret;
+}
+
+#if 0
+	size_t begin_x=0, end_x=0;
+	uint16_t* p = (uint16_t*)&screendata[(line * TXT_SCREEN_W)];// * 2];
+	uint16_t* pp = (uint16_t*)&prev_screendata[(line * TXT_SCREEN_W)];// * 2];
+	while(p[begin_x] == pp[begin_x]) {
+		if(++begin_x >=TXT_SCREEN_W) return false;
+	}
+	end_x = TXT_SCREEN_W -1;
+	while(begin_x <  end_x && p[end_x] == pp[end_x]) end_x--;
+	assert(begin_x < end_x); // how we get here?
+	buffer_clear(&screen_state.buffer);
+	ANSI_POS(begin_x,line);
+	int last_attrib;
+	init_attrib(last_attrib=p[begin_x] >> 8,NULL); // do attribs
+	while(begin_x <= end_x)	{
+		init_attrib(p[begin_x] >> 8,&last_attrib); // do attribs
+		uint8_t c = p[begin_x] & 0xFF;
+		vga_to_utf8(c);
+		pp[begin_x] = p[begin_x];
+		++begin_x;
+	}
+	return true;
+#endif
+
+
 
 void USARTx_IRQHandler(void)
 {
-  HAL_UART_IRQHandler(&txt_usart);
+	  uint32_t isrflags   = READ_REG(USART1->ISR);
+	  uint32_t cr1its     = READ_REG(USART1->CR1);
+	  uint8_t c;
+	  /* If no error occurs */
+  uint32_t errorflags = (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
+
+	/* UART in mode Receiver ---------------------------------------------------*/
+	if(errorflags == RESET) {
+		if((((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))){
+			c = USART1->RDR;
+			circle_putc(&screen_state.rx_buffer,c);
+			printf("CHAR: '%c'(%2.2X)\n",c,c);
+			return;
+		} else if((((isrflags & USART_ISR_TXE) != RESET) && ((cr1its & USART_CR1_TXEIE) != RESET))){
+			if(circle_getc(&screen_state.tx_buffer,&c)){
+				USART1->TDR = c;
+			} else {
+			      /* Disable the UART Transmit Data Register Empty Interrupt */
+			      CLEAR_BIT(txt_usart.Instance->CR1, USART_CR1_TXEIE);
+
+			      /* Enable the UART Transmit Complete Interrupt */
+			      SET_BIT(txt_usart.Instance->CR1, USART_CR1_TCIE);
+			}
+			return;
+		} else if((((isrflags & USART_ISR_TC) != RESET) && ((cr1its & USART_CR1_TCIE) != RESET))){
+		      CLEAR_BIT(txt_usart.Instance->CR1, USART_CR1_TXEIE);
+#if 0
+		      // restart refresh?
+#endif
+		   return;
+		}
+	}
+	HAL_UART_IRQHandler(&txt_usart);
 }
 void USARTx_DMA_TX_IRQHandler(void)
 {
@@ -194,21 +596,13 @@ void USARTx_DMA_TX_IRQHandler(void)
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
 	if(UartHandle == &txt_usart){
-		updating_screen_pump(&screen_rect_queue);
+		if(screen_state.update)
+			screen_state.update();
+		else
+			screen_state.updating = 0;
 	}
 }
-void test_uart(const char* message){
-	size_t len = strlen(message);
-	memcpy(&dma_tx_buffer[0],message,len);
-	assert(HAL_UART_Transmit_DMA(&txt_usart, (uint8_t*)dma_tx_buffer, len)== HAL_OK);
-	screen_updating=1;
-	while(screen_updating);
-}
-void test_uart_blocking(const char* message){
-	size_t len = strlen(message);
-	memcpy(&dma_tx_buffer[0],message,len);
-	assert(HAL_UART_Transmit(&txt_usart, (uint8_t*)dma_tx_buffer, len, 100000)== HAL_OK);
-}
+
 //
 // Initialize text mode screen
 //
@@ -275,9 +669,9 @@ int TXT_Init(void)
 	// inital usart1 using the STM32 hall driver
 	// maybe go to openstm latter?
 	txt_usart.Instance = USART1;
-	//txt_usart.Init.BaudRate = 115200;
+	txt_usart.Init.BaudRate = 115200;
 	//txt_usart.Init.BaudRate =57600;
-	txt_usart.Init.BaudRate =9600;
+	//txt_usart.Init.BaudRate =9600;
 	txt_usart.Init.WordLength = UART_WORDLENGTH_8B;
 	txt_usart.Init.StopBits = UART_STOPBITS_1;
 	txt_usart.Init.Parity = UART_PARITY_NONE;
@@ -304,17 +698,41 @@ int TXT_Init(void)
   HAL_DMA_Init(&txt_usart1_tx);
   /* Associate the initialized DMA handle to the UART handle */
   __HAL_LINKDMA(&txt_usart, hdmatx, txt_usart1_tx);
-    screendata = malloc(TXT_SCREEN_W * TXT_SCREEN_H * 2);
-    memset(screendata, 0, TXT_SCREEN_W * TXT_SCREEN_H * 2);
-    test_uart_blocking("Usart works!\n");
+
+  /* Enable the UART Error Interrupt: (Frame error, noise error, overrun error) */
+   SET_BIT(txt_usart.Instance->CR3, USART_CR3_EIE);
+
+   /* Enable the UART Parity Error and Data Register not empty Interrupts */
+   SET_BIT(txt_usart.Instance->CR1, USART_CR1_PEIE | USART_CR1_RXNEIE);
+   // enaable reciving stuff
+   // screendata = malloc(TXT_SCREEN_W * TXT_SCREEN_H * 2);
+   for(size_t i=0; i < (TXT_SCREEN_W * TXT_SCREEN_H * 2); i+=2){
+	   prev_screendata[i] = prev_screendata[i+1] = 0;
+	   screendata[i]= ' ';
+	   screendata[i+1] = 0x7;
+   }
+    //memset(screendata, 0, TXT_SCREEN_W * TXT_SCREEN_H * 2);
+   // memset(prev_screendata, 0, TXT_SCREEN_W * TXT_SCREEN_H * 2);
+   circle_init(&screen_state.tx_buffer, dma_tx_buffer,sizeof(dma_tx_buffer));
+    circle_init(&screen_state.rx_buffer, dma_rx_buffer,sizeof(dma_rx_buffer));
+    uart_puts("Usart works!\n");
    // test_uart("Usart works!\n");
+
+
+    uart_puts("\033c");	  // reset term
+    uart_puts("\033[2J\033[;H");   // clear the screen
+
+    // enable mouse
+    uart_puts("\033[?1000h"); // enable mouse tracking?
+    uart_puts("\033+C"); // enable mouse tracking?
+   // TXT_UpdateScreen();
     return 1;
 }
 
 void TXT_Shutdown(void)
 {
-    free(screendata);
-    screendata = NULL;
+   // free(screendata);
+  //  screendata = NULL;
     TXT_USART_Pin_DeInit();
 }
 
@@ -340,30 +758,33 @@ static int LimitToRange(int val, int min, int max)
     }
 }
 
-void TXT_UpdateScreenArea(int x, int y, int w, int h)
-{
-    int x1, y1;
-    int x_end;
-    int y_end;
-
-    x_end = LimitToRange(x + w, 0, TXT_SCREEN_W);
-    y_end = LimitToRange(y + h, 0, TXT_SCREEN_H);
-    x = LimitToRange(x, 0, TXT_SCREEN_W);
-    y = LimitToRange(y, 0, TXT_SCREEN_H);
-
-
-    struct txt_rect rect;
-    rect.x = x;
-    rect.y = y;
-    rect.width = (x_end - x);
-    rect.height = (y_end - y);
-    update_screen(&rect);
-
-}
 
 void TXT_UpdateScreen(void)
 {
-    TXT_UpdateScreenArea(0, 0, TXT_SCREEN_W, TXT_SCREEN_H);
+#if 0
+	screen_wait();
+	screen_state.updating = 1;
+	last_attrib=-1;
+	current_line=0;
+	screen_state.update = updating_screen_pump;
+	updating_screen_pump();
+#endif
+	return;
+	last_attrib=-1;
+	screen_state.update=NULL;
+	circle_clear(&screen_state.tx_buffer);
+	for(int line =0; line < TXT_SCREEN_H;line++ ){
+		if(!do_update(line)) continue;
+		screen_state.updating = 1;
+		uart_write_circle(&screen_state.tx_buffer);
+		screen_state.updating = 0;
+		//uart_write(screen_s)
+		//trasmit_buffer();
+		//screen_wait();
+		circle_clear(&screen_state.tx_buffer);
+	}
+	screen_state.update = NULL;
+	screen_state.updating = 0;
 }
 
 void TXT_GetMousePosition(int *x, int *y)
@@ -521,6 +942,43 @@ static int MouseHasMoved(void)
 
 signed int TXT_GetChar(void)
 {
+	uint8_t c=0;
+	if(circle_getc(&screen_state.rx_buffer,&c)){
+		if(c == 27) { // escape code
+			HAL_Delay(10);// wait a millsecond
+			if(!circle_getc(&screen_state.rx_buffer,&c)){
+				return KEY_ESCAPE;
+			}
+			if(c == '[') {
+				// csi
+				while(!circle_getc(&screen_state.rx_buffer,&c));
+				switch(c) {
+				case 'A': return KEY_UPARROW;
+				case 'B': return KEY_DOWNARROW;
+				case 'C': return KEY_RIGHTARROW;
+				case 'D': return KEY_LEFTARROW;
+				default:
+					debug_char("Unkonwn escape ", c);
+					return 0;
+				}
+			}
+			debug_char("Unkonwn csiescape ", c);
+			return 0;
+		}
+	}
+	return c;
+}
+
+#if 0
+    Cursor up            ku         stuff \033[A
+                                    stuff \033OA      (A)
+    Cursor down          kd         stuff \033[B
+                                    stuff \033OB      (A)
+    Cursor right         kr         stuff \033[C
+                                    stuff \033OC      (A)
+    Cursor left          kl         stuff \033[D
+                                    stuff \033OD      (A)
+#endif
 #if 0
     SDL_Event ev;
 
@@ -573,8 +1031,6 @@ signed int TXT_GetChar(void)
     }
 #endif
 
-    return -1;
-}
 
 int TXT_GetModifierState(txt_modifier_t mod)
 {
@@ -711,8 +1167,9 @@ void TXT_Sleep(int timeout)
     if (timeout == 0)
     {
         // We can just wait forever until an event occurs
-    	while(1) {};
-
+    	while(circle_empty(&screen_state.rx_buffer)){
+    		//TXT_UpdateScreen();
+    	}
     }
     else
     {

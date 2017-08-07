@@ -29,3 +29,4 @@
    first (like Motorola and SPARC, unlike Intel and VAX). */
 /* #undef WORDS_BIGENDIAN */
 
+#define NET_PACKAGE_STRING "Chocolate Doom 2.3.0"

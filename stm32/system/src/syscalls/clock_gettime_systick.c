@@ -225,13 +225,16 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority){
 
 
 	  assert(RTC_Setup() == HAL_OK);
-
-
-      uint32_t sec_start = RTC_Seconds()+1;
+	  // assuming its just working
+#if 0
+      uint32_t sec_start = RTC_Seconds();
+      printf("tick start %u\n", sec_start);
       while(RTC_Seconds()!=sec_start);
+      sec_start = RTC_Seconds();
       volatile uint32_t tick_start = TIM2->CNT;
-      while(RTC_Seconds()!=(sec_start+1));
+      while(RTC_Seconds()!=sec_start);
       volatile uint32_t tickend = TIM2->CNT;
+#endif
 	  return HAL_OK;
 }
 

@@ -24,6 +24,29 @@
 static int cur_x = 0, cur_y = 0;
 static txt_color_t fgcolor = TXT_COLOR_GREY;
 static txt_color_t bgcolor = TXT_COLOR_BLACK;
+void uart_putc(int c);
+void uart_puts(const char* str);
+void uart_write(const uint8_t* data,size_t len);
+
+void usart_gotoxy(int x, int y);
+#define ANSI_TERMINAL
+
+void TXT_GotoXY(int x, int y)
+{
+#ifdef ANSI_TERMINAL
+	if(x != cur_x || y != cur_y){
+		usart_gotoxy(x,y);
+	}
+#endif
+    cur_x = x;
+    cur_y = y;
+}
+
+void TXT_GetXY(int *x, int *y)
+{
+    *x = cur_x;
+    *y = cur_y;
+}
 
 static void NewLine(unsigned char *screendata)
 {
@@ -56,14 +79,50 @@ static void NewLine(unsigned char *screendata)
 
 static void PutChar(unsigned char *screendata, int c)
 {
+	int x,y;
+	TXT_GetXY(&x,&y);
+
+#ifdef ANSI_TERMINAL
+    // Add a new character to the buffer
+    switch (c)
+    {
+    case '\n':
+    	uart_putc('\r');
+    	uart_putc('\n');
+        x= 0;
+        ++y;
+        if (y >= TXT_SCREEN_H) y = TXT_SCREEN_H - 1;
+    	return;
+    case '\b':
+        // backspace
+        --x;
+        if (x < 0) x = 0;
+        break;
+    default:
+        // Add a new character to the buffer
+       // p[0] = c;
+      //  p[1] = fgcolor | (bgcolor << 4);
+    	uart_putc(c);
+    	++x;
+    	if (x >= TXT_SCREEN_W) {
+        	uart_putc('\r');
+        	uart_putc('\n');
+            x= 0;
+            ++y;
+            if (y >= TXT_SCREEN_H) y = TXT_SCREEN_H - 1;
+    	}
+    }
+    TXT_GotoXY(x,y);
+
+#else
     unsigned char *p;
 
     p = screendata + cur_y * TXT_SCREEN_W * 2 +  cur_x * 2;
-
     switch (c)
     {
         case '\n':
-            NewLine(screendata);
+        	uart_putc('\n');
+           // NewLine(screendata);
             break;
 
         case '\b':
@@ -88,11 +147,14 @@ static void PutChar(unsigned char *screendata, int c)
             }
 
             break;
+
     }
+#endif
 }
 
 void TXT_PutChar(int c)
 {
+
     unsigned char *screen;
 
     screen = TXT_GetScreenData();
@@ -115,25 +177,52 @@ void TXT_Puts(const char *s)
     PutChar(screen, '\n');
 }
 
-void TXT_GotoXY(int x, int y)
-{
-    cur_x = x;
-    cur_y = y;
-}
 
-void TXT_GetXY(int *x, int *y)
-{
-    *x = cur_x;
-    *y = cur_y;
+void uart_number(int number){
+	char buf[11];
+	itoa(number,buf,10);
+	uart_puts(buf);
 }
-
+void TXT_ANSI_FGColor(txt_color_t color){
+	uart_putc(27);
+	uart_putc('[');
+	if(color < 8) {
+		uart_number(22);
+	} else {
+		color-=8;
+		uart_number(1);
+	}
+	uart_putc(';');
+	uart_number(color+30);
+	uart_putc('m');
+}
+void TXT_ANSI_BGColor(txt_color_t color,int blinking){
+	uart_putc(27);
+	uart_putc('[');
+	uart_number(color+40);
+	uart_putc(';');
+	if(blinking) {
+		uart_number(5);
+	} else {
+		uart_number(25);
+	}
+	uart_putc('m');
+}
 void TXT_FGColor(txt_color_t color)
 {
+#ifdef ANSI_TERMINAL
+	if(fgcolor != color)
+		TXT_ANSI_FGColor(color);
+#endif
     fgcolor = color;
 }
 
 void TXT_BGColor(int color, int blinking)
 {
+#ifdef ANSI_TERMINAL
+	if(bgcolor != (color&0x7) && ((bgcolor >> 7) != blinking))
+		TXT_ANSI_BGColor(color, blinking);
+#endif
     bgcolor = color;
     if (blinking)
         bgcolor |= TXT_COLOR_BLINKING;
@@ -147,12 +236,20 @@ void TXT_SaveColors(txt_saved_colors_t *save)
 
 void TXT_RestoreColors(txt_saved_colors_t *save)
 {
-    bgcolor = save->bgcolor;
-    fgcolor = save->fgcolor;
+	TXT_BGColor(save->bgcolor&0x7, save->bgcolor>>7);
+	TXT_FGColor(save->fgcolor);
 }
 
 void TXT_ClearScreen(void)
 {
+#ifdef ANSI_TERMINAL
+    uart_puts("\033c");	  // reset term
+    uart_puts("\033[2J\033[;H");   // clear the screen
+
+    // enable mouse
+    uart_puts("\033[?1000h"); // enable mouse tracking?
+    uart_puts("\033+C"); // enable mouse tracking?
+#endif
     unsigned char *screen;
     int i;
 

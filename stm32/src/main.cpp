@@ -56,6 +56,7 @@ void time_Test(){
 		  printf("tick! %i\n",HAL_GetTick());
 	  }
 }
+void DoomMain();
 extern "C" uint32_t GetTimerFreq();
 int
 main(int argc, char* argv[])
@@ -77,7 +78,7 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
-  time_Test();
+  //DoomMain();
   test_gui_main();
   while(1) {};
 }

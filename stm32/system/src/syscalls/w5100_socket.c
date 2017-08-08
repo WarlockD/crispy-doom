@@ -90,6 +90,29 @@ void timeout_init(const struct timespec *timeout, struct timeout_manager *tom);
 
 static
 int timeout_ended(const struct timeout_manager *tom);
+extern
+
+__attribute((weak)) void w5100_write_mem(uint16_t mem, const void* b, size_t len) {
+	(void)mem; (void)b; (void)len;
+}
+__attribute((weak)) void w5100_read_mem(uint16_t mem,  void*  b, size_t len) {
+	(void)mem; (void)b; (void)len;
+}
+__attribute((weak)) uint16_t w5100_read_reg2(uint16_t reg) {
+	(void)reg;
+	return 0;
+}
+__attribute((weak)) uint8_t w5100_read_reg(uint16_t reg) {
+	(void)reg;
+	return 0;
+}
+__attribute((weak)) void w5100_write_reg(uint16_t reg, uint8_t value) {
+	(void)reg;  (void)value;
+}
+__attribute((weak)) void w5100_write_reg2(uint16_t reg, uint16_t value) {
+	(void)reg;  (void)value;
+}
+
 
 /******* global variables ********/
 

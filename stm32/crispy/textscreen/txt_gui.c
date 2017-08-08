@@ -25,7 +25,7 @@ typedef struct txt_cliparea_s txt_cliparea_t;
 // Mapping table that converts from the Extended ASCII codes in the
 // CP437 codepage to Unicode character numbers.
 
-static const uint16_t cp437_unicode[] = {
+const uint16_t cp437_unicode[] = {
     0x00c7, 0x00fc, 0x00e9, 0x00e2,         // 80-8f
     0x00e4, 0x00e0, 0x00e5, 0x00e7,
     0x00ea, 0x00eb, 0x00e8, 0x00ef,

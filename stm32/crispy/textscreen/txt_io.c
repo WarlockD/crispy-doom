@@ -29,7 +29,7 @@ void uart_puts(const char* str);
 void uart_write(const uint8_t* data,size_t len);
 
 void usart_gotoxy(int x, int y);
-#define ANSI_TERMINAL
+//#define ANSI_TERMINAL
 
 void TXT_GotoXY(int x, int y)
 {
@@ -79,10 +79,11 @@ static void NewLine(unsigned char *screendata)
 
 static void PutChar(unsigned char *screendata, int c)
 {
-	int x,y;
-	TXT_GetXY(&x,&y);
+
 
 #ifdef ANSI_TERMINAL
+	int x,y;
+	TXT_GetXY(&x,&y);
     // Add a new character to the buffer
     switch (c)
     {
@@ -121,8 +122,7 @@ static void PutChar(unsigned char *screendata, int c)
     switch (c)
     {
         case '\n':
-        	uart_putc('\n');
-           // NewLine(screendata);
+             NewLine(screendata);
             break;
 
         case '\b':
@@ -178,51 +178,17 @@ void TXT_Puts(const char *s)
 }
 
 
-void uart_number(int number){
-	char buf[11];
-	itoa(number,buf,10);
-	uart_puts(buf);
-}
-void TXT_ANSI_FGColor(txt_color_t color){
-	uart_putc(27);
-	uart_putc('[');
-	if(color < 8) {
-		uart_number(22);
-	} else {
-		color-=8;
-		uart_number(1);
-	}
-	uart_putc(';');
-	uart_number(color+30);
-	uart_putc('m');
-}
-void TXT_ANSI_BGColor(txt_color_t color,int blinking){
-	uart_putc(27);
-	uart_putc('[');
-	uart_number(color+40);
-	uart_putc(';');
-	if(blinking) {
-		uart_number(5);
-	} else {
-		uart_number(25);
-	}
-	uart_putc('m');
-}
+
+
 void TXT_FGColor(txt_color_t color)
 {
-#ifdef ANSI_TERMINAL
-	if(fgcolor != color)
-		TXT_ANSI_FGColor(color);
-#endif
+
     fgcolor = color;
 }
 
 void TXT_BGColor(int color, int blinking)
 {
-#ifdef ANSI_TERMINAL
-	if(bgcolor != (color&0x7) && ((bgcolor >> 7) != blinking))
-		TXT_ANSI_BGColor(color, blinking);
-#endif
+
     bgcolor = color;
     if (blinking)
         bgcolor |= TXT_COLOR_BLINKING;
@@ -236,8 +202,8 @@ void TXT_SaveColors(txt_saved_colors_t *save)
 
 void TXT_RestoreColors(txt_saved_colors_t *save)
 {
-	TXT_BGColor(save->bgcolor&0x7, save->bgcolor>>7);
-	TXT_FGColor(save->fgcolor);
+	bgcolor = save->bgcolor;
+	fgcolor = save->fgcolor;
 }
 
 void TXT_ClearScreen(void)

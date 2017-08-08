@@ -32,7 +32,9 @@
 #include "main.h"
 #include "diag/Trace.h"
 
-
+#include "../crispy/src/doomtype.h"
+#include "../crispy/src/i_system.h"
+#include "../crispy/src/m_argv.h"
 
 
 // ----- main() ---------------------------------------------------------------
@@ -56,7 +58,10 @@ void time_Test(){
 		  printf("tick! %i\n",HAL_GetTick());
 	  }
 }
-void DoomMain();
+extern "C" void D_DoomMain();
+//extern "C" void M_FindResponseFile();
+
+
 extern "C" uint32_t GetTimerFreq();
 int
 main(int argc, char* argv[])
@@ -78,8 +83,12 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
+  myargc = argc;
+  myargv = argv;
+  M_FindResponseFile();
   //DoomMain();
-  test_gui_main();
+  D_DoomMain();
+ // test_gui_main();
   while(1) {};
 }
 

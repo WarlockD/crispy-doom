@@ -33,7 +33,7 @@
 
 #include "txt_main.h"
 
-
+//#define DEBUG_ANSI
 // has the hal usart drivers here
 #include "main.h"
 
@@ -49,16 +49,7 @@ static void debug_char(const char* msg, int c) {
 		fprintf(stderr, "%s <%2.2X>(%u)\n", msg, (char)c,c);
 }
 
-// Fonts:
-#if 0
-#include "txt_font.h"
-#include "txt_largefont.h"
-#include "txt_smallfont.h"
-#endif
-// no need
-// Time between character blinks in ms
 
-#define BLINK_PERIOD 250
 
 //static unsigned char *screendata;
 
@@ -299,7 +290,7 @@ void usart_gotoxy(int x, int y) {
 #define GET_SCREEN_BUFFER (&screen_state.tx_buffer)
 #define ANSI_PUTC(C) do { circle_putc(GET_SCREEN_BUFFER,(C)); } while(0) /* save cursor */
 #define PUT_NUMBER(N) do { circle_number(GET_SCREEN_BUFFER,(N)); } while(0) /* save cursor */
-#define DEBUG_ANSI
+
 #ifdef DEBUG_ANSI
 #define ANSI_CSI() do { ANSI_PUTC('\n');  ANSI_PUTC('\r'); ANSI_PUTC(':'); ANSI_PUTC('['); } while(0)
 #else
@@ -362,29 +353,7 @@ int assert_range(volatile int value, volatile int begin,volatile int end) {
 	assert(value >= begin && value <= end);
 	return value;
 }
-static void init_attrib_change(int attr, int last){
-	int semi = 0;
-	ANSI_CSI();
 
-	if( (GET_FG(attr) != GET_FG(last))) {
-		assert_range(GET_FG(attr)+30,30,37);
-		PUT_NUMBER(GET_FG(attr)+30); // forground color
-		semi = 1;
-	}
-	if( (GET_BG(attr) != GET_BG(last))) {
-		assert_range(GET_BG(attr)+40,40,47);
-		if(semi) ANSI_PUTC(';'); else semi = 1;
-		PUT_NUMBER(GET_BG(attr)+40); // background color
-	}
-	if( (GET_BLINK(attr) != GET_BLINK(last))) {
-		if(semi) ANSI_PUTC(';'); else semi = 1;
-		if(GET_BLINK(attr)) PUT_NUMBER(5); else PUT_NUMBER(25); // blink
-	}
-	if((GET_BOLD(attr) != GET_BOLD(last))) {
-		if(semi) ANSI_PUTC(';'); else semi = 1;
-		if(GET_BOLD(attr)) PUT_NUMBER(1); else PUT_NUMBER(22); // bold
-	}
-}
 static void init_attrib(int attr, int* last) {
 
 //	return tx; // ignore attribs for right now
@@ -473,18 +442,28 @@ void screen_utf8(const uint32_t code) {
 		ANSI_PUTC(0x80 | (code & 0x3F));
 	}
 }
+extern char *TXT_EncodeUTF8(char *p, unsigned int c);
+extern const uint16_t cp437_unicode[];
 void vga_to_utf8(int c) {
+	circle_putc(GET_SCREEN_BUFFER,c);
+#if 0
+	char buf[5] = {0,0,0,0};
+	TXT_EncodeUTF8(buf,c);
+	circle_puts(GET_SCREEN_BUFFER,buf);
+#endif
+//	int
 	//if(c < 32)
 //		screen_utf8(vga_cp437_to_utf[c]);
 	//else {
-		screen_utf8(cp437_to_utf[c]);
+//	screen_utf8(cp437_unicode);
+		//screen_utf8(cp437_to_utf[c]);
 	//}
 }
 static  int last_attrib=-1;
 static void trasform_line(size_t line, size_t first, size_t len, uint16_t* src){
 	ANSI_POS(first,line);
 	while(len--)	{
-	//	init_attrib(*src >> 8,&last_attrib); // do attribs
+		init_attrib(*src >> 8,&last_attrib); // do attribs
 		uint8_t c = *src & 0xFF;
 		vga_to_utf8(c);
 		src++;
@@ -496,8 +475,8 @@ static bool do_update(size_t line) {
 	volatile size_t first = 0;
 	size_t last = TXT_SCREEN_W-1;
 	size_t len = 0;
-	uint16_t* src = (uint16_t*)&screendata[(line * TXT_SCREEN_W)];// * 2];
-	uint16_t* dest = (uint16_t*)&prev_screendata[(line * TXT_SCREEN_W)];// * 2];
+	uint16_t* src = (uint16_t*)&screendata[(line * TXT_SCREEN_W)*2];// * 2];
+	uint16_t* dest = (uint16_t*)&prev_screendata[(line * TXT_SCREEN_W)*2];// * 2];
     while (first <= last)  {
 	  /* build up a run of changed cells; if two runs are
 		 separated by a single unchanged cell, ignore the
@@ -723,9 +702,11 @@ int TXT_Init(void)
     uart_puts("\033[2J\033[;H");   // clear the screen
 
     // enable mouse
-    uart_puts("\033[?1000h"); // enable mouse tracking?
+   // uart_puts("\033[?1000h"); // enable mouse button press?
     uart_puts("\033+C"); // enable mouse tracking?
-   // TXT_UpdateScreen();
+
+    uart_puts("\033[?1002h"); // enable mouse movement tracking
+    // TXT_UpdateScreen();
     return 1;
 }
 
@@ -769,8 +750,18 @@ void TXT_UpdateScreen(void)
 	screen_state.update = updating_screen_pump;
 	updating_screen_pump();
 #endif
-	return;
+	// lets just do a full debug update on the screen
+#if 0
 	last_attrib=-1;
+	for(int line =0; line < TXT_SCREEN_H;line++ ){
+		circle_clear(&screen_state.tx_buffer);
+		trasform_line(line,0,TXT_SCREEN_W, &screendata[(line * TXT_SCREEN_W)*2]);
+		uart_write_circle(&screen_state.tx_buffer);
+
+	}
+	return;
+#endif
+
 	screen_state.update=NULL;
 	circle_clear(&screen_state.tx_buffer);
 	for(int line =0; line < TXT_SCREEN_H;line++ ){
@@ -787,16 +778,7 @@ void TXT_UpdateScreen(void)
 	screen_state.updating = 0;
 }
 
-void TXT_GetMousePosition(int *x, int *y)
-{
-    //SDL_GetMouseState(x, y);
-	*x = 0;
-	*y = 0;
-#if 0
-    *x /= font->w;
-    *y /= font->h;
-#endif
-}
+
 
 //
 // Translates the SDL key
@@ -921,7 +903,18 @@ static int TranslateKey(SDL_keysym *sym)
 }
 
 #endif
-
+static int cur_x=0;
+static int cur_y=0;
+void TXT_GetMousePosition(int *x, int *y)
+{
+    //SDL_GetMouseState(x, y);
+	*x = cur_x;
+	*y = cur_y;
+#if 0
+    *x /= font->w;
+    *y /= font->h;
+#endif
+}
 static int MouseHasMoved(void)
 {
     static int last_x = 0, last_y = 0;
@@ -939,10 +932,38 @@ static int MouseHasMoved(void)
         return 0;
     }
 }
+static signed int ANSIButtonToTXTButton(uint8_t state, uint8_t x, uint8_t y)
+{
+	cur_x = x - 32 -1;
+	cur_y = y - 32 -1; // - space - 1 based
+
+	uint8_t button = state & 0x3;
+	uint8_t shift = state & 0x4;
+	uint8_t alt = state & 0x8;
+	uint8_t ctrl = state & 0x10;
+	uint8_t motion = state & 0x20;
+	printf("Mouse click s=%x b=%u x=%u, x=y%u\n", state, button, cur_x, cur_y);
+	//if(motion && button)
+	switch (button)
+	{
+		case 0:
+			return TXT_MOUSE_LEFT;
+		case 1:
+			return TXT_MOUSE_RIGHT;
+		case 2:
+			return TXT_MOUSE_MIDDLE;
+		default:
+			 if (motion && MouseHasMoved()) return 0;
+			// 3 is released
+			break;
+	}
+    return -1;
+}
 
 signed int TXT_GetChar(void)
 {
 	uint8_t c=0;
+	uint8_t asci_buffer[8];
 	if(circle_getc(&screen_state.rx_buffer,&c)){
 		if(c == 27) { // escape code
 			HAL_Delay(10);// wait a millsecond
@@ -957,13 +978,19 @@ signed int TXT_GetChar(void)
 				case 'B': return KEY_DOWNARROW;
 				case 'C': return KEY_RIGHTARROW;
 				case 'D': return KEY_LEFTARROW;
+				case 'M': // mouse update
+					// we are waiting on 3 bytes after this
+					while(!circle_getc(&screen_state.rx_buffer,asci_buffer + 0));
+					while(!circle_getc(&screen_state.rx_buffer,asci_buffer + 1));
+					while(!circle_getc(&screen_state.rx_buffer,asci_buffer + 2));
+					return ANSIButtonToTXTButton(asci_buffer[0],asci_buffer[1],asci_buffer[2]); // update the mouse
 				default:
 					debug_char("Unkonwn escape ", c);
-					return 0;
+					return -1;
 				}
 			}
 			debug_char("Unkonwn csiescape ", c);
-			return 0;
+			return -1;
 		}
 	}
 	return c;
@@ -1168,7 +1195,7 @@ void TXT_Sleep(int timeout)
     {
         // We can just wait forever until an event occurs
     	while(circle_empty(&screen_state.rx_buffer)){
-    		//TXT_UpdateScreen();
+    		TXT_UpdateScreen();
     	}
     }
     else

@@ -57,6 +57,9 @@
 #define PACKEDATTR __attribute__((packed,gcc_struct))
 #else
 #define PACKEDATTR __attribute__((packed))
+#ifndef WEAK_FUNCTION
+#define WEAK_FUNCTION __attribute__((weak))
+#endif
 #endif
 
 #else

@@ -32,9 +32,9 @@
 #include "main.h"
 #include "diag/Trace.h"
 
-#include "../crispy/src/doomtype.h"
-#include "../crispy/src/i_system.h"
-#include "../crispy/src/m_argv.h"
+#include "../chocolate/src/i_system.h"
+#include "../chocolate/src/doomtype.h"
+#include "../chocolate/src/m_argv.h"
 
 
 // ----- main() ---------------------------------------------------------------

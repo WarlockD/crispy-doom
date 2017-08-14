@@ -55,13 +55,13 @@ void time_Test(){
 		//  if((next-start) <10) continue;
 		  HAL_Delay(1000);
 		//  start = next;
-		  printf("tick! %i\n",HAL_GetTick());
+		  printf("tick! %u\n",HAL_GetTick());
 	  }
 }
 extern "C" void D_DoomMain(int argc, char* argv[]);
 //extern "C" void M_FindResponseFile();
 
-
+void test_dma_serial();
 extern "C" uint32_t GetTimerFreq();
 extern "C"  int quake_main (int argc, char **argv);
 int
@@ -84,6 +84,7 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
+<<<<<<< HEAD
  // myargc = argc;
 //  myargv = argv;
  // M_FindResponseFile();
@@ -91,6 +92,14 @@ main(int argc, char* argv[])
  // D_DoomMain(argc,argv);
  // test_gui_main();
   quake_main(argc,argv);
+=======
+
+ // M_FindResponseFile();
+  //DoomMain();
+  //D_DoomMain();
+ // test_gui_main();
+  test_dma_serial();
+>>>>>>> origin/master
   while(1) {};
 }
 

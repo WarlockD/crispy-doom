@@ -5,32 +5,32 @@
 
 
 
-#include "src\config.h"
-#include "src\deh_str.h"
-#include "src\doomtype.h"
-#include "src\doomkeys.h"
-#include "src\i_video.h"
-#include "src\m_argv.h"
-#include "src\m_config.h"
-#include "src\m_misc.h"
-#include "src\tables.h"
-#include "src\v_diskicon.h"
-#include "src\v_video.h"
-#include "src\w_wad.h"
-#include "src\z_zone.h"
+#include "chocdoom\config.h"
+#include "chocdoom\deh_str.h"
+#include "chocdoom\doomtype.h"
+#include "chocdoom\doomkeys.h"
+#include "chocdoom\i_video.h"
+#include "chocdoom\m_argv.h"
+#include "chocdoom\m_config.h"
+#include "chocdoom\m_misc.h"
+#include "chocdoom\tables.h"
+
+#include "chocdoom\v_video.h"
+#include "chocdoom\w_wad.h"
+#include "chocdoom\z_zone.h"
 #include <assert.h>
 
 
 #include "stm32746g_discovery.h"
 #include "stm32746g_discovery_lcd.h"
-#include "src\i_joystick.h"
-#include "src\i_scale.h"
-#include "src\i_swap.h"
-#include "src\i_system.h"
-#include "src\i_timer.h"
+#include "chocdoom\i_joystick.h"
+#include "chocdoom\i_scale.h"
+#include "chocdoom\i_swap.h"
+#include "chocdoom\i_system.h"
+#include "chocdoom\i_timer.h"
 
 boolean screenvisible = true;
-#define SCALE_2X
+
 #define GFX_RGB565(r, g, b)			((((r & 0xF8) >> 3) << 11) | (((g & 0xFC) >> 2) << 5) | ((b & 0xF8) >> 3))
 
 #define GFX_RGB565_R(color)			((0xF800 & color) >> 11)
@@ -49,9 +49,6 @@ boolean screenvisible = true;
 // The screen buffer; this is modified to draw things to the screen
 
 byte *I_VideoBuffer = NULL;
-#ifdef SCALE_2X
-byte* I_VideoBufferX2 = NULL;
-#endif
 
 typedef struct
 {
@@ -132,9 +129,7 @@ void SetupDMA() {
 void I_InitGraphics() {
 
 	I_VideoBuffer = (byte*)Z_Malloc (SCREENWIDTH * SCREENHEIGHT, PU_STATIC, NULL);
-#ifdef SCALE_2X
-	I_VideoBufferX2 = (byte*)Z_Malloc (SCREENWIDTH * SCREENHEIGHT*4, PU_STATIC, NULL);
-#endif
+
 	screenvisible = true;
 	SetupDMA();
 }
@@ -210,7 +205,13 @@ void TM_INT_DMA2DGRAPHIC_InitAndTransfer(void) {
 void UpdateNoScale() {
 	assert(HAL_DMA2D_PollForTransfer(&hdma2d_eval,50) == HAL_OK);
 	// MODIFY_REG(hdma2d->Instance->OOR, DMA2D_OOR_LO, 800-SCREENWIDTH);
-	HAL_DMA2D_Start(&hdma2d_eval, (uint32_t)I_VideoBuffer, (hltdc_eval.LayerCfg[0].FBStartAdress), SCREENWIDTH,  SCREENHEIGHT);
+	//HAL_DMA2D_Start(&hdma2d_eval, (uint32_t)I_VideoBuffer, (hltdc_eval.LayerCfg[0].FBStartAdress), SCREENWIDTH,  SCREENHEIGHT);
+	for(uint16_t x=0; x < SCREENWIDTH; x++) {
+		for(uint16_t y=0; y< SCREENHEIGHT; y++) {
+			BSP_LCD_DrawPixel(x,y,rgb888_palette[I_VideoBuffer[y * SCREENWIDTH + x]]);
+		}
+	}
+
 }
 void DoubleScanLIne(uint8_t* src, uint8_t* dst, uint32_t original_size){
 	for (int x = 0; x < original_size; x++){
@@ -234,26 +235,15 @@ void DoubleScreen(uint8_t* src, uint8_t* dst, uint32_t width, uint32_t height){
 		//memcpy(dst, start_src, nwidth);
 	}
 }
-void Update2XScale() {
-	assert(HAL_DMA2D_PollForTransfer(&hdma2d_eval,50) == HAL_OK);
-	uint32_t* display_start = (uint32_t*)(hltdc_eval.LayerCfg[0].FBStartAdress);// + 4 * y * tft_width);
-	//   (uint8_t*)(display_start + (tft_width*tft_height)); // I_VideoBufferX2;
-	DoubleScreen(I_VideoBuffer, I_VideoBufferX2, SCREENWIDTH, SCREENHEIGHT);
-//	MODIFY_REG(DMA2D->OOR, DMA2D_OOR_LO, 800-(SCREENWIDTH*2));
-	HAL_DMA2D_Start(&hdma2d_eval, (uint32_t)I_VideoBufferX2, (uint32_t)display_start, SCREENWIDTH*2,  SCREENHEIGHT*2);
-}
 
 void I_FinishUpdate (void)
 {
 
-	DMA2D_WAIT;
+	//DMA2D_WAIT;
 	//assert(HAL_DMA2D_PollForTransfer(&hdma2d_eval,50) == HAL_OK);
-#ifdef SCALE_2X
-	Update2XScale();
-#else
+
 	UpdateNoScale();
-#endif
-	DMA2D_WAIT;
+	//DMA2D_WAIT;
 }
 //
 // I_SetPalette
@@ -287,9 +277,9 @@ void I_SetPalette (byte* palette)
 		lut.Size = 0xFF;
 		lut.pCLUT = rgb888_palette;
 
-		HAL_DMA2D_ConfigCLUT(&hdma2d_eval, lut, 1);
-		HAL_DMA2D_EnableCLUT(&hdma2d_eval, 1);
-		DMA2D_CLUT_WAIT;
+	//	HAL_DMA2D_ConfigCLUT(&hdma2d_eval, lut, 1);
+	//	HAL_DMA2D_EnableCLUT(&hdma2d_eval, 1);
+	//	DMA2D_CLUT_WAIT;
 	//SET_BIT(hdma2d->Instance->FGPFCCR, DMA2D_FGPFCCR_START);
 		//assert(HAL_DMA2D_PollForTransfer(&hdma2d_eval,50) == HAL_OK);
 	}
@@ -356,10 +346,10 @@ void I_SetGrabMouseCallback (grabmouse_callback_t func)
 }
 // Enable the loading disk image displayed when reading from disk.
 
-
-void I_EnableLoadingDisk (int xoffs, int yoffs)
+// void I_EnableLoadingDisk (int xoffs, int yoffs)
+void I_EnableLoadingDisk ()
 {
-	(void)xoffs; (void)yoffs;
+	//(void)xoffs; (void)yoffs;
 }
 
 void I_BindVideoVariables (void)

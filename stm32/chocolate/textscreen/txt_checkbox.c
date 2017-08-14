@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../src/doomkeys.h"
+#include "../chocdoom/doomkeys.h"
 
 #include "txt_checkbox.h"
 #include "txt_gui.h"

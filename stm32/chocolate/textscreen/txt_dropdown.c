@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../src/doomkeys.h"
+#include "doomkeys.h"
 
 #include "txt_button.h"
 #include "txt_dropdown.h"

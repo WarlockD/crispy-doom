@@ -29,7 +29,7 @@
 
 #include "txt_stm32.h"
 
-#include "../src/doomkeys.h"
+#include "doomkeys.h"
 
 #include "txt_main.h"
 

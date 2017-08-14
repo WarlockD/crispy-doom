@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../src/doomkeys.h"
+#include "doomkeys.h"
 
 #include "txt_desktop.h"
 #include "txt_gui.h"

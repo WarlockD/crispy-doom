@@ -1,17 +1,21 @@
 
 
-#include "src\i_cdmus.h"
-#include "src\i_joystick.h"
-#include "src\i_sound.h"
-#include "src\i_system.h"
-#include "src\doomtype.h"
-#include "src\i_video.h"
+#include "chocdoom\i_cdmus.h"
+#include "chocdoom\i_joystick.h"
+#include "chocdoom\i_sound.h"
+#include "chocdoom\i_system.h"
+#include "chocdoom\doomtype.h"
+#include "chocdoom\i_video.h"
 
 // CD interface
 int snd_pitchshift = 0;
 int usemouse = 0;
 int mouse_threshold = 0;
 float mouse_acceleration;
+boolean screensaver_mode = false;
+int vanilla_keyboard_mapping = 0;
+int usegamma = 0;
+int snd_musicdevice = 0;
 
 WEAK_FUNCTION int I_CDMusInit(void) { return -1; }
 
@@ -45,8 +49,8 @@ WEAK_FUNCTION void I_ShutdownSound(void) {}
 WEAK_FUNCTION int I_GetSfxLumpNum(sfxinfo_t *sfxinfo) { (void)sfxinfo; return 0;}
 WEAK_FUNCTION void I_UpdateSound(void) {}
 WEAK_FUNCTION void I_UpdateSoundParams(int channel, int vol, int sep) { (void)channel; (void)vol; (void)sep; }
-WEAK_FUNCTION int I_StartSound(sfxinfo_t *sfxinfo, int channel, int vol, int sep, int pitch)  {
-	(void)sfxinfo; (void)channel; (void)vol; (void)sep; (void)pitch; return 0;
+WEAK_FUNCTION int I_StartSound(sfxinfo_t *sfxinfo, int channel, int vol, int sep)  {
+	(void)sfxinfo; (void)channel; (void)vol; (void)sep;  return 0;
 }
 WEAK_FUNCTION void I_StopSound(int channel) {  (void)channel; }
 WEAK_FUNCTION boolean I_SoundIsPlaying(int channel) {  (void)channel; return false; }

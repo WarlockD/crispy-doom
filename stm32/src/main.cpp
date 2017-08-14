@@ -32,9 +32,9 @@
 #include "main.h"
 #include "diag/Trace.h"
 
-#include "../chocolate/src/i_system.h"
-#include "../chocolate/src/doomtype.h"
-#include "../chocolate/src/m_argv.h"
+#include "../chocolate/chocdoom/i_system.h"
+#include "../chocolate/chocdoom/doomtype.h"
+#include "../chocolate/chocdoom/m_argv.h"
 
 
 // ----- main() ---------------------------------------------------------------
@@ -58,11 +58,12 @@ void time_Test(){
 		  printf("tick! %i\n",HAL_GetTick());
 	  }
 }
-extern "C" void D_DoomMain();
+extern "C" void D_DoomMain(int argc, char* argv[]);
 //extern "C" void M_FindResponseFile();
 
 
 extern "C" uint32_t GetTimerFreq();
+extern "C"  int quake_main (int argc, char **argv);
 int
 main(int argc, char* argv[])
 {
@@ -83,12 +84,13 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
-  myargc = argc;
-  myargv = argv;
-  M_FindResponseFile();
+ // myargc = argc;
+//  myargv = argv;
+ // M_FindResponseFile();
   //DoomMain();
-  D_DoomMain();
+ // D_DoomMain(argc,argv);
  // test_gui_main();
+  quake_main(argc,argv);
   while(1) {};
 }
 

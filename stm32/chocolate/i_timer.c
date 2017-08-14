@@ -16,11 +16,11 @@
 //      Timer functions.
 //
 
-#include "src\i_timer.h"
+#include "chocdoom\i_timer.h"
 
 #include "stm32746g_discovery.h"
 
-#include "src\doomtype.h"
+#include "chocdoom\doomtype.h"
 
 //
 // I_GetTime

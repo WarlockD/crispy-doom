@@ -17,7 +17,7 @@
 
 
 
-#include "src\i_system.h"
+#include "chocdoom\i_system.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,23 +28,25 @@
 
 #include <unistd.h>
 
-#include "src\i_joystick.h"
-#include "src\i_sound.h"
-#include "src\i_timer.h"
+#include "chocdoom\i_joystick.h"
+#include "chocdoom\i_sound.h"
+#include "chocdoom\i_timer.h"
 
 
-#include "src\config.h"
+#include "chocdoom\config.h"
 
-#include "src\deh_str.h"
-#include "src\doomtype.h"
-#include "src\m_argv.h"
-#include "src\m_config.h"
-#include "src\m_misc.h"
-#include "src\i_video.h"
+#include "chocdoom\deh_str.h"
+#include "chocdoom\doomtype.h"
+#include "chocdoom\m_argv.h"
+#include "chocdoom\m_config.h"
+#include "chocdoom\m_misc.h"
+#include "chocdoom\i_video.h"
 
-#include "src\w_wad.h"
-#include "src\z_zone.h"
+#include "chocdoom\w_wad.h"
+#include "chocdoom\z_zone.h"
 
+#include "stm32746g_discovery.h"
+#include "stm32746g_discovery_lcd.h"
 
 #define DEFAULT_RAM 16*2 /* MiB */
 //#define MIN_RAM     4*4  /* MiB */
@@ -120,9 +122,19 @@ static byte *AutoAllocMemory(int *size, int default_ram, int min_ram)
 
     return zonemem;
 }
+byte *SDRAM_I_ZoneBase (int *size)
+{
+	uint32_t start_address = LCD_FB_START_ADDRESS;
+	// get passed atleast layer one
+	start_address += 1024*1024;
+	*size = 1024*1024*6;
+	return (byte*)start_address;
 
+}
 byte *I_ZoneBase (int *size)
 {
+	return SDRAM_I_ZoneBase(size);
+#if 0
     byte *zonemem;
     int min_ram, default_ram;
     int p;
@@ -156,6 +168,7 @@ byte *I_ZoneBase (int *size)
            zonemem, *size);
 
     return zonemem;
+#endif
 }
 
 void I_PrintBanner(char *msg)
@@ -248,7 +261,6 @@ void I_Quit (void)
         entry = entry->next;
     }
 
-    SDL_Quit();
 
     exit(0);
 }

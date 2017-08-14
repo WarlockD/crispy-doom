@@ -25,6 +25,9 @@
 #include "main.h"
 #include "timespec.h"
 
+//#define INTERRUPT_PER_SEC
+#define INTERRUPT_PER_OVERFLOW
+
 #ifndef CLOCK_GETTIME_SYNC_DISABLED
 #  include "timesync.h"
 #endif
@@ -39,12 +42,21 @@ static volatile struct timespec realtime;
 static volatile struct timespec monotonic;
 
 static volatile int timer_update_flag;
+
+#ifdef INTERRUPT_PER_OVERFLOW
+static volatile uint32_t timer_overflow=0;
+static const struct timespec systick_step = {
+    .tv_sec = 0,
+    .tv_nsec = UINT32_MAX
+};
+#else
+static volatile uint32_t seconds_since_boot=0;
 static const struct timespec systick_step = {
     .tv_sec = 0,
     .tv_nsec = SYSTICK_NSEC
 };
-static volatile size_t seconds_since_boot=0;
-static volatile size_t hal_timer_delay_coutner=0;
+#endif
+static volatile uint32_t hal_timer_delay_coutner=0;
 static RTC_HandleTypeDef        hRTC_Handle;
 #define RTC_ASYNCH_PREDIV       0U
 #define RTC_SYNCH_PREDIV        31U
@@ -150,7 +162,11 @@ static void SetTim3OC1Deplay(uint32_t delay) {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim == &Tim2Handle) {
-		++seconds_since_boot;
+#ifdef INTERRUPT_PER_OVERFLOW
+	++timer_overflow;
+#else
+	++seconds_since_boot;
+#endif
 		clock_handler();
 		if(hal_timer_delay_coutner > Tim2Handle.Instance->ARR) {
 			SetTim3OC1Deplay(hal_timer_delay_coutner - Tim2Handle.Instance->ARR);
@@ -215,7 +231,13 @@ HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority){
 		   + ClockDivision = 0
 		   + Counter direction = Up
 	  */
+#ifdef INTERRUPT_PER_OVERFLOW
+	  Tim2Handle.Init.Period = UINT32_MAX -1; // overflow
+#else
 	  Tim2Handle.Init.Period = 1000000U - 1; // once a sec
+#endif
+
+
 	  Tim2Handle.Init.Prescaler = uwPrescalerValue;
 	  Tim2Handle.Init.ClockDivision = 0;
 	  Tim2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
@@ -244,12 +266,17 @@ void HAL_ResumeTick(void){}
 
 
 uint32_t HAL_GetTick() {
+#ifdef INTERRUPT_PER_OVERFLOW
+	uint32_t usec = __HAL_TIM_GET_COUNTER(&Tim2Handle);
+	return usec / 1000U;
+#else
 	uint32_t sec,usec;
 	do {
 		sec = seconds_since_boot;
 		usec = __HAL_TIM_GET_COUNTER(&Tim2Handle);
 	} while(sec != seconds_since_boot);
 	return (sec * 1000U) + (usec/1000U);
+#endif
 }
 void HAL_Delay(__IO uint32_t Delay)
 {
@@ -258,7 +285,7 @@ void HAL_Delay(__IO uint32_t Delay)
 	while(hal_timer_delay_coutner) __WFI();
 #else
 	uint32_t tickstart = HAL_GetTick() ;
-	while((HAL_GetTick()  - tickstart) < Delay);
+	while((HAL_GetTick()  - tickstart) < Delay) {}
 #endif
 	// wait on interrupt.. heck might even be able to go to sleep here
 

@@ -55,13 +55,13 @@ void time_Test(){
 		//  if((next-start) <10) continue;
 		  HAL_Delay(1000);
 		//  start = next;
-		  printf("tick! %i\n",HAL_GetTick());
+		  printf("tick! %u\n",HAL_GetTick());
 	  }
 }
 extern "C" void D_DoomMain();
 //extern "C" void M_FindResponseFile();
 
-
+void test_dma_serial();
 extern "C" uint32_t GetTimerFreq();
 int
 main(int argc, char* argv[])
@@ -83,12 +83,12 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
-  myargc = argc;
-  myargv = argv;
-  M_FindResponseFile();
+
+ // M_FindResponseFile();
   //DoomMain();
-  D_DoomMain();
+  //D_DoomMain();
  // test_gui_main();
+  test_dma_serial();
   while(1) {};
 }
 

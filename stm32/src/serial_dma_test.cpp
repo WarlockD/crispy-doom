@@ -9,34 +9,61 @@
 stm32::DMA<DMA2_Stream7_BASE> uart_tx_dma;
 stm32::UART<USART1_BASE> uart1;
 #define DMA_TX_BUF_SIZE 64
-uint32_t tx_buffer[DMA_TX_BUF_SIZE];
-uint8_t* tx_begin= (uint8_t*)tx_buffer;
-uint8_t* tx_end = tx_begin + DMA_TX_BUF_SIZE;
-uint8_t* tx_head = tx_begin;
-uint8_t* tx_tail = tx_begin;
+
+stm32::circle_array_t<uint8_t,DMA_TX_BUF_SIZE> tx_buffer;
+
 volatile bool uart_trasmiting = false;
 
-static UART_HandleTypeDef txt_usart;
 
 void tx_flush() {
 	static size_t flush_count = 0;
-	if(uart_trasmiting) return;
+	while(uart_trasmiting) {
+		__WFI(); // wait for interrupt
+	}
 	uart_trasmiting= true;
 	++flush_count;
-	if(tx_head != tx_tail) {
-		uint8_t* ptr = tx_tail;
-		size_t count = (size_t)(tx_head < tx_tail ? tx_end - tx_tail : tx_head - tx_tail);
+	if(!tx_buffer.empty()) {
+	    uart1.clear_flag(stm32::UART_IT_CLEAR::TCF);
+		uart1.enable_it(stm32::UART_IT::TXE);
+#if 0
+		size_t count = tx_buffer.continuious_size();
+		uint8_t* ptr = tx_buffer.continuious_ptr_begin();
 		printf("Sending Text size=%u\r\n", count);
-		tx_tail+=count;
-		if(tx_tail > tx_end) tx_tail = tx_begin;
+		assert(tx_buffer.read(nullptr,count) == count);
+
+
 	    /* Clear the TC flag in the SR register by writing 0 to it */
-	    uart1.clear_flag(stm32::UART_FLAG::TC);
+
+
+		uart_tx_dma.start(ptr, &USART1->TDR, count);
 	    uart1.set_cr(stm32::UART_DMA_TX::ENABLE);
 		uart_tx_dma.enable_it(stm32::DMA_IT::TC);
-		uart_tx_dma.start(ptr, &USART1->TDR, count);
+#endif
 	}
 }
 extern "C" void USARTx_IRQHandler() {
+	stm32::UART_ERROR err=   uart1.irq_handler(
+			[](int)->bool{ return false; },
+			[]()-> int{
+				int c = -1;
+				if(!tx_buffer.empty()){
+					c = tx_buffer.top();
+					tx_buffer.pop();
+				} else {
+					uart1.disable_it(stm32::UART_IT::TXE);
+					uart1.enable_it(stm32::UART_IT::TC);
+				}
+				return c;
+			},
+			[](){
+				// trasfer complete
+				uart1.disable_it(stm32::UART_IT::TC);
+			uart1.clear_flag(stm32::UART_IT_CLEAR::TCF);
+			uart_trasmiting = false;
+
+	});
+	assert(err == stm32::UART_ERROR::NONE);
+#if 0
 	if(uart1.get_it_source(stm32::UART_IT::TC) && uart1.get_flag(stm32::UART_FLAG::TC)){
 		uart1.disable_it(stm32::UART_IT::TC);
 		uart1.clear_flag(stm32::UART_FLAG::TC);
@@ -44,12 +71,14 @@ extern "C" void USARTx_IRQHandler() {
 		return;
 	}
 	assert(0);
+#endif
 }
 extern "C" void DMA2_Stream7_IRQHandler() {
 	stm32::DMA_ERROR err = uart_tx_dma.irq_handler(
-			[](uintptr_t mem) {
+			[](uintptr_t ) {
+				uart_tx_dma.disable();
 			// CLEAR_BIT(txt_usart.Instance->CR3, USART_CR3_DMAT);
-			uart1.set_cr(stm32::UART_DMA_TX::DISABLE);
+				  uart1.set_cr(stm32::UART_DMA_TX::DISABLE);
 			uart1.enable_it(stm32::UART_IT::TC);
 		}
 	);
@@ -144,25 +173,44 @@ void dma_watch_dma() {
 }
 void dma_test_print(const char* s) {
 	do {
-		uint8_t* next_head = tx_head+1;
-		if(next_head >= tx_end) next_head = tx_begin;
-		if(next_head == tx_tail) {
-			tx_flush();
-			continue;
-		}
 		if(*s == '\0') break;
-		*tx_head = *s++;
-		tx_head = next_head;
+		if(tx_buffer.full()) tx_flush();
+		tx_buffer.push(*s++);
 	} while(1);
-	tx_flush();
+	if(!uart_trasmiting) tx_flush();
 }
 void dma_test_printf(const char* fmt,...) {
 	char buffer[128]; // humm
 	va_list va;
 	va_start(va,fmt);
-	vsnprintf(buffer,128-1,fmt,va);
+	int len = vsnprintf(buffer,128-1,fmt,va);
 	va_end(va);
-	dma_test_print(buffer);
+	assert(len > 0 && len < 127);
+	size_t pos=0;
+	do {
+		if(len == 0) return;
+		while(!tx_buffer.full() && len) {
+			len--;
+			tx_buffer.push(buffer[pos++]);
+		}
+		size_t written = tx_buffer.write((uint8_t*)buffer,len);
+		tx_flush();
+		if(written == size_t(len)) break;
+		len-= written;
+	} while(1);
+}
+void blocking_test_printf(const char* fmt,...) {
+	char buffer[128]; // humm
+	va_list va;
+	va_start(va,fmt);
+	int len = vsnprintf(buffer,128-1,fmt,va);
+	va_end(va);
+	assert(len > 0 && len < 127);
+	size_t pos =0;
+	while(len--) {
+		while(uart1.put(buffer[pos]) == -1);
+		pos++;
+	}
 }
 int TXT_Init(void)
 {
@@ -198,11 +246,13 @@ int TXT_Init(void)
 	uart1.set_band_rate(115200);
 	uart1.enable();
 
+	//blocking_test_printf("uart is configed correctly!");
+
 	return 0;
 }
 void test_dma_serial(){
 	TXT_Init();
-
+	uart_tx_dma.init();
 	uart_tx_dma.clear_config();
 	uart_tx_dma.set_config(
 			stm32::DMA_DIR::MEMORY_TO_PERIPH,

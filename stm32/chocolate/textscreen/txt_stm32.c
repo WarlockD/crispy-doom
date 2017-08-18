@@ -56,35 +56,9 @@ static void debug_char(const char* msg, int c) {
 static unsigned char prev_screendata[TXT_SCREEN_W * TXT_SCREEN_H * 2];
 static unsigned char screendata[TXT_SCREEN_W * TXT_SCREEN_H * 2];
 static int key_mapping = 1;
-static UART_HandleTypeDef txt_usart;
-static DMA_HandleTypeDef txt_usart1_tx;
-#if 0
-static inline bool uart_busy() {
-	HAL_UART_StateTypeDef state = HAL_UART_GetState(&txt_usart);
-	assert(HAL_UART_STATE_RESET != state);
-	assert(HAL_UART_STATE_TIMEOUT != state);
-	assert(HAL_UART_STATE_ERROR != state);
-	if(state  == HAL_UART_STATE_READY) return false;
-	else {
-#if 0
-		  HAL_UART_STATE_BUSY              = 0x24U,   /*!< an internal process is ongoing
-		                                                   Value is allowed for gState only */
-		  HAL_UART_STATE_BUSY_TX           = 0x21U,   /*!< Data Transmission process is ongoing
-		                                                   Value is allowed for gState only */
-		  HAL_UART_STATE_BUSY_RX           = 0x22U,   /*!< Data Reception process is ongoing
-		                                                   Value is allowed for RxState only */
-		  HAL_UART_STATE_BUSY_TX_RX        = 0x23U,   /*!< Data Transmission and Reception process is ongoing */
-#endif
-		return true;
-	}
-}
-#endif
-static inline bool uart_busy(){
 
-	uint32_t isrflags = READ_REG(USART1->ISR);
-	return (isrflags & (USART_ISR_RXNE|USART_ISR_TC)) != RESET;
 
-}
+
 inline static void screen_wait() {
 	//while(screen_state.updating || uart_busy()) __WFI();
 	while(uart_busy());
@@ -103,8 +77,7 @@ struct txt_rect {
 };
 
 
-static uint8_t dma_tx_buffer[512];
-static uint8_t dma_rx_buffer[64];
+
 typedef struct {
 	uint8_t* ptr;
 	size_t size;
@@ -218,50 +191,7 @@ typedef struct screen_state_s {
 
 static struct screen_state_s screen_state;
 
-void hal_assert(HAL_StatusTypeDef status) {
-	if(status == HAL_OK)return;
-	switch(status){
-	case  HAL_ERROR:
-		fprintf(stderr,"HAL ERROR");
-		break;
-	case HAL_BUSY:
-		fprintf(stderr,"HAL BUSY");
-		break;
-	case  HAL_TIMEOUT:
-		fprintf(stderr,"HAL TIMEOUT");
-		break;
-	default:
-		fprintf(stderr,"HAL UNKNOWN");
-		break;
-	}
-	fprintf(stderr," (%u)\n\n",status);
-	assert(0);
 
-}
-void buffer_trasmit(const buffer_t* buffer) {
-	screen_wait();
-
-
-#ifdef BLOCK_SEND
-	hal_assert(HAL_UART_Transmit(&txt_usart, buffer->ptr, buffer->pos, 500));
-#else
-	hal_assert(HAL_UART_Transmit_DMA(&txt_usart, buffer->ptr, buffer->pos));
-#endif
-}
-
-void trasmit_buffer(){
-	screen_wait();
-	uint8_t c;
-	if(circle_getc(&screen_state.tx_buffer,&c)){
-		//txt_usart.Instance->TDR = c;
-		SET_BIT(txt_usart.Instance->CR1, USART_CR1_TXEIE);
-	}
-}
-void send_uart_blocking(const char* message){
-	circle_clear(&screen_state.tx_buffer);
-	circle_puts(&screen_state.tx_buffer,message);
-	trasmit_buffer();
-}
 void uart_putc(int c) {
 	while((USART1->ISR & USART_ISR_TXE)==0);
 	USART1->TDR = (uint8_t)(c & 0xFF);
@@ -531,7 +461,7 @@ static bool do_update(size_t line) {
 #endif
 
 
-
+#if 0
 void USARTx_IRQHandler(void)
 {
 	  uint32_t isrflags   = READ_REG(USART1->ISR);
@@ -568,21 +498,7 @@ void USARTx_IRQHandler(void)
 	}
 	HAL_UART_IRQHandler(&txt_usart);
 }
-void USARTx_DMA_TX_IRQHandler(void)
-{
-  HAL_DMA_IRQHandler(txt_usart.hdmatx);
-}
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
-{
-	if(UartHandle == &txt_usart){
-		if(screen_state.update)
-			screen_state.update();
-		else
-			screen_state.updating = 0;
-	}
-}
 
-//
 // Initialize text mode screen
 //
 // Returns 1 if successful, 0 if an error occurred
@@ -642,9 +558,12 @@ static void TXT_USART_Pin_DeInit() {
   /*##-3- Disable the NVIC for UART ##########################################*/
   HAL_NVIC_DisableIRQ(USARTx_IRQn);
 }
+#endif
 
+//
 int TXT_Init(void)
 {
+#if 0
 	// inital usart1 using the STM32 hall driver
 	// maybe go to openstm latter?
 	txt_usart.Instance = USART1;
@@ -692,8 +611,10 @@ int TXT_Init(void)
    }
     //memset(screendata, 0, TXT_SCREEN_W * TXT_SCREEN_H * 2);
    // memset(prev_screendata, 0, TXT_SCREEN_W * TXT_SCREEN_H * 2);
+
    circle_init(&screen_state.tx_buffer, dma_tx_buffer,sizeof(dma_tx_buffer));
     circle_init(&screen_state.rx_buffer, dma_rx_buffer,sizeof(dma_rx_buffer));
+#endif
     uart_puts("Usart works!\n");
    // test_uart("Usart works!\n");
 

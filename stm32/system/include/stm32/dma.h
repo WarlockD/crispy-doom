@@ -5,6 +5,8 @@
 
 
 namespace stm32 {
+	CREATE_CR_REG(DMA_CR, DMA_Stream_TypeDef, offsetof(DMA_Stream_TypeDef, CR));
+	CREATE_CR_REG(DMA_FCR, DMA_Stream_TypeDef, offsetof(DMA_Stream_TypeDef, FCR));
 	enum class DMA_IT :uint32_t {
 		TC	=	((uint32_t)DMA_SxCR_TCIE),
 		HT	=	((uint32_t)DMA_SxCR_HTIE),
@@ -33,117 +35,72 @@ namespace stm32 {
 		N6	=	DMA_CHANNEL_6,
 		N7	=	DMA_CHANNEL_7,
 	};
-	template<>
-	struct DMA_MASK<DMA_CHANNEL> : std::true_type {
-		using type = DMA_CHANNEL;
-		static constexpr uint32_t mask =DMA_SxCR_CHSEL;
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_CHANNEL, DMA_SxCR_CHSEL);
+
 	enum class DMA_DIR : uint32_t {
 		PERIPH_TO_MEMORY    =     ((uint32_t)0x00000000U) ,     /*!< Peripheral to memory direction */
 		MEMORY_TO_PERIPH    =     ((uint32_t)DMA_SxCR_DIR_0),  /*!< Memory to peripheral direction */
 		MEMORY_TO_MEMORY    =     ((uint32_t)DMA_SxCR_DIR_1),  /*!< Memory to memory direction     */
 	};
-	template<>
-	struct DMA_MASK<DMA_DIR> : std::true_type {
-		using type = DMA_DIR;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_DIR::MEMORY_TO_PERIPH) |
-			static_cast<uint32_t>(DMA_DIR::MEMORY_TO_MEMORY);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_DIR, DMA_SxCR_DIR_0|DMA_SxCR_DIR_1);
+
 	enum class DMA_PINC : uint32_t {
 		ENABLE        =((uint32_t)DMA_SxCR_PINC),  /*!< Peripheral increment mode enable  */
 		DISABLE       =((uint32_t)0x00000000U),     /*!< Peripheral increment mode disable */
 	};
-	template<>
-	struct DMA_MASK<DMA_PINC> : std::true_type {
-		using type = DMA_PINC;
-		static constexpr uint32_t mask = static_cast<uint32_t>(DMA_PINC::ENABLE);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_PINC, DMA_SxCR_PINC);
 
 	enum class DMA_MINC : uint32_t {
 		ENABLE        =((uint32_t)DMA_SxCR_MINC),  /*!< Memory increment mode enable  */
 		DISABLE       =((uint32_t)0x00000000U),     /*!< Memory increment mode disable */
 	};
-	template<>
-	struct DMA_MASK<DMA_MINC> : std::true_type {
-		using type = DMA_MINC;
-		static constexpr uint32_t mask =static_cast<uint32_t>(DMA_MINC::ENABLE);
-	};
-	enum class DMA_FIFO : uint32_t {
-		ENABLE        =((uint32_t)DMA_SxFCR_DMDIS),  /*!< Memory increment mode enable  */
-		DISABLE       =((uint32_t)0x00000000U),     /*!< Memory increment mode disable */
-	};
-	template<>
-	struct DMA_MASK<DMA_FIFO> : std::true_type  {
-		using type = DMA_FIFO;
-		static constexpr uint32_t mask = static_cast<uint32_t>(DMA_FIFO::ENABLE);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_MINC, DMA_SxCR_MINC);
+
+
+
 	enum class DMA_PDATAALIGN : uint32_t {
 		BYTE       =((uint32_t)0x00000000U),
 		HALFWORD   =((uint32_t)DMA_SxCR_PSIZE_0),
 		WORD       =((uint32_t)DMA_SxCR_PSIZE_1),
 	};
-	template<>
-	struct DMA_MASK<DMA_PDATAALIGN> : std::true_type  {
-		using type = DMA_PDATAALIGN;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_PDATAALIGN::HALFWORD)|
-			static_cast<uint32_t>(DMA_PDATAALIGN::WORD);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_PDATAALIGN, DMA_SxCR_PSIZE_0|DMA_SxCR_PSIZE_1);
+
 	enum class DMA_MDATAALIGN : uint32_t {
 		BYTE       =((uint32_t)0x00000000U),
 		HALFWORD   =((uint32_t)DMA_SxCR_MSIZE_0),
 		WORD       =((uint32_t)DMA_SxCR_MSIZE_1),
 	};
-
-	template<>
-	struct DMA_MASK<DMA_MDATAALIGN> : std::true_type  {
-		using type = DMA_MDATAALIGN;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_MDATAALIGN::HALFWORD)|
-			static_cast<uint32_t>(DMA_MDATAALIGN::WORD);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_MDATAALIGN, DMA_SxCR_MSIZE_0|DMA_SxCR_MSIZE_1);
 
 	enum class DMA_MODE : uint32_t {
 		NORMAL       =((uint32_t)0x00000000U),
 		CIRCULAR   =((uint32_t)DMA_SxCR_CIRC),
 		PFCTRL       =((uint32_t)DMA_SxCR_PFCTRL),
 	};
-	template<>
-	struct DMA_MASK<DMA_MODE> : std::true_type  {
-		using type = DMA_MODE;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_MODE::CIRCULAR)|
-			static_cast<uint32_t>(DMA_MODE::PFCTRL);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_MODE, DMA_SxCR_CIRC|DMA_SxCR_PFCTRL);
+
 	enum class DMA_PRIORITY : uint32_t {
 		LOW        =((uint32_t)0x00000000U),
 		MEDIUM   =((uint32_t)DMA_SxCR_PL_0),
 		HIGH        =((uint32_t)DMA_SxCR_PL_1),
 		VERY_HIGH       =((uint32_t)DMA_SxCR_PL),
 	};
-	template<>
-	struct DMA_MASK<DMA_PRIORITY> : std::true_type  {
-		using type = DMA_PRIORITY;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_PRIORITY::MEDIUM)|
-			static_cast<uint32_t>(DMA_PRIORITY::HIGH)|
-			static_cast<uint32_t>(DMA_PRIORITY::VERY_HIGH);
+	CREATE_CR_MASK(DMA_CR, DMA_PRIORITY, DMA_SxCR_PL_0|DMA_SxCR_PL_1|DMA_SxCR_PL);
+
+	enum class DMA_FIFO : uint32_t {
+		ENABLE        =((uint32_t)DMA_SxFCR_DMDIS),
+		DISABLE       =((uint32_t)0x00000000U),
 	};
+	CREATE_CR_MASK(DMA_FCR, DMA_FIFO, DMA_SxFCR_DMDIS);
+
 	enum class DMA_FIFO_THRESHOLD : uint32_t {
 		ONEQUARTERFULL        =((uint32_t)0x00000000U),
 		HALFFULL   =((uint32_t)DMA_SxFCR_FTH_0),
 		THREEQUARTERSFULL        =((uint32_t)DMA_SxFCR_FTH_1),
 		FULL       =((uint32_t)DMA_SxFCR_FTH),
 	};
-	template<>
-	struct DMA_MASK<DMA_FIFO_THRESHOLD> : std::true_type  {
-		using type = DMA_FIFO_THRESHOLD;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_FIFO_THRESHOLD::HALFFULL)|
-			static_cast<uint32_t>(DMA_FIFO_THRESHOLD::THREEQUARTERSFULL)|
-			static_cast<uint32_t>(DMA_FIFO_THRESHOLD::FULL);
-	};
+	 CREATE_CR_MASK(DMA_FCR, DMA_FIFO_THRESHOLD, DMA_SxFCR_FTH);
+
 	enum class DMA_FIFO_STATUS: uint32_t {
 		// these numbers are WRONG
 		//DMA_SxFCR_FS_0 DMA_SxFCR_FS_1 DMA_SxFCR_FS_2
@@ -161,14 +118,8 @@ namespace stm32 {
 		INC8        =((uint32_t)DMA_SxCR_MBURST_1),
 		INC16       =((uint32_t)DMA_SxCR_MBURST),
 	};
-	template<>
-	struct DMA_MASK<DMA_MBURST> : std::true_type  {
-		using type = DMA_MBURST;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_MBURST::INC4)|
-			static_cast<uint32_t>(DMA_MBURST::INC8)|
-			static_cast<uint32_t>(DMA_MBURST::INC16);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_MBURST, DMA_SxCR_MBURST_0|DMA_SxCR_MBURST_1|DMA_SxCR_MBURST);
+
 
 	enum class DMA_PBURST: uint32_t {
 		SINGLE      =((uint32_t)0x00000000U),
@@ -176,14 +127,8 @@ namespace stm32 {
 		INC8        =((uint32_t)DMA_SxCR_PBURST_1),
 		INC16       =((uint32_t)DMA_SxCR_PBURST),
 	};
-	template<>
-	struct DMA_MASK<DMA_PBURST> : std::true_type  {
-		using type = DMA_PBURST;
-		static constexpr uint32_t mask =
-			static_cast<uint32_t>(DMA_PBURST::INC4)|
-			static_cast<uint32_t>(DMA_PBURST::INC8)|
-			static_cast<uint32_t>(DMA_PBURST::INC16);
-	};
+	 CREATE_CR_MASK(DMA_CR, DMA_PBURST, DMA_SxCR_PBURST_0|DMA_SxCR_PBURST_1|DMA_SxCR_PBURST);
+
 	template<uintptr_t _BASE_ADDRESS>
 	struct DMA_TRAITS {
 		static_assert(
@@ -214,6 +159,8 @@ namespace stm32 {
 				_BASE_ADDRESS == DMA1_Stream5_BASE ||
 				_BASE_ADDRESS == DMA1_Stream6_BASE ||
 				_BASE_ADDRESS == DMA1_Stream7_BASE ? DMA1_BASE : DMA2_BASE;
+		static constexpr uint32_t DMA_NUMBER = DMA_BASE_ADDRESS == DMA1_BASE ? 1: 2;
+
 		static constexpr uintptr_t BASE_ADDRESS = _BASE_ADDRESS;
 		static constexpr uint32_t STREAM_NUMBER = ((_BASE_ADDRESS & 0xFFU) - 16U) / 24U;
 		static constexpr uint32_t STREAM_INDEX =    STREAM_NUMBER == 0 ? 0U :
@@ -231,6 +178,18 @@ namespace stm32 {
 					    ((uintptr_t)BASE_ADDRESS & (uint32_t)(~0x3FFU));
 
 		static constexpr uintptr_t BASE_IFCR_ADDRESS = BASE_ISR_ADDRESS + sizeof(uint32_t);
+		constexpr static uint8_t DMA_Flags_Bit_Pos[4] = { 0, 6, 16, 22 };
+		constexpr static IRQn_Type DMA_IRQs[2][8] = {
+			{
+				DMA1_Stream0_IRQn, DMA1_Stream1_IRQn, DMA1_Stream2_IRQn, DMA1_Stream3_IRQn,
+				DMA1_Stream4_IRQn, DMA1_Stream5_IRQn, DMA1_Stream6_IRQn, DMA1_Stream7_IRQn
+			},
+			{
+				DMA2_Stream0_IRQn, DMA2_Stream1_IRQn, DMA2_Stream2_IRQn, DMA2_Stream3_IRQn,
+				DMA2_Stream4_IRQn, DMA2_Stream5_IRQn, DMA2_Stream6_IRQn, DMA2_Stream7_IRQn
+			}
+		};
+		constexpr static IRQn_Type IRQ_NUMBER = DMA_IRQs[DMA_NUMBER-1][STREAM_NUMBER];
 
 		static constexpr uint32_t FE_FLAG =
 					(BASE_ADDRESS == DMA1_Stream0_BASE)? DMA_FLAG_FEIF0_4 :
@@ -306,8 +265,44 @@ namespace stm32 {
 			DME = DME_FLAG,
 			ALL = FE_FLAG | TC_FLAG | HT_FLAG | DME_FLAG
 		};
+		inline static DMA_Stream_TypeDef* get_stream() { return (DMA_Stream_TypeDef*)BASE_ADDRESS; }
 		inline static uint32_t get_isr() { return *((volatile uint32_t*)BASE_ISR_ADDRESS); }
 		inline static void set_ifcr(uint32_t v) {  *((volatile uint32_t*)BASE_ISR_ADDRESS) = v; }
+		inline static void clear_flags() { set_ifcr(static_cast<uint32_t>(DMA_FLAG::ALL)); }
+		inline static void set_inq_priority(uint32_t preemption){
+			HAL_NVIC_DisableIRQ(IRQ_NUMBER);
+			HAL_NVIC_SetPriority(IRQ_NUMBER, preemption, STREAM_NUMBER);
+		}
+		inline static void enable_clock() {
+			if (DMA_NUMBER == 1)
+				RCC->AHB1ENR |= RCC_AHB1ENR_DMA1EN;
+			else
+				RCC->AHB1ENR |= RCC_AHB1ENR_DMA2EN;
+		}
+		inline static void disable_clock() {
+			if (DMA_NUMBER == 1)
+				RCC->AHB1ENR &= ~RCC_AHB1ENR_DMA1EN;
+			else
+				RCC->AHB1ENR &= ~RCC_AHB1ENR_DMA2EN;
+		}
+		inline static void enable_interrupts() {
+			auto DMA_Stream = get_stream();
+			clear_flags();
+			/* Enable IRQ */
+			HAL_NVIC_EnableIRQ(IRQ_NUMBER);
+
+			/* Enable DMA stream interrupts */
+			DMA_Stream->CR |= DMA_SxCR_TCIE | DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE;
+			DMA_Stream->FCR |= DMA_SxFCR_FEIE;
+		}
+		inline static void disable_irq() {
+			auto DMA_Stream = get_stream();
+			clear_flags();
+			HAL_NVIC_DisableIRQ(IRQ_NUMBER);
+			/* Disable DMA stream interrupts */
+			DMA_Stream->CR &= ~(DMA_SxCR_TCIE  | DMA_SxCR_HTIE | DMA_SxCR_TEIE | DMA_SxCR_DMEIE);
+			DMA_Stream->FCR &= DMA_SxFCR_FEIE;
+		}
 		inline static bool get_flag(uint32_t isr, DMA_FLAG flag) {
 			return (isr & static_cast<uint32_t>(flag)) == static_cast<uint32_t>(flag);
 		}
@@ -339,51 +334,14 @@ namespace stm32 {
 	class DMA {
 		using traits = DMA_TRAITS<_BASE_ADDRESS>;
 		using DMA_FLAG = typename traits::DMA_FLAG;
+		/* Offsets for bits */
+
+
+		using cr_helper = priv::CR_MASK_HELPER<DMA_CR>;
+		using fcr_helper = priv::CR_MASK_HELPER<DMA_FCR>;
 		DMA_Stream_TypeDef* _DMA;
 		// from the hal stuff
-		template<typename T>
-		typename std::enable_if<DMA_MASK<T>::value,uint32_t>::type
-		static constexpr _cr_mask() {
-			return (std::is_same<T, DMA_FIFO>::value || std::is_same<T, DMA_FIFO_THRESHOLD>::value)
-					?  0 : DMA_MASK<T>::mask;
-		}
-		template<typename T>
-		typename std::enable_if<DMA_MASK<T>::value,uint32_t>::type
-		static constexpr _cr_config(T v) {
-			return (std::is_same<T, DMA_FIFO>::value || std::is_same<T, DMA_FIFO_THRESHOLD>::value)
-					?  0 : static_cast<uint32_t>(v);
-		}
-		template<typename T>
-		typename std::enable_if<DMA_MASK<T>::value,uint32_t>::type
-		static constexpr _fifo_mask() {
-			return (std::is_same<T, DMA_FIFO>::value || std::is_same<T, DMA_FIFO_THRESHOLD>::value)
-					?  DMA_MASK<T>::mask : 0 ;
-		}
-		template<typename T>
-		typename std::enable_if<DMA_MASK<T>::value,uint32_t>::type
-		static constexpr _fifo_config(T v) {
-			return (std::is_same<T, DMA_FIFO>::value || std::is_same<T, DMA_FIFO_THRESHOLD>::value)
-					?  static_cast<uint32_t>(v) : 0 ;
-		}
-		template<typename T>
-		constexpr uint32_t cr_mask(T) { return _cr_mask<T>();}
-		template<typename T, typename ... Args>
-		constexpr uint32_t cr_mask(T v, Args... args) { return cr_mask(v) | cr_mask(args...); }
 
-		template<typename T>
-		uint32_t cr_config(T v) { return _cr_config(v);}
-		template<typename T, typename ... Args>
-		uint32_t cr_config(T v, Args ... args) { return cr_config(v) | cr_config(args...); }
-
-		template<typename T>
-		constexpr uint32_t fifo_mask(T) { return _fifo_mask<T>();}
-		template<typename T, typename ... Args>
-		constexpr uint32_t fifo_mask(T v, Args... args) { return fifo_mask(v) | fifo_mask(args...); }
-
-		template<typename T>
-		uint32_t fifo_config(T v) { return _fifo_config(v);}
-		template<typename T, typename ... Args>
-		uint32_t fifo_config(T v, Args ... args) { return fifo_config(v) | fifo_config(args...); }
 		template<typename T, typename E=void>
 		struct _cast_foo {};
 		template<typename T>
@@ -407,10 +365,27 @@ namespace stm32 {
 				);
 			}
 	public:
+		template<typename ENUM>
+		ENUM  get_cr() const {
+			if(priv::enum_match_reg<ENUM, DMA_CR>::value)
+				return cr_helper::get_single<ENUM>(_DMA);
+			else if(priv::enum_match_reg<ENUM, DMA_FCR>::value)
+				return fcr_helper::get_single<ENUM>(_DMA);
+			else return ENUM{};
+		}
+		template<typename ENUM>
+		void set_cr(ENUM e) {
+			if(priv::enum_match_reg<ENUM, DMA_CR>::value)
+				 cr_helper::set_single<ENUM>(_DMA,e);
+			else if(priv::enum_match_reg<ENUM, DMA_FCR>::value)
+				 fcr_helper::set_single<ENUM>(_DMA,e);
+		}
 		void clear_flag(DMA_FLAG f) { traits::clear_flag(f); }
 		bool get_flag(DMA_FLAG f) const { return traits::get_flag(f); }
 		void clear_config() {
 			disable();
+
+
 			 uint32_t tmp = _DMA->CR;
 			  /* Clear CHSEL, MBURST, PBURST, PL, MSIZE, PSIZE, MINC, PINC, CIRC, DIR, CT and DBM bits */
 			  tmp &= ((uint32_t)~(DMA_SxCR_CHSEL | DMA_SxCR_MBURST | DMA_SxCR_PBURST |
@@ -427,23 +402,15 @@ namespace stm32 {
 		//void config() { } // clear config
 		template<typename... Args>
 		void set_config(Args... args){
-			uint32_t tmp = _DMA->CR;
-			tmp &= ~(cr_mask(args...));
-			tmp |= cr_config(args...);
-			_DMA->CR = tmp;
-			tmp = _DMA->FCR;
-			tmp &= ~(fifo_mask(args...));
-			tmp |= fifo_config(args...);
-			_DMA->FCR = tmp;
+			disable();
+			cr_helper::set_many(_DMA,std::forward<Args>(args)...);
+			fcr_helper::set_many(_DMA,std::forward<Args>(args)...);
 			clear_all_it();
 		}
 		DMA() : _DMA { (DMA_Stream_TypeDef*)traits::BASE_ADDRESS } {}
-		template<typename T>
-		typename std::enable_if<DMA_MASK<T>::value,T>::type
-			get_config() const {
-			return (std::is_same<T, DMA_FIFO>::value || std::is_same<T, DMA_FIFO_THRESHOLD>::value)
-					?  static_cast<T>(_DMA->FCR & _cr_mask<T>())
-					: static_cast<T>(_DMA->CR & _cr_mask<T>());
+		void init() {
+			traits::enable_clock();
+			traits::set_inq_priority(2);
 		}
 		bool is_enabled() const { return (_DMA->CR & DMA_SxCR_EN) != 0; }
 		void enable() { _DMA->CR |=  DMA_SxCR_EN; }
@@ -471,16 +438,16 @@ namespace stm32 {
 		inline uint32_t get_counter() const { return _DMA->NDTR;}
 
 		void set_peripheral_address(uintptr_t addr) {
-			test_aligment(get_config<DMA_PDATAALIGN>(),addr);
+			test_aligment(get_cr<DMA_PDATAALIGN>(),addr);
 			_DMA->PAR = addr;
 		}
 		void set_memory_address0(uintptr_t addr) {
-			test_aligment(get_config<DMA_MDATAALIGN>(),addr);
+			test_aligment(get_cr<DMA_MDATAALIGN>(),addr);
 			assert((addr & 0x3) == 0);
 			_DMA->M0AR = addr;
 		}
 		void set_memory_address1(uintptr_t addr) {
-			test_aligment(get_config<DMA_MDATAALIGN>(),addr);
+			test_aligment(get_cr<DMA_MDATAALIGN>(),addr);
 			assert((addr & 0x3) == 0);
 			_DMA->M1AR = addr;
 		}
@@ -500,10 +467,10 @@ namespace stm32 {
 			 _DMA->NDTR = len;
 
 			  /* Peripheral to Memory */
-			  if(get_config<DMA_DIR>() == DMA_DIR::MEMORY_TO_PERIPH)
+			  if(get_cr<DMA_DIR>() == DMA_DIR::MEMORY_TO_PERIPH)
 			  {
-					test_aligment(get_config<DMA_PDATAALIGN>(),dest);
-					test_aligment(get_config<DMA_MDATAALIGN>(),src);
+					test_aligment(get_cr<DMA_PDATAALIGN>(),dest);
+					test_aligment(get_cr<DMA_MDATAALIGN>(),src);
 			    /* Configure DMA Stream destination address */
 				  _DMA->PAR = dest;
 
@@ -513,8 +480,8 @@ namespace stm32 {
 			  /* Memory to Peripheral */
 			  else
 			  {
-					test_aligment(get_config<DMA_PDATAALIGN>(),src);
-					test_aligment(get_config<DMA_MDATAALIGN>(),dest);
+					test_aligment(get_cr<DMA_PDATAALIGN>(),src);
+					test_aligment(get_cr<DMA_MDATAALIGN>(),dest);
 			    /* Configure DMA Stream source address */
 				  _DMA->PAR = src;
 

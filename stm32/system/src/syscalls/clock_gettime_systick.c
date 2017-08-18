@@ -127,8 +127,9 @@ static HAL_StatusTypeDef RTC_Setup() {
 
 	       return HAL_OK;
 	     }
-		  return HAL_ERROR;
+
 	   }
+	  return HAL_ERROR;
 }
 static void clock_handler();
 

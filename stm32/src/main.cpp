@@ -47,17 +47,8 @@
 #pragma GCC diagnostic ignored "-Wreturn-type"
 extern "C" int test_main(void);
 extern "C" void test_gui_main();
-extern int boob;
-void time_Test(){
-	   int start = HAL_GetTick(); //TIM2->CNT;
-	  while(1) {
-		  // int next = boob; //TIM2->CNT;
-		//  if((next-start) <10) continue;
-		  HAL_Delay(1000);
-		//  start = next;
-		  printf("tick! %u\n",HAL_GetTick());
-	  }
-}
+
+
 extern "C" void D_DoomMain(int argc, char* argv[]);
 //extern "C" void M_FindResponseFile();
 
@@ -84,22 +75,14 @@ main(int argc, char* argv[])
   // At this stage the system clock should have already been configured
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
-<<<<<<< HEAD
- // myargc = argc;
-//  myargv = argv;
- // M_FindResponseFile();
-  //DoomMain();
- // D_DoomMain(argc,argv);
- // test_gui_main();
-  quake_main(argc,argv);
-=======
+
 
  // M_FindResponseFile();
   //DoomMain();
   //D_DoomMain();
  // test_gui_main();
   test_dma_serial();
->>>>>>> origin/master
+
   while(1) {};
 }
 

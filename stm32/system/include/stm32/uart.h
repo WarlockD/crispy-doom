@@ -3,31 +3,10 @@
 #include "common.h"
 
 namespace stm32 {
-	template<typename T> struct UART_CONFIG_MASK : std::false_type {
-		static constexpr uint32_t mask = 0;
-		static constexpr uint32_t cr2_mask = 0;
-		static constexpr uint32_t cr3_mask = 0;
-		static constexpr uint32_t cr_reg = 0;
-	};
-	namespace priv {
-		struct CR_REG_INVALID {}; // base class
-		template<uint32_t _REG>
-		struct CR_REG : CR_REG_INVALID {
-			static_assert(_REG != 0, "Reg cannot be zero");
-			static constexpr uint32_t cr_reg = _REG;
-		};
-		template<uint32_t _MASK>
-		struct CR_MASK {
-			static_assert(_MASK != 0, "Mask cannot be zero");
-			static constexpr uint32_t cr_mask = _MASK;
-		};
-		template<typename _ENUM, uint32_t REG, uint32_t MASK>
-		struct CR_REG_MASK : CR_REG<REG>, CR_MASK<MASK>, std::true_type
-		{
-			static_assert(std::is_enum<_ENUM>::value, "Needs to be an enum");
-			using enum_type  = _ENUM;
-		};
-	}
+	CREATE_CR_REG(UART_CR1, USART_TypeDef, offsetof(USART_TypeDef, CR1));
+	CREATE_CR_REG(UART_CR2, USART_TypeDef, offsetof(USART_TypeDef, CR2));
+	CREATE_CR_REG(UART_CR3, USART_TypeDef, offsetof(USART_TypeDef, CR3));
+
 	enum class UART_CLOCKSOURCE :uint32_t
 	{
 		PCLK1      = 0x00U,    /*!< PCLK1 clock source  */
@@ -120,27 +99,21 @@ namespace stm32 {
 		ONE = ((uint32_t)0x00000000U),
 		TWO = ((uint32_t)USART_CR2_STOP_1),
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_STOPBITS>
-	 	 :priv::CR_REG_MASK<UART_STOPBITS, 2,USART_CR2_STOP_1> {};
+	 CREATE_CR_MASK(UART_CR1, UART_STOPBITS, USART_CR2_STOP_1);
+
 	 enum class UART_PARITY :uint32_t {
 		 NONE = ((uint32_t)0x00000000U),
 		 EVEN = ((uint32_t)USART_CR1_PCE),
 		 ODD = ((uint32_t)USART_CR1_PCE|USART_CR1_PS),
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_PARITY>
-	 	 :priv::CR_REG_MASK<UART_PARITY, 1,USART_CR1_PCE|USART_CR1_PS> {};
+	 CREATE_CR_MASK(UART_CR1, UART_PARITY, USART_CR1_PCE|USART_CR1_PS);
 
 	 enum class UART_WORDLENGTH :uint32_t {
 		 B7 = USART_CR1_M_1,
 		 B8 = 0x0000U,
 		 B9 = USART_CR1_M_0
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_WORDLENGTH>
-	 	 :priv::CR_REG_MASK<UART_WORDLENGTH, 1,USART_CR1_M_1|USART_CR1_M_0> {};
-
+	 CREATE_CR_MASK(UART_CR1, UART_WORDLENGTH, USART_CR1_M_1|USART_CR1_M_0);
 
 	 enum class UART_HWCONTROL:uint32_t  {
 		NONE = ((uint32_t)0x00000000U),
@@ -148,77 +121,58 @@ namespace stm32 {
 		CTS =  ((uint32_t)USART_CR3_CTSE),
 		RTS_CTS= ((uint32_t)(USART_CR3_RTSE | USART_CR3_CTSE))
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_HWCONTROL>
- 	 :priv::CR_REG_MASK<UART_HWCONTROL, 3,USART_CR3_RTSE|USART_CR3_CTSE> {};
+	 CREATE_CR_MASK(UART_CR3, UART_HWCONTROL, USART_CR3_RTSE|USART_CR3_CTSE);
 
 	 enum class UART_MODE :uint32_t {
 		RX =  ((uint32_t)USART_CR1_RE),
 		TX =   ((uint32_t)USART_CR1_TE),
 		RX_TX =  ((uint32_t)(USART_CR1_TE |USART_CR1_RE)),
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_MODE>
- 	 	 :priv::CR_REG_MASK<UART_MODE, 1,USART_CR1_TE |USART_CR1_RE> {};
+	 CREATE_CR_MASK(UART_CR1, UART_MODE, USART_CR1_TE |USART_CR1_RE);
+
 
 	 enum class UART_STATE :uint32_t {
 		 DISABLE  =  0x00000000U,
 		 ENABLE =   USART_CR1_UE
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_STATE>
- 	 	 :priv::CR_REG_MASK<UART_STATE, 1,USART_CR1_UE> {};
+	 CREATE_CR_MASK(UART_CR1, UART_STATE, USART_CR1_UE);
 
 	 enum class UART_OVERSAMPLING :uint32_t {
 		 X16  =  0x00000000U,
 		 X8 =   USART_CR1_OVER8
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_OVERSAMPLING>
- 	 	 :priv::CR_REG_MASK<UART_OVERSAMPLING, 1,USART_CR1_OVER8> {};
-
+	 CREATE_CR_MASK(UART_CR1, UART_OVERSAMPLING, USART_CR1_OVER8);
 
 	 enum class UART_RECEIVER_TIMEOUT :uint32_t {
 		 DISABLE  =  0x00000000U,
 		ENABLE =   USART_CR2_RTOEN
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_RECEIVER_TIMEOUT>
- 	 	 :priv::CR_REG_MASK<UART_RECEIVER_TIMEOUT, 2,USART_CR2_RTOEN> {};
-
+	 CREATE_CR_MASK(UART_CR2, UART_RECEIVER_TIMEOUT, USART_CR2_RTOEN);
 
 	 enum class UART_LIN :uint32_t {
 		 DISABLE  =  0x00000000U,
 		ENABLE =   USART_CR2_LINEN
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_LIN>
- 	 	 :priv::CR_REG_MASK<UART_LIN, 2,USART_CR2_LINEN> {};
-
+	 CREATE_CR_MASK(UART_CR2, UART_LIN, USART_CR2_LINEN);
 
 	 enum class UART_LINBREAKDETECTLENGTH :uint32_t {
 		 B10  =  0x00000000U,
 		B11 =   USART_CR2_LBDL
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_LINBREAKDETECTLENGTH>
- 	 	 :priv::CR_REG_MASK<UART_LINBREAKDETECTLENGTH, 2,USART_CR2_LBDL> {};
+	 CREATE_CR_MASK(UART_CR2, UART_LINBREAKDETECTLENGTH, USART_CR2_LBDL);
 
 	 enum class UART_DMA_TX :uint32_t {
 		 DISABLE  =  0x00000000U,
 		 ENABLE =   USART_CR3_DMAT
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_DMA_TX>
- 	 	 :priv::CR_REG_MASK<UART_DMA_TX, 3,USART_CR3_DMAT> {};
+	 CREATE_CR_MASK(UART_CR3, UART_DMA_TX,  USART_CR3_DMAT);
 
 	 enum class UART_DMA_RX :uint32_t {
 		 DISABLE  =  0x00000000U,
 		 ENABLE =   USART_CR3_DMAR
 	 };
-	 template<>
-	 struct UART_CONFIG_MASK<UART_DMA_RX>
- 	 	 :priv::CR_REG_MASK<UART_DMA_RX, 3,USART_CR3_DMAR> {};
+	 CREATE_CR_MASK(UART_CR3, UART_DMA_RX, USART_CR3_DMAR);
+
 
 	 template<uintptr_t _UART_BASE>
 	 struct UART_TRAITS : std::false_type { };
@@ -248,33 +202,12 @@ namespace stm32 {
 	 class UART{
 		 static_assert(UART_TRAITS<_UART_BASE>::value, "Invalid Usart");
 		 using traits = UART_TRAITS<_UART_BASE>;
-		 struct cr1_reg {};
-		 struct cr2_reg {};
-		 struct cr3_reg {};
-		 struct invalid_type {};
+			using cr1_helper = priv::CR_MASK_HELPER<UART_CR1>;
+			using cr2_helper = priv::CR_MASK_HELPER<UART_CR2>;
+			using cr3_helper = priv::CR_MASK_HELPER<UART_CR3>;
 
 
 
-
-			template<uint32_t CR, typename T>
-			typename std::enable_if<UART_CONFIG_MASK<T>::value,uint32_t>::type
-			static constexpr _cr_mask(T) {
-					return (UART_CONFIG_MASK<T>::cr_reg == CR) ? UART_CONFIG_MASK<T>::cr_mask : 0;
-			}
-			template<uint32_t CR,typename T>
-			typename std::enable_if<UART_CONFIG_MASK<T>::value,uint32_t>::type
-			static constexpr _cr_combine(T v) {
-					return (UART_CONFIG_MASK<T>::cr_reg == CR) ? static_cast<uint32_t>(v) : 0;
-			}
-
-			template<uint32_t CR, typename T, typename ... Args>
-			static constexpr uint32_t _cr_mask(T v, Args... args) { return _cr_mask<CR,T>(v) | _cr_mask<CR,Args...>(args...); }
-			template<uint32_t CR, typename T, typename ... Args>
-			static constexpr uint32_t _cr_combine(T v, Args... args) { return _cr_combine<CR,T>(v) | _cr_combine<CR,Args...>(args...); }
-			template<uint32_t CR, typename ... Args>
-			static constexpr uint32_t cr_mask(Args ... args) { return _cr_mask<CR,Args...>(args...); }
-			template<uint32_t CR, typename ... Args>
-			static constexpr uint32_t cr_combine(Args ... args) { return _cr_combine<CR,Args...>(args...); }
 		 /** @brief  BRR division operation to set BRR register with LPUART
 			   * @param  _PCLK_: LPUART clock
 			   * @param  _BAUD_: Baud rate set by the user
@@ -301,27 +234,21 @@ namespace stm32 {
 				 return false;
 			 }
 			 uint32_t MASK_COMPUTATION() const {
-				 switch(get_config<UART_WORDLENGTH>()){
+				 switch(get_cr<UART_WORDLENGTH>()){
 				 case UART_WORDLENGTH::B7:
-					 return get_config<UART_PARITY>() == UART_PARITY::NONE ? 0x007F : 0x003F;
+					 return get_cr<UART_PARITY>() == UART_PARITY::NONE ? 0x007F : 0x003F;
 				 case UART_WORDLENGTH::B9:
-					 return get_config<UART_PARITY>() == UART_PARITY::NONE ? 0x01FF : 0x00FF;
+					 return get_cr<UART_PARITY>() == UART_PARITY::NONE ? 0x01FF : 0x00FF;
 				 case UART_WORDLENGTH::B8:
-					 return get_config<UART_PARITY>() == UART_PARITY::NONE ? 0x00FF : 0x007F;
+					 return get_cr<UART_PARITY>() == UART_PARITY::NONE ? 0x00FF : 0x007F;
 				 }
 				 assert(0); // should never get here
 				 return 0xFF;
 			 }
 
-			 template<typename T> void _set_cr(T v,priv::CR_REG<1>) { _USART->CR1 = (_USART->CR1 & ~cr_mask<1>(v)) | cr_combine<1>(v); }
-			 template<typename T> void _set_cr(T v,priv::CR_REG<2>) { _USART->CR2 = (_USART->CR2 & ~cr_mask<2>(v)) | cr_combine<2>(v); }
-			 template<typename T> void _set_cr(T v,priv::CR_REG<3>) { _USART->CR3 = (_USART->CR3 & ~cr_mask<3>(v)) | cr_combine<3>(v); }
-	 public:
+			 public:
 		  static constexpr uintptr_t UART_BASE=_UART_BASE;
 		 constexpr UART() : _USART{ (USART_TypeDef*)UART_BASE }, _data_mask{MASK_COMPUTATION()} {}
-
-		 template<typename T, typename = std::enable_if<UART_CONFIG_MASK<T>::value>>
-		 void set_cr(T v) {  _set_cr(v,UART_CONFIG_MASK<T>{}); }
 
 #if 0
 			template<typename T>
@@ -333,122 +260,39 @@ namespace stm32 {
 										static_cast<T>(_USART->CR3 & cr_mask<2>(T{})) ;
 			}
 #endif
-			template<typename T>
-			typename std::enable_if<UART_CONFIG_MASK<T>::value && UART_CONFIG_MASK<T>::cr_reg==1,T>::type
-			get_config() const {
-				return static_cast<T>(_USART->CR1 & cr_mask<1>(T{}));
-			}
-			template<typename T>
-			typename std::enable_if<UART_CONFIG_MASK<T>::value && UART_CONFIG_MASK<T>::cr_reg==2,T>::type
-			get_config() const {
-				return static_cast<T>(_USART->CR2 & cr_mask<2>(T{}));
-			}
-			template<typename T>
-			typename std::enable_if<UART_CONFIG_MASK<T>::value && UART_CONFIG_MASK<T>::cr_reg==3,T>::type
-			get_config() const {
-				return static_cast<T>(_USART->CR3 & cr_mask<3>(T{}));
-			}
+
+		template<typename T>
+		T  get_cr() const {
+			if(priv::enum_match_reg<T, UART_CR1>::value)
+				return cr1_helper::get_single<T>(_USART);
+			else if(priv::enum_match_reg<T, UART_CR2>::value)
+				return cr2_helper::get_single<T>(_USART);
+			else if(priv::enum_match_reg<T, UART_CR3>::value)
+				return cr3_helper::get_single<T>(_USART);
+			else return T{};
+		}
+		template<typename ENUM>
+		void set_cr(ENUM e) {
+			if(priv::enum_match_reg<ENUM, UART_CR1>::value)
+				cr1_helper::set_single(_USART,e);
+			else if(priv::enum_match_reg<ENUM, UART_CR2>::value)
+				cr2_helper::set_single(_USART,e);
+			else if(priv::enum_match_reg<ENUM, UART_CR3>::value)
+				cr3_helper::set_single(_USART,e);
+		}
 
 
 		template<typename ... Args>
 		void set_config(Args... args){
 			disable();
-			uint32_t tmp;
-
-			tmp = _USART->CR3;
-			tmp &= ~cr_mask<3>(args...);
-			tmp |= cr_combine<3>(args...);
-			_USART->CR3 = tmp;
-			tmp = _USART->CR2;
-			tmp &= ~cr_mask<2>(args...);
-			tmp |= cr_combine<2>(args...);
-			_USART->CR2 = tmp;
-			tmp = _USART->CR1;
-			tmp &= ~cr_mask<1>(args...);
-			tmp |= cr_combine<1>(args...);
-			_USART->CR1 = tmp;
-			_data_mask = MASK_COMPUTATION();
-
+			cr3_helper::set_many(_USART,std::forward<Args>(args)...);
+			cr2_helper::set_many(_USART,std::forward<Args>(args)...);
+			cr1_helper::set_many(_USART,std::forward<Args>(args)...);
 		}
 		uint32_t read_raw() { return _USART->RDR & _data_mask; }
 		void write_raw(uint32_t d) { _USART->TDR = d &_data_mask; }
-		template<typename RX_FUNCTION, typename TX_FUNCTION, typename TC_FUNCTION>
-		UART_ERROR irq_handler(RX_FUNCTION&& rx_fnc, TX_FUNCTION&& tx_fnc,TC_FUNCTION&& tc_fnc) {
-			uint32_t isrflags   = READ_REG(_USART->ISR);
-			uint32_t cr1its     = READ_REG(_USART->CR1);
-			uint32_t cr3its     = READ_REG(_USART->CR3);
-			uint32_t errorflags= (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
-			enum_helper<UART_ERROR> err;
-			if(errorflags !=0) {
-			    /* UART parity error interrupt occurred -------------------------------------*/
-			    if(((isrflags & USART_ISR_PE) != RESET) && ((cr1its & USART_CR1_PEIE) != RESET))
-			    {
-			    	clear_flag(UART_IT_CLEAR::PEF);
-			    	err|= UART_ERROR::PE;
-			    }
 
-			    /* UART frame error interrupt occurred --------------------------------------*/
-			    if(((isrflags & USART_ISR_FE) != RESET) && ((cr3its & USART_CR3_EIE) != RESET))
-			    {
-			    	clear_flag(UART_IT_CLEAR::FEF);
-			    	err|= UART_ERROR::FE;
-			    }
 
-			    /* UART noise error interrupt occurred --------------------------------------*/
-			    if(((isrflags & USART_ISR_NE) != RESET) && ((cr3its & USART_CR3_EIE) != RESET))
-			    {
-			    	clear_flag(UART_IT_CLEAR::NEF);
-			    	err|= UART_ERROR::NE;
-			    }
-
-			    /* UART Over-Run interrupt occurred -----------------------------------------*/
-			    if(((isrflags & USART_ISR_ORE) != RESET) &&
-			       (((cr1its & USART_CR1_RXNEIE) != RESET) || ((cr3its & USART_CR3_EIE) != RESET)))
-			    {
-			    	clear_flag(UART_IT_CLEAR::OREF);
-			    	err|= UART_ERROR::ORE;
-			    }
-			    if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
-			    {
-					if(!rx_fnc(read_raw())) {
-					    /* Disable the UART Parity Error Interrupt and RXNE interrupt*/
-					      CLEAR_BIT(_USART->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
-
-					      /* Disable the UART Error Interrupt: (Frame error, noise error, overrun error) */
-					      CLEAR_BIT(_USART->CR3, USART_CR3_EIE);
-					}
-			    }
-			} else {
-			    /* UART in mode Receiver ---------------------------------------------------*/
-			    if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
-			    {
-					if(!rx_fnc(read_raw())) {
-					    /* Disable the UART Parity Error Interrupt and RXNE interrupt*/
-					      CLEAR_BIT(_USART->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
-
-					      /* Disable the UART Error Interrupt: (Frame error, noise error, overrun error) */
-					      CLEAR_BIT(_USART->CR3, USART_CR3_EIE);
-					}
-			    }
-				// no errros do do handlers
-				  /* UART in mode Transmitter ------------------------------------------------*/
-			    else  if(((isrflags & USART_ISR_TXE) != RESET) && ((cr1its & USART_CR1_TXEIE) != RESET))
-				  {
-			    	int value = tx_fnc();
-			    	if(value == -1){
-			    		CLEAR_BIT(_USART->CR1, (USART_CR1_TXEIE));
-			    		SET_BIT(_USART->CR1, (USART_CR1_TCIE));
-			    	} else {
-			    		write_raw(value);
-			    	}
-				  } else if(((isrflags & USART_ISR_TC) != RESET) && ((cr1its & USART_CR1_TCIE) != RESET))
-				  {
-					  tc_fnc();
-					  CLEAR_BIT(_USART->CR1, (USART_CR1_TXEIE | USART_CR1_TCIE));
-				  }
-			}
-			 return err;
-		}
 
 		int put(int value) {
 			if(!get_flag(UART_FLAG::TXE)) return -1;
@@ -488,7 +332,7 @@ namespace stm32 {
 			uint16_t usartdiv  = 0x0000U;
 			uint16_t brrtemp   = 0x0000U;
 			  /* Check UART Over Sampling to set Baud Rate Register */
-		  if (get_config<UART_OVERSAMPLING>() == UART_OVERSAMPLING::X8)
+		  if (get_cr<UART_OVERSAMPLING>() == UART_OVERSAMPLING::X8)
 		  {
 			switch (clocksource)
 			{
@@ -541,7 +385,7 @@ namespace stm32 {
 		  return true;
 		}
 		// void clear_flag(UART_IT_CLEAR v) { _USART->ICR = static_cast<uint32_t>(v); }
-		 void clear_flag(UART_FLAG v) { _USART->ICR = static_cast<uint32_t>(v); }
+		 void clear_flag(UART_IT_CLEAR v) { _USART->ICR = static_cast<uint32_t>(v); }
 		 inline constexpr bool get_flag(const UART_FLAG f) const {
 			 // if we do it this way we save one instruction
 			 // that is ldr _USART, ldr ISR, ldr value
@@ -602,6 +446,84 @@ namespace stm32 {
 			  CLEAR_BIT(_USART->CR2, (USART_CR2_LINEN | USART_CR2_CLKEN));
 			  CLEAR_BIT(_USART->CR3, (USART_CR3_SCEN | USART_CR3_HDSEL | USART_CR3_IREN));
 		 }
+
+			template<typename RX_FUNCTION, typename TX_FUNCTION, typename TC_FUNCTION>
+				UART_ERROR irq_handler(RX_FUNCTION&& rx_fnc, TX_FUNCTION&& tx_fnc,TC_FUNCTION&& tc_fnc) {
+					uint32_t isrflags   = READ_REG(_USART->ISR);
+					uint32_t cr1its     = READ_REG(_USART->CR1);
+					uint32_t cr3its     = READ_REG(_USART->CR3);
+					uint32_t errorflags= (isrflags & (uint32_t)(USART_ISR_PE | USART_ISR_FE | USART_ISR_ORE | USART_ISR_NE));
+					enum_helper<UART_ERROR> err;
+					if(errorflags !=0) {
+					    /* UART parity error interrupt occurred -------------------------------------*/
+					    if(((isrflags & USART_ISR_PE) != RESET) && ((cr1its & USART_CR1_PEIE) != RESET))
+					    {
+					    	clear_flag(UART_IT_CLEAR::PEF);
+					    	err|= UART_ERROR::PE;
+					    }
+
+					    /* UART frame error interrupt occurred --------------------------------------*/
+					    if(((isrflags & USART_ISR_FE) != RESET) && ((cr3its & USART_CR3_EIE) != RESET))
+					    {
+					    	clear_flag(UART_IT_CLEAR::FEF);
+					    	err|= UART_ERROR::FE;
+					    }
+
+					    /* UART noise error interrupt occurred --------------------------------------*/
+					    if(((isrflags & USART_ISR_NE) != RESET) && ((cr3its & USART_CR3_EIE) != RESET))
+					    {
+					    	clear_flag(UART_IT_CLEAR::NEF);
+					    	err|= UART_ERROR::NE;
+					    }
+
+					    /* UART Over-Run interrupt occurred -----------------------------------------*/
+					    if(((isrflags & USART_ISR_ORE) != RESET) &&
+					       (((cr1its & USART_CR1_RXNEIE) != RESET) || ((cr3its & USART_CR3_EIE) != RESET)))
+					    {
+					    	clear_flag(UART_IT_CLEAR::OREF);
+					    	err|= UART_ERROR::ORE;
+					    }
+					    if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
+					    {
+							if(!rx_fnc(read_raw())) {
+							    /* Disable the UART Parity Error Interrupt and RXNE interrupt*/
+							      CLEAR_BIT(_USART->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
+
+							      /* Disable the UART Error Interrupt: (Frame error, noise error, overrun error) */
+							      CLEAR_BIT(_USART->CR3, USART_CR3_EIE);
+							}
+					    }
+					} else {
+					    /* UART in mode Receiver ---------------------------------------------------*/
+					    if(((isrflags & USART_ISR_RXNE) != RESET) && ((cr1its & USART_CR1_RXNEIE) != RESET))
+					    {
+							if(!rx_fnc(read_raw())) {
+							    /* Disable the UART Parity Error Interrupt and RXNE interrupt*/
+							      CLEAR_BIT(_USART->CR1, (USART_CR1_RXNEIE | USART_CR1_PEIE));
+
+							      /* Disable the UART Error Interrupt: (Frame error, noise error, overrun error) */
+							      CLEAR_BIT(_USART->CR3, USART_CR3_EIE);
+							}
+					    }
+						// no errros do do handlers
+						  /* UART in mode Transmitter ------------------------------------------------*/
+					    else  if(((isrflags & USART_ISR_TXE) != RESET) && ((cr1its & USART_CR1_TXEIE) != RESET))
+						  {
+					    	int value = tx_fnc();
+					    	if(value == -1){
+					    		CLEAR_BIT(_USART->CR1, (USART_CR1_TXEIE));
+					    		SET_BIT(_USART->CR1, (USART_CR1_TCIE));
+					    	} else {
+					    		write_raw(value);
+					    	}
+						  } else if(((isrflags & USART_ISR_TC) != RESET) && ((cr1its & USART_CR1_TCIE) != RESET))
+						  {
+							  tc_fnc();
+							  CLEAR_BIT(_USART->CR1, (USART_CR1_TXEIE | USART_CR1_TCIE));
+						  }
+					}
+					 return err;
+			}
 	 };
 }
 #endif

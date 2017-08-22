@@ -37,3 +37,10 @@ tags
 .#*
 .*.swp
 .DS_store
+/doomlib/Debug
+/doomlib/.vs/doomlib/v15
+/doomlib/Debug
+*.exe
+*.ilk
+*.pdb
+/doomlib/doomlib/Debug

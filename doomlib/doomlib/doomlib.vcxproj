@@ -161,7 +161,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="doom_common.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="w_doom.cpp" />
+    <ClCompile Include="z_doom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SFML_Build\src\SFML\Audio\sfml-audio.vcxproj">
@@ -188,6 +191,7 @@
     <ClInclude Include="doom_common.hpp" />
     <ClInclude Include="r_patch.hpp" />
     <ClInclude Include="w_doom.hpp" />
+    <ClInclude Include="z_doom.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

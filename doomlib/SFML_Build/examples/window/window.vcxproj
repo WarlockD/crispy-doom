@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C15B82BF-ED44-32A2-B1A7-1BF40958847F}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{4266704F-AB73-3AA2-985A-DB77780E8AA3}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>window</ProjectName>
@@ -56,25 +56,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">window.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">window-d</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">window.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">window</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">window.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">window</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">window.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">window</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -100,10 +100,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;SFML_STATIC;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -116,8 +116,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/Debug/window-d.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/Debug/window-d.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/Debug/window-d.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/Debug/window-d.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -127,7 +127,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -143,10 +143,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SFML_STATIC;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -159,8 +159,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/Release/window.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/Release/window.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/Release/window.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/Release/window.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -170,7 +170,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -186,10 +186,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SFML_STATIC;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -202,8 +202,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/MinSizeRel/window.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/MinSizeRel/window.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/MinSizeRel/window.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/MinSizeRel/window.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -213,7 +213,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -229,10 +229,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SFML_STATIC;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\UnderTalk\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -245,8 +245,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/RelWithDebInfo/window.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/RelWithDebInfo/window.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/RelWithDebInfo/window.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/RelWithDebInfo/window.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <Version></Version>
     </Link>
@@ -255,10 +255,10 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/UnderTalk/SFML -BD:/Documents/GitHub/UnderTalk/SFML_Build --check-stamp-file D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -266,12 +266,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/UnderTalk/SFML -BD:/Documents/GitHub/UnderTalk/SFML_Build --check-stamp-file D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -279,12 +279,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/UnderTalk/SFML -BD:/Documents/GitHub/UnderTalk/SFML_Build --check-stamp-file D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -292,12 +292,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/UnderTalk/SFML -BD:/Documents/GitHub/UnderTalk/SFML_Build --check-stamp-file D:/Documents/GitHub/UnderTalk/SFML_Build/examples/window/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -305,25 +305,25 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Documents/GitHub/UnderTalk/SFML/examples/window/CMakeLists.txt;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\UnderTalk\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Documents\GitHub\UnderTalk\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/window/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.9\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\Documents\GitHub\UnderTalk\SFML\examples\window\Window.cpp"  />
+    <ClCompile Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\examples\window\Window.cpp"  />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Documents\GitHub\UnderTalk\SFML_Build\ZERO_CHECK.vcxproj">
-      <Project>{6C003EA7-0ACB-31E8-A5EE-3974C1700422}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\ZERO_CHECK.vcxproj">
+      <Project>{600D180B-9E04-3CEF-8EAC-CD6918614855}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\UnderTalk\SFML_Build\src\SFML\System\sfml-system.vcxproj">
-      <Project>{95C17390-471F-3B96-BB93-B13F66D0FC6B}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{F31672DF-D9FB-3664-9079-01D54CC9F268}</Project>
       <Name>sfml-system</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\UnderTalk\SFML_Build\src\SFML\Window\sfml-window.vcxproj">
-      <Project>{6F04BED4-E59A-3372-859F-5711B3415E90}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{148E66F2-5A2F-34D6-875A-AFFF13712434}</Project>
       <Name>sfml-window</Name>
     </ProjectReference>
   </ItemGroup>

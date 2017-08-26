@@ -24,6 +24,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="doom_common.cpp">
+      <Filter>doom</Filter>
+    </ClCompile>
+    <ClCompile Include="w_doom.cpp">
+      <Filter>doom</Filter>
+    </ClCompile>
+    <ClCompile Include="z_doom.cpp">
+      <Filter>doom</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ByteBuffer.hpp">
@@ -36,6 +45,9 @@
       <Filter>doom</Filter>
     </ClInclude>
     <ClInclude Include="r_patch.hpp">
+      <Filter>doom</Filter>
+    </ClInclude>
+    <ClInclude Include="z_doom.hpp">
       <Filter>doom</Filter>
     </ClInclude>
   </ItemGroup>

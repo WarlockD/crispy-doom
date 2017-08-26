@@ -5,14 +5,43 @@
 #include <ctime>
 #include <cstdlib>
 #include "w_doom.hpp"
+#include "z_doom.hpp"
+
 #include <cassert>
+#include <cstdarg>
+
+namespace doom_cpp {
+	void I_Error(const char* fmt, ...) {
+		va_list va;
+		va_start(va, fmt);
+		vprintf(fmt, va);
+		va_end(va);
+		while (1) {} // debug
+		assert(0);// die
+		// error interface
+	}
 
 
+}
+static constexpr size_t total_doom_memory = 8000000U;
+uint8_t s_doom_memory[total_doom_memory];
+//static std::vector<uint8_t> doom_memory;
+
+void doom_start() {
+	// because of scope, go here
+	doom_cpp::WadLoader loader;
+	assert(loader.loadfile("DOOM.WAD"));
+	loader.debug_list_lumps();
+}
 int main(int argc, const char* argv[]) {
-	std::ifstream file("DOOM.WAD");
-	assert(file.good());
-		doom_cpp::filelump_t lump;
-		lump.read(file);
+
+	//doom_memory.resize(total_doom_memory); // 8 megs
+	doom_cpp::Z_Init(s_doom_memory, total_doom_memory);
+	doom_cpp::Z_FileDumpHeap(stderr);
+	doom_start();
+
+
+	while (1) {}
 
 
 

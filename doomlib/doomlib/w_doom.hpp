@@ -2,63 +2,7 @@
 #include "doom_common.hpp"
 
 namespace doom_cpp {
-	// WARNING! ONLY WORKS IN LITTLE EADEN RIGHT NOW
-	class filelump_t  : public  IReadableDoomObject, IWritableDoomObject {
-		struct _filelump_t {
-			uint32_t	filepos;
-			uint32_t	size; // Is INT 32-bit in file!
-			char		name[8];
-		};
-		static constexpr size_t filelump_size = 4 + 4 + 8;
-		static_assert(sizeof(_filelump_t) == filelump_size, "Lump size not correct?");
-		_filelump_t _lump;
-	public:
-		filelump_t() : _lump{ 0,0, "EMPTY00" } {}
-		filelump_t(uint32_t filepos_, uint32_t size_, const char* name_) {
-			_lump.filepos = filepos_;
-			_lump.size = size_;
-			std::strncpy(_lump.name, name_, 8);
-		}
 
-		void read(std::istream& s) final override {
-			util::StreamReader r(s);
-			// MAES: Byte Buffers actually make it convenient changing byte order on-the-fly.
-			// But RandomAccessFiles (and inputsteams) don't :-S
-			r.read(_lump.filepos);
-			r.read(_lump.size);
-			r.read(_lump.name, 8);
-		}
-		void write(std::ostream& s) const final override {
-			util::StreamWriter w(s);
-			// MAES: Byte Buffers actually make it convenient changing byte order on-the-fly.
-			// But RandomAccessFiles (and inputsteams) don't :-S
-			w.write(_lump.filepos);
-			w.write(_lump.size);
-			w.write(_lump.name, 8);
-
-		}
-
-		bool compressed() const { return _lump.name[0] > 0x7F; }
-		uint32_t filepos() const { return _lump.filepos; }
-		uint32_t size() const { return _lump.filepos; }
-		string_view name() const { return string_view(_lump.name,8); }
-
-#if 0
-			throws IOException {
-			if (!big_endian) {
-				DoomIO.writeLEInt(dos, (int)filepos);
-				DoomIO.writeLEInt(dos, (int)size);
-			}
-			else {
-				dos.writeInt((int)filepos);
-				dos.writeInt((int)size);
-			}
-			DoomIO.writeString(dos, name, 8);
-
-		}
-#endif
-
-	};
 	/** A container allowing for caching of arrays of CacheableDoomObjects
 	*
 	*  It's a massive improvement over the older system, allowing for proper
@@ -69,8 +13,8 @@ namespace doom_cpp {
 	*  abuse? ;-)
 	*
 	*/
-	template<typename T, typename = std::enable_if<std::is_base_of<CacheableDoomObject,T>::value>>
-	class CacheableDoomObjectContainer: public  CacheableDoomObject {
+	template<typename T, typename = std::enable_if<std::is_base_of<CacheableDoomObject, T>::value>>
+	class CacheableDoomObjectContainer : public  CacheableDoomObject {
 	public:
 		using vector_traits = vector_traits<T>;
 		using vector_type = typename vector_traits::vector_type;
@@ -85,13 +29,14 @@ namespace doom_cpp {
 
 		void unpack(std::istream& buf) override { for (value_type& a : _stuff) a.unpack(buf); }
 		template<typename CONTAINER>
-		static void unpack(std::istream&  buf, CONTAINER&& stuff)  {
+		static void unpack(std::istream&  buf, CONTAINER&& stuff) {
 			for (value_type& a : _stuff) a.unpack(buf);
 		}
 	private:
 		vector_type _stuff;
 	};
 	// eideness stuff to worry about
+
 	class name8 : public util::hash_interface {
 		union {
 			uint64_t number;
@@ -99,20 +44,42 @@ namespace doom_cpp {
 		} _name;
 	public:
 		name8() { _name.number = 0UL; }
-		name8(const char* str_) { std::strncpy(_name.str, str_, 8); }
+		name8(const char(&asrc)[8]) { std::memcpy(_name.str, asrc, 8); }
+		name8(const char* src) {
+			size_t i = 0;
+			for (i = 0; i < 8 && *src;) _name.str[i++] = *src++;
+			while (i < 8) _name.str[i++] = 0;
+		}
+		size_t size() const {
+		return  _name.str[0] == 0 ? 0U :
+				_name.str[1] == 0 ? 1U :
+				_name.str[2] == 0 ? 2U :
+				_name.str[3] == 0 ? 3U :
+				_name.str[4] == 0 ? 4U :
+				_name.str[5] == 0 ? 5U :
+				_name.str[6] == 0 ? 6U :
+				_name.str[7] == 0 ? 7U : 8U;
+		}
+		bool zero_terminated() const { return size() < 8; }
+		const char* begin() const { return _name.str; }
+		const char* end() const { return _name.str + size(); }
+		char* begin() { return _name.str; }
+		char* end() { return _name.str + size(); }
 		uint32_t int_name() const { return _name.number >> 32; }
-		size_t hash() const { return sizeof(size_t) == sizeof(uint32_t) ? int_name() : _name.number; }
-		bool operator==(const char* r) const { return std::strncmp(_name.str,r , 8) == 0; }
+		size_t hash() const { return sizeof(size_t) == sizeof(uint32_t) ? int_name() : (size_t)_name.number; }
+		bool nequal(uint64_t i) const { return i == _name.number; }
+		bool operator==(const char* r) const { return std::strncmp(_name.str, r, 8) == 0; }
+		bool operator==(const char(&r)[8]) const { return *((const uint64_t*)r) == _name.number; }
 		bool operator==(const name8& r) const { return _name.number == r._name.number; }
-		bool operator!=(const name8& r) const { return !(*this == r);   }
+		bool operator!=(const name8& r) const { return !(*this == r); }
 		bool operator!=(const char* r) const { return !(*this == r); }
 
 		static uint32_t stringToInt(const char* src, size_t len) {
 			uint8_t s[5] = { 0 ,0,0,0 };
-			for (size_t i = 0; i < 4 && *src) 
+			for (size_t i = 0; i < 4 && *src;)
 				s[i++] = *src++;
 
-			return (s[0] << 24) | (s[ 1] << 16) | (s[2] << 8) | s[3];
+			return (s[0] << 24) | (s[1] << 16) | (s[2] << 8) | s[3];
 		}
 	};
 
@@ -122,7 +89,7 @@ namespace doom_cpp {
 		ANIM_LEVEL
 	};
 
-	enum class  li_namespace_t  {
+	enum class  li_namespace_t {
 		ns_global,
 		ns_sprites,
 		ns_flats,
@@ -145,66 +112,71 @@ namespace doom_cpp {
 		, source_err
 
 	};
-	// CPhipps - changed wad init
-	// We _must_ have the wadfiles[] the same as those actually loaded, so there 
-	// is no point having these separate entities. This belongs here.
-	class wadinfo_t : public IReadableDoomObject, IWritableDoomObject {
-		struct _wadinfo_t {
-			union {
-				uint32_t id;
-				char identification[4];
-			};
-			uint32_t numlumps;
-			uint32_t infotableofs;
+	struct wadinfo_t {
+		char		identification[4];
+		int			numlumps;
+		int			infotableofs;
+	};
+
+
+	using lumpindex_t = int32_t;
+	class WadLoader {
+
+		// On Windows, vsnprintf() is _vsnprintf().
+#ifdef _WIN32
+#ifdef _MSC_VER /* not needed for Visual Studio 2008 */
+#pragma pack(push,1)
+		struct filelump_t {
+			uint32_t	filepos;
+			uint32_t	size; // Is INT 32-bit in file!
+			name8		name;
 		};
-		_wadinfo_t _info;
+		struct lump_info_t {
+			name8			name;
+			uint32_t		position;
+			uint32_t		size;
+			void*			cache;
+			int				fileindex;
+			// Used for hash table lookups
+			lumpindex_t next;
+			lump_info_t(int fileindex, name8 name, uint32_t position, uint32_t size) : name(name), position(position), size(size), cache(nullptr), fileindex(fileindex), next(-1) {}
+			lump_info_t() = default;
+		};
+		struct file_name_t {
+			string_type filename;
+			int handle;
+			file_name_t(const string_type& filename) : filename(filename), handle(-1) {}
+			file_name_t(string_type&& filename) : filename(std::move(filename)), handle(-1) {}
+		};
+#pragma pack(pop)
+#endif
+#endif
+		using lump_map_t = map_type<std::reference_wrapper<const name8>, const filelump_t*>;
+		vector_type<lump_info_t> _lumps;
+		vector_type<file_name_t> _wad_files;
 	public:
-		uint32_t identification() const { return _info.id; }
-		uint32_t numlumps() const { return _info.numlumps; }
-		uint32_t infotableofs() const { return _info.infotableofs; }
-		void read(std::istream& s) final override {
-			util::StreamReader r(s);
-			// MAES: Byte Buffers actually make it convenient changing byte order on-the-fly.
-			// But RandomAccessFiles (and inputsteams) don't :-S
-			r.read(_info.identification,4);
-			r.read(_info.numlumps);
-			r.read(_info.numlumps);
-		}
-		void write(std::ostream& s) const final override {
-			util::StreamWriter w(s);
-			// MAES: Byte Buffers actually make it convenient changing byte order on-the-fly.
-			// But RandomAccessFiles (and inputsteams) don't :-S
-			w.write(_info.identification, 4);
-			w.write(_info.numlumps);
-			w.write(_info.numlumps);
+		WadLoader() {}
+		lumpindex_t CheckNumForName(const name8& name);
+		lumpindex_t GetNumForName(const name8& name);
+		//
+		// W_LumpLength
+		// Returns the buffer size needed to load the given lump.
+		//
+		size_t LumpLength(lumpindex_t lump);
+		bool WadLoader::loadfile(const char* filename);
+		void ReadLump(lumpindex_t lump, void* dest);
+		void *CacheLump(lumpindex_t lumpnum, PU tag);
+		void *CacheLump(const name8& name, PU tag);
+		void ReleaseLump(lumpindex_t lump);
+		void ReleaseLump(const name8& name);
+		void debug_list_lumps();
+		//
+		// W_GetNumForName
+		// Calls W_CheckNumForName, but bombs out if not found.
+		//
 
-		}
+
 	};
-
-	struct wadfile_info_t {
-		string_type name; // Also used as a resource identifier, so save with full path and all.
-		int type; // as per InputStreamSugar
-		wad_source_t src;
-		bool cached; // Whether we use local caching e.g. for URL or zips
-		long maxsize = -1; // Update when known for sure. Will speed up seeking.
-	};
-
-	struct lumpinfo_t
-	{
-		// WARNING: order of some fields important (see info.c).
-
-		char  name[9];
-		int   size;
-
-		// killough 4/17/98: namespace tags, to prevent conflicts between resources
-		li_namespace_t li_namespace
-		wadfile_info_t *wadfile;
-		int position;
-		wad_source_t source;
-		int flags; //e6y
-	} ; */
-	// enums
-	
 
 
 

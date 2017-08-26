@@ -1,4 +1,4 @@
-# Install script for directory: D:/Documents/GitHub/UnderTalk/SFML/examples/sockets
+# Install script for directory: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/sockets
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,21 +29,21 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "examples" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "D:/Documents/GitHub/UnderTalk/SFML_Build/examples/sockets/Debug/sockets-d.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/Debug/sockets-d.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "D:/Documents/GitHub/UnderTalk/SFML_Build/examples/sockets/Release/sockets.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/Release/sockets.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "D:/Documents/GitHub/UnderTalk/SFML_Build/examples/sockets/MinSizeRel/sockets.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/MinSizeRel/sockets.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "D:/Documents/GitHub/UnderTalk/SFML_Build/examples/sockets/RelWithDebInfo/sockets.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/RelWithDebInfo/sockets.exe")
   endif()
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "examples" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/sockets" TYPE FILE FILES
-    "D:/Documents/GitHub/UnderTalk/SFML/examples/sockets/Sockets.cpp"
-    "D:/Documents/GitHub/UnderTalk/SFML/examples/sockets/TCP.cpp"
-    "D:/Documents/GitHub/UnderTalk/SFML/examples/sockets/UDP.cpp"
+    "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/sockets/Sockets.cpp"
+    "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/sockets/TCP.cpp"
+    "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/sockets/UDP.cpp"
     )
 endif()
 

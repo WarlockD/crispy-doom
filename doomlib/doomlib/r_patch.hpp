@@ -9,7 +9,7 @@ namespace doom_cpp {
 	//and we compose textures from the TEXTURE1/2 lists
 	//of patches.
 
-	class patch_t i: public CacheableDoomObject {
+	class patch_t : public CacheableDoomObject {
 
 		/** bounding box size */
 		public short       width, height;

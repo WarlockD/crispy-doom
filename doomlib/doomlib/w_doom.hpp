@@ -36,53 +36,15 @@ namespace doom_cpp {
 		vector_type _stuff;
 	};
 	// eideness stuff to worry about
+	
 
-	class name8 : public util::hash_interface {
-		union {
-			uint64_t number;
-			char str[8];
-		} _name;
-	public:
-		name8() { _name.number = 0UL; }
-		name8(const char(&asrc)[8]) { std::memcpy(_name.str, asrc, 8); }
-		name8(const char* src) {
-			size_t i = 0;
-			for (i = 0; i < 8 && *src;) _name.str[i++] = *src++;
-			while (i < 8) _name.str[i++] = 0;
-		}
-		size_t size() const {
-		return  _name.str[0] == 0 ? 0U :
-				_name.str[1] == 0 ? 1U :
-				_name.str[2] == 0 ? 2U :
-				_name.str[3] == 0 ? 3U :
-				_name.str[4] == 0 ? 4U :
-				_name.str[5] == 0 ? 5U :
-				_name.str[6] == 0 ? 6U :
-				_name.str[7] == 0 ? 7U : 8U;
-		}
-		bool zero_terminated() const { return size() < 8; }
-		const char* begin() const { return _name.str; }
-		const char* end() const { return _name.str + size(); }
-		char* begin() { return _name.str; }
-		char* end() { return _name.str + size(); }
-		uint32_t int_name() const { return _name.number >> 32; }
-		size_t hash() const { return sizeof(size_t) == sizeof(uint32_t) ? int_name() : (size_t)_name.number; }
-		bool nequal(uint64_t i) const { return i == _name.number; }
-		bool operator==(const char* r) const { return std::strncmp(_name.str, r, 8) == 0; }
-		bool operator==(const char(&r)[8]) const { return *((const uint64_t*)r) == _name.number; }
-		bool operator==(const name8& r) const { return _name.number == r._name.number; }
-		bool operator!=(const name8& r) const { return !(*this == r); }
-		bool operator!=(const char* r) const { return !(*this == r); }
+	static uint32_t stringToInt(const char* src, size_t len) {
+		uint8_t s[5] = { 0 ,0,0,0 };
+		for (size_t i = 0; i < 4 && *src;)
+			s[i++] = *src++;
 
-		static uint32_t stringToInt(const char* src, size_t len) {
-			uint8_t s[5] = { 0 ,0,0,0 };
-			for (size_t i = 0; i < 4 && *src;)
-				s[i++] = *src++;
-
-			return (s[0] << 24) | (s[1] << 16) | (s[2] << 8) | s[3];
-		}
-	};
-
+		return (s[0] << 24) | (s[1] << 16) | (s[2] << 8) | s[3];
+	}
 	enum class animenum_t {
 		ANIM_ALWAYS,
 		ANIM_RANDOM,
@@ -127,9 +89,9 @@ namespace doom_cpp {
 #ifdef _MSC_VER /* not needed for Visual Studio 2008 */
 #pragma pack(push,1)
 		struct filelump_t {
-			uint32_t	filepos;
-			uint32_t	size; // Is INT 32-bit in file!
-			name8		name;
+			int	filepos;
+			int	size; // Is INT 32-bit in file!
+			char		name[8];
 		};
 		struct lump_info_t {
 			name8			name;

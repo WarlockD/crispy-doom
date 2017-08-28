@@ -4,18 +4,45 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
+#include "tgaimage.h"
+
 #include "w_doom.hpp"
 #include "z_doom.hpp"
+#include "doom_video.hpp"
 
 #include <cassert>
 #include <cstdarg>
+#include <Windows.h>
 
+static constexpr bool islineending(int c) { return c == '\r' || c == '\n'; }
 namespace doom_cpp {
-	void I_Error(const char* fmt, ...) {
+	template<size_t N>
+	size_t _Print(char (&buffer)[N], const char* fmt, va_list va) {
+		int len = vsnprintf(buffer, N-1, fmt, va);
+		assert(len > 3 && len < 1000);
+		while (len && islineending(buffer[len - 1])) len--; // trim line endings off
+		buffer[len++] = '\r';
+		buffer[len++] = '\n';
+		buffer[len++] = 0;
+		return size_t(len);
+	}
+	void I_Print(const char* fmt, ...) {
+		char buffer[1024];
 		va_list va;
 		va_start(va, fmt);
-		vprintf(fmt, va);
+		_Print(buffer, fmt, va);
 		va_end(va);
+		OutputDebugString(buffer);
+		fputs(buffer, stderr);
+	}
+	void I_Error(const char* fmt, ...) {
+		char buffer[1024];
+		va_list va;
+		va_start(va, fmt);
+		_Print(buffer, fmt, va);
+		va_end(va);
+		OutputDebugString(buffer);
+		fputs(buffer, stderr);
 		while (1) {} // debug
 		assert(0);// die
 		// error interface
@@ -26,24 +53,90 @@ namespace doom_cpp {
 static constexpr size_t total_doom_memory = 8000000U;
 uint8_t s_doom_memory[total_doom_memory];
 //static std::vector<uint8_t> doom_memory;
+class SFML_framebuffer {
+	sf::Texture _texture;
+	sf::Image _image;
+public:
+	SFML_framebuffer(size_t width, size_t height) { _image.create(width, height);  _texture.create(width, height);}
+	void set(size_t x, size_t y, const TGAColor& v) {
+		sf::Color c(v.r(), v.g(), v.b(), v.a());
+		_image.setPixel(x, y, c); 
+	}
+	sf::Texture& getTexture() {
+		_texture.loadFromImage(_image);
+		return _texture;
+	}
 
+	size_t get_width() const { return _image.getSize().x; }
+	size_t get_height() const { return _image.getSize().x; }
+};
+static doom_cpp::Video<320, 200> screen;
 void doom_start() {
 	// because of scope, go here
 	doom_cpp::WadLoader loader;
 	assert(loader.loadfile("DOOM.WAD"));
 	loader.debug_list_lumps();
 }
+#include "our_gl.h"
+TinyTest<float> test(640, 480);
+void tiny_test() {
+	test.init();
+	test.load("diablo3_pose.obj");
+
+	SFML_framebuffer image(640, 480);
+	// Create the window of the application
+	sf::RenderWindow window(sf::VideoMode(640, 480, 32), "SFML Pong",
+		sf::Style::Titlebar | sf::Style::Close);
+	window.setVerticalSyncEnabled(true);
+	sf::Sprite sprite;
+	sf::Clock clock; // starts the clock
+	while (window.isOpen())
+	{
+		// Handle events
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			// Window closed or escape key pressed: exit
+			if ((event.type == sf::Event::Closed) ||
+				((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
+			{
+				window.close();
+				break;
+			}
+		}
+		sf::Time elapsed1 = clock.getElapsedTime();
+		if (elapsed1.asMilliseconds() > 10)
+			clock.restart();
+		//std::cout << elapsed1.asSeconds() << std::endl;
+
+
+		clock.restart();
+		// Clear the window
+		window.clear(sf::Color(50, 200, 50));
+		test.render(image);
+		sprite.setTexture(image.getTexture());
+		window.draw(sprite);
+
+
+		// Display things on screen
+		window.display();
+	}
+
+}
+
+
 int main(int argc, const char* argv[]) {
 
 	//doom_memory.resize(total_doom_memory); // 8 megs
 	doom_cpp::Z_Init(s_doom_memory, total_doom_memory);
-	doom_cpp::Z_FileDumpHeap(stderr);
-	doom_start();
+	//doom_cpp::Z_FileDumpHeap(stderr);
+//	doom_start();
 
 
+	tiny_test();
 	while (1) {}
 
-
+#if 0
 
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
@@ -264,6 +357,6 @@ int main(int argc, const char* argv[]) {
 		// Display things on screen
 		window.display();
 	}
-
+#endif
 	return EXIT_SUCCESS;
 }

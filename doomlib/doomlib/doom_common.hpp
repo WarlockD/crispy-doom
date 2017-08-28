@@ -13,6 +13,7 @@
 #include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
+#include <array>
 
 namespace util {
 	using string_view = std::string_view;
@@ -65,12 +66,13 @@ namespace util {
 
 	template<typename T, size_t S = sizeof(T)>
 	inline static T to_little_edian(T value) {
-		if (isLittleEndian) edian_byte_swap<S>(reinterpret_cast<char*>(&value));
+		//if (!isLittleEndian) edian_byte_swap<S>(reinterpret_cast<char*>(&value));
 		return value;
 	}
 	template<typename T, size_t S = sizeof(T)>
 	inline static T to_big_edian(T value) {
-		if (!isLittleEndian) edian_byte_swap<S>(reinterpret_cast<char*>(&value));
+		//if (isLittleEndian) edian_byte_swap<S>(reinterpret_cast<char*>(&value));
+		edian_byte_swap<S>(reinterpret_cast<char*>(&value));
 		return value;
 	}
 
@@ -327,6 +329,71 @@ namespace util {
 			return strcasecmp(_filename, get_extension(filename));
 		}
 	};
+	template<size_t _SIZE> class fixed_string : public util::hash_interface {
+
+	public:
+		static constexpr size_t SIZE = _SIZE;
+		using size_type = size_t;
+		using array_type = std::array<char, SIZE>;
+		constexpr fixed_string() : _str{} {}
+		// copys a zero terminated string
+
+
+		fixed_string(const char* src) {
+			size_type i = 0;
+			while(*src && i < SIZE) _str[i++] = *src++;
+			while (i < SIZE) _str[i++] = '\0';
+		}
+		// ignores zero termination
+		fixed_string(const char* src, size_type len) {
+			size_type i = 0;
+			while (len-- && i < SIZE)_str[i++] = *src++;
+			while (i < SIZE)_str[i++] = '\0';
+		}
+		template<size_t OS>
+		fixed_string(const fixed_string<OS>& copy) : fixed_string(copy.data(), copy.size()) {}
+		template<size_t OS>
+		fixed_string(fixed_string<OS>&& move) : fixed_string(copy.data(), copy.size()) {}
+
+#if 0
+		template<size_t OS>
+		fixed_string<SIZE>& operator=(const fixed_string<OS>& copy) { std::copy_n(copy.begin(), std::min(fixed_string<OS>::SIZE, SIZE), _str.begin()); return *this; }
+		template<size_t OS>
+		fixed_string& operator=(fixed_string<OS>&& move) { std::copy_n(move._str.begin(), std::min(fixed_string<OS>::SIZE, SIZE), _str.begin()); return *this;}
+#endif
+		template<size_t ASIZE>
+		constexpr fixed_string(const std::array<char, ASIZE>& a) : fixed_string(a.data(), a.size()) {
+			static_assert(a.size() <= SIZE, "Array must be same or less size");
+		}
+		template<size_t ASIZE>
+		constexpr fixed_string(const char(&a)[ASIZE]) : fixed_string((const char*)a, ASIZE) {
+			static_assert(ASIZE <= SIZE, "Array must be same or less size");
+		}
+		constexpr size_type max_size() const { return SIZE; }
+		constexpr size_type size() const { return _str.back() == '\0' ? strlen(_str.data()) : SIZE; }
+		bool zero_terminated() const { return size() < 8; }
+		auto begin() const { return _str.begin(); }
+		auto end() const { return _str.begin() + size(); }
+		auto begin() { return _str.begin(); }
+		auto end() { return _str.begin() + size(); }
+		size_t hash() const { return   luaS_hash(_str.data(), size()); }
+		string_view strv() const { return string_view(_str.data(), _len); }
+		const char* data() const { return _str.data(); } // NOT GURENTEED 8 TERMINATED
+		char* data()  { return _str.data(); }
+		const array_type& array() const { return _str; }
+		bool operator==(const char* r) const { return std::strncmp(_name.str, r, 8) == 0;  }
+		template<size_t OS>
+		bool operator==(const fixed_string<OS>& r) const { return size() == r.size() && std::equal(begin(), end(), r.begin()); }
+		template<size_t OS>
+		bool operator!=(const fixed_string<OS>& r) const { return !(*this == r); }
+		bool operator!=(const char* r) const { return !(*this == r); }
+		auto at(size_type i) { return _str.at(i); }
+		auto at(size_type i) const { return _str.at(i); }
+		auto operator[](size_type i) { return _str.operator[](i); }
+		auto  operator[](size_type i) const { return _str.operator[](i); }
+	private:
+		array_type _str;
+	};
 };
 namespace std {
 	template<>
@@ -338,8 +405,11 @@ namespace doom_cpp {
 	// if we are a fixed string, then it fills the 8 slot, otherwise we are a 
 	// refrence to a string
 	// The only point of this 
+	void I_Error(const char* fmt, ...);
+	void I_Print(const char* fmt, ...);
 
 //	using string_type = util::cstring;
+	using name8 = util::fixed_string<8>;
 	using string_view = std::string_view;
 	template<typename T>
 	struct vector_traits {
@@ -349,54 +419,6 @@ namespace doom_cpp {
 		using const_iterator = typename vector_type::const_iterator;
 	};
 
-	class fixed_t : public util::hash_interface {
-		int32_t _val;
-	public:
-		static constexpr size_t FRACBITS = 16;
-		static constexpr size_t FRACUNIT = (1 << FRACBITS);;
-	//	static constexpr size_t MAPFRACUNIT = FRACUNIT / Defines.TIC_MUL;
-		constexpr static inline uint32_t FixedMul(uint32_t l, uint32_t r) {
-			return static_cast<uint32_t>((static_cast<uint64_t>(l) * static_cast<uint64_t>(r)) >> FRACBITS);
-		}
-		constexpr static inline int32_t FixedMulInt(int32_t l, int32_t r) {
-			return  static_cast<uint32_t>((static_cast<int64_t>(l) * static_cast<int64_t>(r)) >> FRACBITS);
-		}
-		template<typename T>
-		constexpr static inline T abs(T v) { return v < 0 ? -v : v; }
-		constexpr static inline int32_t FixedDiv2(int32_t l, int32_t r) {
-			return static_cast<int64_t>((static_cast<int64_t>(l) << 16) / r);
-		}
-		constexpr static inline int32_t FixedDiv(int32_t l, int32_t r) {
-			return ((abs(l) >> 14) >= abs(r)) ?
-				((l*r) < 0) ? std::numeric_limits<int32_t>::min() : std::numeric_limits<int32_t>::max()
-				: FixedDiv2(l, r);
-		}
-
-		fixed_t() : _val(0) {}
-		fixed_t(int32_t val) : _val(0) {}
-		operator int32_t() const { return _val; }
-		operator bool() const { return _val != 0; }
-		fixed_t operator*(const int32_t&r) const {return fixed_t(FixedMul(_val, r));}
-		fixed_t operator*(const fixed_t&r) const { return fixed_t(FixedMul(_val, r._val)); }
-		fixed_t& operator*=(const fixed_t&r) { return 	(*this = *this * r); }
-		fixed_t& operator*=(const int32_t&r) { return 	(*this = *this * r); }
-		fixed_t operator+(const int32_t&r) const { return fixed_t(_val+ r); }
-		fixed_t operator+(const fixed_t&r) const { return fixed_t(_val+ r._val); }
-		fixed_t& operator+=(const fixed_t&r) { return 	(*this = *this + r); }
-		fixed_t& operator+=(const int32_t&r) { return 	(*this = *this + r); }
-		fixed_t operator-(const int32_t&r) const { return fixed_t(_val + r); }
-		fixed_t operator-(const fixed_t&r) const { return fixed_t(_val + r._val); }
-		fixed_t& operator-=(const fixed_t&r) { return 	(*this = *this + r); }
-		fixed_t& operator-=(const int32_t&r) { return 	(*this = *this + r); }
-		size_t hash() const { return _val; }
-		bool operator==(const fixed_t&r) const { return _val == r._val; }
-		bool operator!=(const fixed_t&r) const { return _val != r._val; }
-		bool operator>=(const fixed_t&r) const { return _val >= r._val; }
-		bool operator<=(const fixed_t&r) const { return _val <= r._val; }
-		bool operator<(const fixed_t&r) const { return _val < r._val; }
-		bool operator>(const fixed_t&r) const { return _val > r._val; }
-
-	};
 	// so Istream manages itself.  once a istream is created, it can self open or close on its own.
 	// so when you do a read, it might just open the file at the last offset, and then close it
 	// or keep the handle open, etc.
@@ -603,7 +625,6 @@ namespace doom_cpp {
 	void    Z_ChangeUser(void *ptr, void **user);
 	size_t     Z_FreeMemory();
 	size_t  Z_ZoneSize();
-	size_t Z_UsedMemory();
 	//
 	// This is used to get the local FILE:LINE info from CPP
 	// prior to really call the function in question.
@@ -639,11 +660,11 @@ namespace doom_cpp {
 
 		template<typename AT>
 		doom_allocator<T, TAG>& operator=(const doom_allocator<AT, TAG>&){	return (*this);}
-
 		const_pointer address(const_reference v) const { return std::addressof(v); }
 		pointer address(reference r) const { return std::addressof(v); }
-		size_type max_size() const { return static_cast<size_type>(Z_UsedMemory()); }
-		pointer allocate(size_type n) const { return static_cast<pointer>(Z_Malloc(n, tag, nullptr)); }
+		size_type max_size() const { return static_cast<size_type>(Z_FreeMemory()); }
+		pointer allocate(size_type n) const { return static_cast<pointer>(  Z_Malloc(sizeof(T) * n, TAG, nullptr)); }
+		pointer allocate(size_type n)  { return static_cast<pointer>(Z_Malloc(sizeof(T) * n, TAG, nullptr)); }
 		void deallocate(pointer p,size_type n) const { (void)n; Z_Free(p); }
 		pointer allocate(size_type _Count, const void *)
 		{	// allocate array of _Count elements, ignore hint
@@ -693,6 +714,26 @@ namespace doom_cpp {
 	using vector_type = std::vector<T, doom_allocator<T>>;
 	template<typename K, typename V, typename HASHER= std::hash<K>, typename EQUAL_TO= std::equal_to<K>>
 	using map_type = std::unordered_map <K,V, HASHER, EQUAL_TO, doom_allocator<std::pair<const K, V>>>;
+
+	// interface definisions
+	struct Timer {
+		static constexpr size_t TICRATE = 35;
+		virtual ~Timer() {}
+		// returns current time in tics.
+		virtual size_t GetTime(void)=0;
+
+		// returns current time in ms
+		virtual size_t GetTimeMS(void)=0;
+		virtual void Sleep(size_t ms)=0;
+		// Initialize timer
+		virtual void Init()=0;
+		// Wait for vertical retrace or pause a bit.
+		virtual void WaitVBL(uint32_t count)=0;
+	};
+
+
+
+
 
 
 };

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\f643c0c2863f44dcc98837996ca509d9\INSTALL_force.rule">
+    <CustomBuild Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\1bae87cc92fc9c460852df1bcdef2f2e\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{70BE5BC4-D4F5-339C-9463-ECA26E8894CA}</UniqueIdentifier>
+      <UniqueIdentifier>{B8FB7163-59C9-3407-AF4A-A88154B0CDF0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

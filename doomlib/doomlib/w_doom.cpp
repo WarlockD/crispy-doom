@@ -9,11 +9,14 @@ namespace doom_cpp {
 	
 	bool WadLoader::loadfile(const char* filename) {
 		size_t file_size = 0;
+		//FILE* f = fopen(filename, "rb");
+
 		int handle = M_OpenReadOnly(filename);
 		if (handle >= 0) {
 			size_t file_index = _wad_files.size();
 			_wad_files.emplace_back(filename);
 			wadinfo_t header;
+			//fread(&header, sizeof(wadinfo_t), 1, f);
 			M_Read(handle, &header, sizeof(wadinfo_t));
 			header.numlumps = util::to_little_edian(header.numlumps);
 			header.infotableofs = util::to_little_edian(header.infotableofs);
@@ -21,17 +24,22 @@ namespace doom_cpp {
 			// https://www.doomworld.com/vb/post/1010985
 			if (!strncmp(header.identification, "PWAD", 4) && header.numlumps > 4046)
 			{
+				//fclose(f);
 				M_Close(handle);
 				I_Error("Error: Vanilla limit for lumps in a WAD is 4046, "
 					"PWAD %s has %d", filename, header.numlumps);
 			}
+			vector_type<filelump_t> filelumps(size_t(header.numlumps));
 			M_Seek(handle, SeekPos::Begin, header.infotableofs);
-			for (size_t i = 0; i <  (size_t)header.numlumps; i++) {
-				filelump_t flump;
-				assert(M_Read(handle, &flump, sizeof(filelump_t)) == sizeof(filelump_t));
+		//	fseek(f, header.infotableofs, SEEK_SET);
+			assert(M_Read(handle, filelumps.data(), sizeof(filelump_t)* header.numlumps) == sizeof(filelump_t)* header.numlumps);
+		//	assert(fread(filelumps.data(), sizeof(filelump_t), header.numlumps, f) == sizeof(filelump_t)* header.numlumps);
+			_lumps.reserve(_lumps.size() + header.numlumps);
+			for (const filelump_t& flump : filelumps) {
 				_lumps.emplace_back(file_index, flump.name, util::to_little_edian(flump.filepos), util::to_little_edian(flump.size));
 			}
 			M_Close(handle);
+			//fclose(f);
 			return true;
 		}
 		return false;
@@ -97,18 +105,12 @@ namespace doom_cpp {
 		ReleaseLump(GetNumForName(name));
 	}
 	void WadLoader::debug_list_lumps() {
+		util::fixed_string<10> zero_terminated;
 		for (size_t i = 0; i < _lumps.size(); i++) {
 			auto& l = _lumps[i];
 			printf("%5i: ", i);
-			if (l.name.zero_terminated()) {
-				printf("%9s ", l.name.begin());
-			}
-			else {
-				char st[10];
-				std::copy(l.name.begin(), l.name.end(), std::begin(st));
-				st[l.name.size()] = 0;
-				printf("%9s ",st);
-			}
+			zero_terminated = l.name;
+			printf("%9s ", zero_terminated.data());
 			printf("%8i %8i\r\n", l.size, l.position);
 		}
 	}

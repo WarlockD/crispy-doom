@@ -29,6 +29,8 @@ namespace doom_cpp{
 		uint32_t	id;	// should be ZONEID
 		memblock_t*	next;
 		memblock_t*	prev;
+		void* block()  { return this + 1; }
+		memblock_t* next_memblock() { return (memblock_t* )((uint8_t*)this + size); }
 	};
 	struct memzone_t
 	{
@@ -207,17 +209,13 @@ namespace doom_cpp{
 
 	void* Z_Malloc(size_t size, PU tag, void** user)
 	{
-		printf("Z_Malloc: begin\r\n");
-		Z_CheckHeap();
-		Z_FileDumpHeap(stderr);
 		int		extra;
 		memblock_t*	start;
 		memblock_t* rover;
 		memblock_t* newblock;
 		memblock_t*	base;
 		void *result;
-		assert(size > 0 && size < mainzone->size); // some checks
-												   
+							   
 
 		size += sizeof(memblock_t); // account for size of block header
 		size = (size + MEM_ALIGN - 1) & ~(MEM_ALIGN - 1);
@@ -300,7 +298,7 @@ namespace doom_cpp{
 		base->user = (void**)user;
 		base->tag = tag;
 
-		result = (void *)((uint8_t *)base + sizeof(memblock_t));
+		result = base->block(); // (void *)((uint8_t *)base + sizeof(memblock_t));
 
 		if (base->user) *base->user = result;
 
@@ -308,9 +306,7 @@ namespace doom_cpp{
 		mainzone->rover = base->next;
 
 		base->id = ZONEID;
-		printf("Z_Malloc: end\r\n");
-		Z_CheckHeap();
-		Z_FileDumpHeap(stderr);
+
 		return result;
 	}
 

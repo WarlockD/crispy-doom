@@ -50,7 +50,7 @@ namespace doom_cpp {
 	}
 
 	int M_Seek(int handle, SeekPos origin, std::ptrdiff_t offset) {
-		return _lseek(handle, origin == SeekPos::Begin ? SEEK_SET : origin == SeekPos::Current ? SEEK_CUR : SEEK_END, offset);
+		return _lseek(handle, offset, origin == SeekPos::Begin ? SEEK_SET : origin == SeekPos::Current ? SEEK_CUR : SEEK_END );
 	}
 	int M_Read(int handle, void* buffer, size_t len) {
 		return _read(handle, buffer, len);

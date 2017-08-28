@@ -162,7 +162,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="doom_common.cpp" />
+    <ClCompile Include="doom_math.cpp" />
+    <ClCompile Include="doom_video.cpp" />
+    <ClCompile Include="geometry.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model.cpp" />
+    <ClCompile Include="our_gl.cpp" />
+    <ClCompile Include="tgaimage.cpp" />
+    <ClCompile Include="tiny_main.cpp" />
     <ClCompile Include="w_doom.cpp" />
     <ClCompile Include="z_doom.cpp" />
   </ItemGroup>
@@ -189,7 +196,15 @@
   <ItemGroup>
     <ClInclude Include="ByteBuffer.hpp" />
     <ClInclude Include="doom_common.hpp" />
+    <ClInclude Include="doom_math.h" />
+    <ClInclude Include="doom_state.h" />
+    <ClInclude Include="doom_video.hpp" />
+    <ClInclude Include="geometry.h" />
+    <ClInclude Include="model.h" />
+    <ClInclude Include="our_gl.h" />
     <ClInclude Include="r_patch.hpp" />
+    <ClInclude Include="tgaimage.h" />
+    <ClInclude Include="tiny_common.h" />
     <ClInclude Include="w_doom.hpp" />
     <ClInclude Include="z_doom.hpp" />
   </ItemGroup>

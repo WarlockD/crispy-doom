@@ -19,6 +19,12 @@
     <Filter Include="doom">
       <UniqueIdentifier>{c31dc161-8427-4781-8512-ef43900618b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="chocolate">
+      <UniqueIdentifier>{e827ab58-c609-48c3-8dcb-d485eb79c61c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyrender">
+      <UniqueIdentifier>{300f2bc9-a1c2-4988-afd2-1b1486179231}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,6 +38,27 @@
     </ClCompile>
     <ClCompile Include="z_doom.cpp">
       <Filter>doom</Filter>
+    </ClCompile>
+    <ClCompile Include="doom_math.cpp">
+      <Filter>doom</Filter>
+    </ClCompile>
+    <ClCompile Include="doom_video.cpp">
+      <Filter>doom</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.cpp">
+      <Filter>tinyrender</Filter>
+    </ClCompile>
+    <ClCompile Include="model.cpp">
+      <Filter>tinyrender</Filter>
+    </ClCompile>
+    <ClCompile Include="our_gl.cpp">
+      <Filter>tinyrender</Filter>
+    </ClCompile>
+    <ClCompile Include="tgaimage.cpp">
+      <Filter>tinyrender</Filter>
+    </ClCompile>
+    <ClCompile Include="tiny_main.cpp">
+      <Filter>tinyrender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +76,30 @@
     </ClInclude>
     <ClInclude Include="z_doom.hpp">
       <Filter>doom</Filter>
+    </ClInclude>
+    <ClInclude Include="doom_math.h">
+      <Filter>doom</Filter>
+    </ClInclude>
+    <ClInclude Include="doom_video.hpp">
+      <Filter>doom</Filter>
+    </ClInclude>
+    <ClInclude Include="doom_state.h">
+      <Filter>doom</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>tinyrender</Filter>
+    </ClInclude>
+    <ClInclude Include="model.h">
+      <Filter>tinyrender</Filter>
+    </ClInclude>
+    <ClInclude Include="our_gl.h">
+      <Filter>tinyrender</Filter>
+    </ClInclude>
+    <ClInclude Include="tgaimage.h">
+      <Filter>tinyrender</Filter>
+    </ClInclude>
+    <ClInclude Include="tiny_common.h">
+      <Filter>tinyrender</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

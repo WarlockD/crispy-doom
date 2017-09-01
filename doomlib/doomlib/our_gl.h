@@ -122,8 +122,8 @@ public:
 		}
 		Vec2i P;
 		TGAColor color;
-		for (P.x = bboxmin.x; P.x <= bboxmax.x; P.x++) {
-			for (P.y = bboxmin.y; P.y <= bboxmax.y; P.y++) {
+		for (P.x = int(bboxmin.x); P.x <= int(bboxmax.x); P.x++) {
+			for (P.y = int(bboxmin.y); P.y <= int(bboxmax.y); P.y++) {
 				Vec3f bc_screen = barycentric(pts2[0], pts2[1], pts2[2], P);
 				Vec3f bc_clip = Vec3f(bc_screen.x / pts[0][3], bc_screen.y / pts[1][3], bc_screen.z / pts[2][3]);
 				bc_clip = bc_clip / (bc_clip.x + bc_clip.y + bc_clip.z);

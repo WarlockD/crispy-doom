@@ -5,85 +5,271 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include <array>
 
 template<size_t DimCols,size_t DimRows,typename T> class mat;
+namespace priv {
+	template<typename A, typename B>
+	static constexpr inline B _convert(A a, std::true_type, std::false_type) { return static_cast<B>(static_cast<A>(0.5) + a); }
+	template<typename A, typename B>
+	static constexpr inline B _convert(A a, std::false_type, std::true_type) { return static_cast<B>(a); }
+	template<typename A, typename B>
+	static constexpr inline B _convert(A a, std::false_type, std::false_type) { return static_cast<B>(a); }
+	template<typename A, typename B>
+	static constexpr inline B _convert(A a, std::true_type, std::true_type) { return static_cast<B>(a); }
+	template<typename A, typename B>
+	static constexpr inline B convert(A a) { return _convert<A,B>(a, std::is_floating_point<A>(), std::is_floating_point<B>()); }
+
+	template<size_t N, typename A, typename B>
+	static constexpr inline B _get_array(const std::array<A, N>& a, size_t i) { return a.size() < i ? convert<A,B>(a[i]) : B{}; }
+
+	template<typename A, size_t AN, typename B, size_t BN,typename F, std::size_t...i>
+	static constexpr inline std::array<B,BN> get_array(const std::array<A, AN>& a, std::integer_sequence<std::size_t, i...>) {
+		return std::array<B, BN> { { _get_array(a,i)... } };
+	}
+	template<typename A, size_t AN, typename B, size_t BN>
+	static constexpr inline std::array<B, BN> convert_array(const std::array<A, AN>& a) {
+		return get_array(a, std::make_index_sequence<AN>);
+	}
+
+}
+namespace vector_ops {
+	// https://codereview.stackexchange.com/questions/97962/c-vector-that-uses-expression-templates-technique-to-increase-performance-of-m
+	// humm intresting idea
+	template <size_t DIM, typename T>
+	class Vec
+	{
+
+	public:
+		using array_type = std::array<T, DIM>;
+		using size_type = size_t;
+		using value_type = T;
+		template<typename ARRAYB>
+		inline static constexpr array_type _clone(const ARRAYB& in) {
+			array_type out;
+			size_t i = 0;
+			for(;i < in.size() && i < out.size();i++) {
+				out[i] = in[i];
+				if (i == out.size()) return out;
+			}
+			while (i != out.size()) { out[i++] = value_type{}; }
+			return out;
+		}
+		constexpr size_type size() const { return DIM; }
+		template<typename F>
+		constexpr Vec(std::initializer_list<F> e)  { 
+			size_t i = 0;
+			for (const auto& ev : e) {
+				_data[i++] = ev;
+				if (i == size()) return;
+			}
+			while (i != size()) { _data[i++] = value_type{}; }
+		}
+		template<typename VecOperation>
+		constexpr Vec(const VecOperation& vo) : _data(_clone(vo)) { }
+
+		constexpr value_type operator[](size_type i) const { return _data[i]; }
+		value_type& operator[](size_type i) { return _data[i]; }
+	private:
+
+		array_type _data;
+	};
+	template<typename T1, typename T2>
+	struct VecSum
+	{
+		const T1& t1;
+		const T2& t2;
+		constexpr size_t size() const { return std::min(t1.size(), t2.size()); }
+		auto operator[](typename T2::size_type i) const { return t1[i] + t2[i]; }
+	};
+	template<typename T1, typename T2>
+	struct VecDiff
+	{
+		const T1& t1;
+		const T2& t2;
+		constexpr size_t size() const { return std::min(t1.size(), t2.size()); }
+		auto operator[](typename T2::size_type i) const { return t1[i] - t2[i]; }
+	};
+	template<typename T1, typename T2>
+	auto operator+(const T1& t1, const T2& t2)  -> VecSum<T1, T2> { return { t1, t2 }; }
+	template<typename T1, typename T2>
+	auto operator-(const T1& t1, const T2& t2)  -> VecDiff<T1, T2> { return { t1, t2 }; }
+}
 
 template <size_t DIM, typename T> struct vec {
-   constexpr vec() { for (size_t i=DIM; i--; data_[i] = T()); }
-          T& operator[](const size_t i)       { assert(i<DIM); return data_[i]; }
-    const T& operator[](const size_t i) const { assert(i<DIM); return data_[i]; }
-private:
-    T data_[DIM];
+	using value_type = T;
+   constexpr vec() { for (size_t i=DIM; i--; data[i] = T()); }
+ //  template<typename ... Args>
+//   constexpr vec(Args&& ... args) : data{ std::forward<Args>(args)... } {}
+   template<size_t UN, typename U>
+   constexpr vec(const vec<UN, U>& v) : data{ convert_array<U,UN,T,DIM>(v.data) } { std::round }
+
+   constexpr      T& operator[](const size_t i)       {  return data[i]; }
+	constexpr const T& operator[](const size_t i) const {  return data[i]; }
+	std::array<value_type, DIM> data;
 };
 
 /////////////////////////////////////////////////////////////////////////////////
 
 template <typename T> struct vec<2,T> {
-    vec() : x(T()), y(T()) {}
-    vec(T X, T Y) : x(X), y(Y) {}
-    template <class U> vec<2,T>(const vec<2,U> &v);
-          T& operator[](const size_t i)       { assert(i<2); return i<=0 ? x : y; }
-    const T& operator[](const size_t i) const { assert(i<2); return i<=0 ? x : y; }
+	using value_type = T;
+	constexpr vec() : x(T()), y(T()) {}
 
-    T x,y;
+	template<typename U> constexpr vec(U X, U Y) : x(priv::convert<U, T>(X)), y(priv::convert<U, T>(Y)) {}
+	//template <class U, typename> constexpr vec<2, T>(const vec<2, U> &v);
+
+	template <class U>
+	constexpr vec(const vec<2, U> &v) : x(priv::convert<U, T>(v.x)), y(priv::convert<U, T>(v.y)) {}
+
+	constexpr      T& operator[](const size_t i) { return data[i]; }
+	constexpr const T& operator[](const size_t i) const { return data[i]; }
+	union {
+		struct { T x, y; };
+		std::array<value_type, 2> data;
+	};
 };
 
 /////////////////////////////////////////////////////////////////////////////////
 
 template <typename T> struct vec<3,T> {
-    vec() : x(T()), y(T()), z(T()) {}
-    vec(T X, T Y, T Z) : x(X), y(Y), z(Z) {}
-    template <class U> vec<3,T>(const vec<3,U> &v);
-          T& operator[](const size_t i)       { assert(i<3); return i<=0 ? x : (1==i ? y : z); }
-    const T& operator[](const size_t i) const { assert(i<3); return i<=0 ? x : (1==i ? y : z); }
-    float norm() { return std::sqrt(x*x+y*y+z*z); }
-    vec<3,T> & normalize(T l=1) { *this = (*this)*(l/norm()); return *this; }
+	using value_type = T;
+	constexpr vec() : x(T()), y(T()), z(T()) {}
+	constexpr vec(T X, T Y, T Z) : x(X), y(Y), z(Z) {}
+	template <class U> 
+	constexpr vec<3,T>(const vec<3,U> &v) : x(static_cast<const T>(v.x)), y(static_cast<const T>(v.y)),  z(static_cast<const T>(v.z)) {}
+	constexpr      T& operator[](const size_t i) { return data[i]; }
+	constexpr const T& operator[](const size_t i) const { return data[i]; }
+	constexpr T norm() { return std::sqrt(x*x+y*y+z*z); }
+	constexpr vec<3,T> & normalize(T l=1) { *this = (*this)*(l/norm()); return *this; }
+	union {
+		struct {
+			union {
+				vec<2, T> xy;
+				struct { T x; T y; };
+			};
+			T z;
+		};
+		std::array<value_type, 3> data;
+	};
+};
+struct color_rgba {
 
-    T x,y,z;
+};
+template <size_t DIM, typename T> struct color {
+	using value_type = T;
+	static constexpr size_t dim = DIM;
+	constexpr color() { for (size_t i = DIM; i--; data[i] = T()); }
+	//  template<typename ... Args>
+	//   constexpr vec(Args&& ... args) : data{ std::forward<Args>(args)... } {}
+	template<size_t UN, typename U>
+	constexpr color(const color<UN, U>& v) : data{ convert_array<U,UN,T,DIM>(v.data) } {}
+
+	constexpr      T& operator[](const size_t i) { return data[i]; }
+	constexpr const T& operator[](const size_t i) const { return data[i]; }
+	std::array<T, DIM> data;
 };
 
+// this is indexed color
+template<> struct color<4, uint8_t> {
+	using value_type = uint8_t;
+	static constexpr size_t dim = 4;
+	constexpr color() : r(0),g(0),b(0), a(0xFF) {}
+	constexpr color(value_type R, value_type G, value_type B, value_type A=0xFF) : r(R), g(G), b(B), a(A) {}
+	constexpr      value_type& operator[](const size_t i) { return data[i]; }
+	constexpr const value_type& operator[](const size_t i) const { return data[i]; }
+	union {
+		uint32_t number;
+		value_type data[4];
+		struct {
+			value_type r;
+			value_type g;
+			value_type b;
+			value_type a;
+		};
+	};
+};
+
+
+template <size_t DIM, typename T,typename F>
+constexpr static inline color<DIM,T> operator*(const color<DIM, T>& c, F intensity) {
+	color<DIM, T> ret;
+	intensity = (intensity > F{ 1 } ? F{ 1 } : (intensity < F{ 0 } ? F{ 0 } : intensity));
+	for (size_t i = 0; i<DIM; i++) ret.data[i] = priv::convert<F,T>(c.data[i] * intensity);
+	return ret;
+}
+using color_t = color<4, uint8_t>;
+
+#if 0
+template <typename T> struct vec<4, T> {
+	constexpr vec() : x(T()), y(T()), z(T()) , w(T()) {}
+	constexpr vec(T X, T Y, T Z, T W) : x(X), y(Y), z(Z),w(W) {}
+	template <class U> 
+	constexpr vec<4, T>(const vec<3, U> &v) : x(static_cast<const T>(v.x)), y(static_cast<const T>(v.y)) , z(static_cast<const T>(v.z)), w(static_cast<const T>(v.w)) {}
+	constexpr T& operator[](const size_t i) { assert(i<DIM); return data[i]; }
+	constexpr const T& operator[](const size_t i) const { assert(i<DIM); return data[i]; }
+	constexpr float norm() { return std::sqrt(x*x + y*y + z*z + w*w); }
+	constexpr vec<4, T> & normalize(T l = 1) { *this = (*this)*(l / norm()); return *this; }
+	union {
+		struct {
+			union {
+				struct {
+					union {
+						vec<2, T> xy;
+						struct { T x; T y };
+					};
+					T z;
+				};
+				vec<3, T> xyz;
+			};
+			T w;
+		};
+		T data[4];
+	};
+};
+
+#endif
 /////////////////////////////////////////////////////////////////////////////////
 
-template<size_t DIM,typename T> T operator*(const vec<DIM,T>& lhs, const vec<DIM,T>& rhs) {
+template<size_t DIM,typename T> constexpr static inline T operator*(const vec<DIM,T>& lhs, const vec<DIM,T>& rhs) {
     T ret = T();
     for (size_t i=DIM; i--; ret+=lhs[i]*rhs[i]);
     return ret;
 }
 
 
-template<size_t DIM,typename T>vec<DIM,T> operator+(vec<DIM,T> lhs, const vec<DIM,T>& rhs) {
+template<size_t DIM,typename T> constexpr static inline vec<DIM,T> operator+(vec<DIM,T> lhs, const vec<DIM,T>& rhs) {
     for (size_t i=DIM; i--; lhs[i]+=rhs[i]);
     return lhs;
 }
 
-template<size_t DIM,typename T>vec<DIM,T> operator-(vec<DIM,T> lhs, const vec<DIM,T>& rhs) {
+template<size_t DIM,typename T> constexpr static inline vec<DIM,T> operator-(vec<DIM,T> lhs, const vec<DIM,T>& rhs) {
     for (size_t i=DIM; i--; lhs[i]-=rhs[i]);
     return lhs;
 }
 
-template<size_t DIM,typename T,typename U> vec<DIM,T> operator*(vec<DIM,T> lhs, const U& rhs) {
+template<size_t DIM,typename T,typename U> constexpr static inline vec<DIM,T> operator*(vec<DIM,T> lhs, const U& rhs) {
     for (size_t i=DIM; i--; lhs[i]*=rhs);
     return lhs;
 }
 
-template<size_t DIM,typename T,typename U> vec<DIM,T> operator/(vec<DIM,T> lhs, const U& rhs) {
+template<size_t DIM,typename T,typename U> constexpr static inline vec<DIM,T> operator/(vec<DIM,T> lhs, const U& rhs) {
     for (size_t i=DIM; i--; lhs[i]/=rhs);
     return lhs;
 }
 
-template<size_t LEN,size_t DIM,typename T> vec<LEN,T> embed(const vec<DIM,T> &v, T fill=1) {
+template<size_t LEN,size_t DIM,typename T> constexpr static inline vec<LEN,T> embed(const vec<DIM,T> &v, T fill=1) {
     vec<LEN,T> ret;
     for (size_t i=LEN; i--; ret[i]=(i<DIM?v[i]:fill));
     return ret;
 }
 
-template<size_t LEN,size_t DIM, typename T> vec<LEN,T> proj(const vec<DIM,T> &v) {
+template<size_t LEN,size_t DIM, typename T> constexpr static inline vec<LEN,T> proj(const vec<DIM,T> &v) {
     vec<LEN,T> ret;
     for (size_t i=LEN; i--; ret[i]=v[i]);
     return ret;
 }
 
-template <typename T> vec<3,T> cross(vec<3,T> v1, vec<3,T> v2) {
+template <typename T> constexpr static inline vec<3,T> cross(vec<3,T> v1, vec<3,T> v2) {
     return vec<3,T>(v1.y*v2.z - v1.z*v2.y, v1.z*v2.x - v1.x*v2.z, v1.x*v2.y - v1.y*v2.x);
 }
 
@@ -113,8 +299,12 @@ template<typename T> struct dt<1,T> {
 /////////////////////////////////////////////////////////////////////////////////
 
 template<size_t DimRows,size_t DimCols,typename T> class mat {
-    vec<DimCols,T> rows[DimRows];
+
 public:
+	using value_type = T;
+	using row_type = vec<DimCols, value_type>;
+	static constexpr size_t dim_rows = DimRows;
+	static constexpr size_t dim_cols = DimCols;
     mat() {}
 
     vec<DimCols,T>& operator[] (const size_t idx) {
@@ -183,6 +373,8 @@ public:
         for (size_t i=DimCols; i--; ret[i]=this->col(i));
         return ret;
     }
+private:
+	row_type rows[DimRows];
 };
 
 /////////////////////////////////////////////////////////////////////////////////

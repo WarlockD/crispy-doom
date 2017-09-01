@@ -1,4 +1,4 @@
-# Install script for directory: D:/Documents/GitHub/crispy-doom/doomlib/SFML/examples
+# Install script for directory: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,16 +29,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/voip/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sound/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sound_capture/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/opengl/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/shader/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/win32/cmake_install.cmake")
-  include("D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/pong/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sockets/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/voip/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sound/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/sound_capture/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/window/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/opengl/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/shader/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/win32/cmake_install.cmake")
+  include("C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/pong/cmake_install.cmake")
 
 endif()
 

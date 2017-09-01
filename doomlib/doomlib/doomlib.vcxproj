@@ -94,9 +94,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\SFML\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\SFML\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -161,16 +163,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="black_cubes.cpp" />
+    <ClCompile Include="black_fillpoly.cpp" />
     <ClCompile Include="doom_common.cpp" />
     <ClCompile Include="doom_math.cpp" />
     <ClCompile Include="doom_video.cpp" />
     <ClCompile Include="geometry.cpp" />
+    <ClCompile Include="l52-1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model.cpp" />
     <ClCompile Include="our_gl.cpp" />
     <ClCompile Include="tgaimage.cpp" />
     <ClCompile Include="tiny_main.cpp" />
     <ClCompile Include="w_doom.cpp" />
+    <ClCompile Include="xform_stuff.cpp" />
     <ClCompile Include="z_doom.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -194,20 +200,34 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bitmap_view.h" />
     <ClInclude Include="ByteBuffer.hpp" />
     <ClInclude Include="doom_common.hpp" />
     <ClInclude Include="doom_math.h" />
     <ClInclude Include="doom_state.h" />
     <ClInclude Include="doom_video.hpp" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="linedrawing.h" />
     <ClInclude Include="model.h" />
     <ClInclude Include="our_gl.h" />
+    <ClInclude Include="polygon.h" />
     <ClInclude Include="r_patch.hpp" />
     <ClInclude Include="tgaimage.h" />
     <ClInclude Include="tiny_common.h" />
     <ClInclude Include="w_doom.hpp" />
     <ClInclude Include="z_doom.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\wtl.9.1.1\build\native\wtl.targets" Condition="Exists('..\packages\wtl.9.1.1\build\native\wtl.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\wtl.9.1.1\build\native\wtl.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\wtl.9.1.1\build\native\wtl.targets'))" />
+  </Target>
 </Project>

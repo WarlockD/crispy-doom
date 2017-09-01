@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CA48EB33-D429-37B5-81EE-4D09891DBCB6}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{4C9EEA37-B64F-32EE-ACB3-2A1C7D8ECDB0}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -73,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -102,10 +102,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/crispy-doom/doomlib/SFML -BD:/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -113,12 +113,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCCompiler.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCCompiler.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/crispy-doom/doomlib/SFML -BD:/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -126,12 +126,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCCompiler.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCCompiler.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/crispy-doom/doomlib/SFML -BD:/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -139,12 +139,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCCompiler.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCCompiler.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HD:/Documents/GitHub/crispy-doom/doomlib/SFML -BD:/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML -BC:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build --check-stamp-file C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -152,80 +152,80 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCCompiler.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;D:\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInitialize.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCCompiler.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCommonLanguageInclude.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\cmake\Config.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.9\Modules\FindPackageMessage.cmake;C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\ZERO_CHECK.vcxproj">
-      <Project>{A9143D32-1353-3E81-8640-9A2160CD91F8}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\ZERO_CHECK.vcxproj">
+      <Project>{600D180B-9E04-3CEF-8EAC-CD6918614855}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\ftp\ftp.vcxproj">
-      <Project>{A2F7D1A7-F34A-318E-934F-7C87BA2FD46C}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\ftp\ftp.vcxproj">
+      <Project>{4A515A7E-0999-305D-BF88-5AE7322DF0E3}</Project>
       <Name>ftp</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\opengl\opengl.vcxproj">
-      <Project>{80B3354F-86A5-329B-84CE-9009561C3FD0}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\opengl\opengl.vcxproj">
+      <Project>{1E93DB3F-38AC-3B81-BF35-E6B07D474C43}</Project>
       <Name>opengl</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\pong\pong.vcxproj">
-      <Project>{B58A45E2-2425-33D1-98CA-3B5E71DA888A}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\pong\pong.vcxproj">
+      <Project>{0164FA75-BDAA-322C-A702-F36352CAC67B}</Project>
       <Name>pong</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Audio\sfml-audio.vcxproj">
-      <Project>{12328A44-861E-3582-AF72-D270C8200319}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Audio\sfml-audio.vcxproj">
+      <Project>{39F3969D-3372-33F4-9651-2029FD93B6C7}</Project>
       <Name>sfml-audio</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Graphics\sfml-graphics.vcxproj">
-      <Project>{85F28D41-97A4-32C1-9C1E-836F9BD4A72A}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Graphics\sfml-graphics.vcxproj">
+      <Project>{E0145DF3-1FA9-36DE-B870-E461E0880A59}</Project>
       <Name>sfml-graphics</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Main\sfml-main.vcxproj">
-      <Project>{EC6E2752-4DB8-362B-A34B-007AE44161A9}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Main\sfml-main.vcxproj">
+      <Project>{B687237D-EA11-38F4-924A-815C084B1602}</Project>
       <Name>sfml-main</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Network\sfml-network.vcxproj">
-      <Project>{895A8501-9D5D-3D93-A457-791D7A486B32}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Network\sfml-network.vcxproj">
+      <Project>{0622A4A6-D400-36AC-A49C-FE1AC0E2DE4F}</Project>
       <Name>sfml-network</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\System\sfml-system.vcxproj">
-      <Project>{A548911C-3351-3100-849C-C42D49D9914D}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\System\sfml-system.vcxproj">
+      <Project>{F31672DF-D9FB-3664-9079-01D54CC9F268}</Project>
       <Name>sfml-system</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Window\sfml-window.vcxproj">
-      <Project>{E92FC591-63D8-3F7E-8897-6F736C238A3D}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\src\SFML\Window\sfml-window.vcxproj">
+      <Project>{148E66F2-5A2F-34D6-875A-AFFF13712434}</Project>
       <Name>sfml-window</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\shader\shader.vcxproj">
-      <Project>{BAD9E588-CB70-3354-9BD1-25891EBBD75A}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\shader\shader.vcxproj">
+      <Project>{70DE543E-518B-33F1-9BE9-0F950994DF6B}</Project>
       <Name>shader</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sockets\sockets.vcxproj">
-      <Project>{2E6EA85E-B4ED-3EEA-8BE1-7B882955E6B4}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sockets\sockets.vcxproj">
+      <Project>{A2EDBE5B-3CE1-323B-BC14-166DDF90234F}</Project>
       <Name>sockets</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sound\sound.vcxproj">
-      <Project>{A6CFC082-C566-35AF-BD6F-95786A91E333}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sound\sound.vcxproj">
+      <Project>{2C1942E5-CC16-3EF9-903C-172CCB2EF21E}</Project>
       <Name>sound</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sound_capture\sound-capture.vcxproj">
-      <Project>{1FD3FDF9-54BA-30B1-9535-21B33C9CCB44}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\sound_capture\sound-capture.vcxproj">
+      <Project>{6A69802C-8D2F-37BE-871D-680661C6CF67}</Project>
       <Name>sound-capture</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\voip\voip.vcxproj">
-      <Project>{40C6DE35-DC5D-304F-9DEE-7A9F7528BAC6}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\voip\voip.vcxproj">
+      <Project>{94E3CF7C-5E68-3CCB-A28C-F81D958029EA}</Project>
       <Name>voip</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\win32\win32.vcxproj">
-      <Project>{60226ABB-CF7B-3B5B-AC6D-3AB07632F292}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\win32\win32.vcxproj">
+      <Project>{B608BD8C-3339-3C6E-99EC-6DC1A9A257BF}</Project>
       <Name>win32</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\window.vcxproj">
-      <Project>{ECFF10EF-6A72-3433-A2EF-4859DED97895}</Project>
+    <ProjectReference Include="C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\examples\window\window.vcxproj">
+      <Project>{4266704F-AB73-3AA2-985A-DB77780E8AA3}</Project>
       <Name>window</Name>
     </ProjectReference>
   </ItemGroup>

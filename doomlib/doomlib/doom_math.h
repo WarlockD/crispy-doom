@@ -1,6 +1,6 @@
 #pragma once
 #include "doom_common.hpp"
-
+#include <cmath>
 
 
 namespace doom_cpp {
@@ -18,13 +18,13 @@ namespace doom_cpp {
 		static constexpr value_type max_value = std::numeric_limits<value_type>::max();
 		static constexpr value_type min_value = std::numeric_limits<value_type>::min();
 		static constexpr value_type FIXED_NAN = max_value;
-		static constexpr value_type FIXED_DIV_ZERO = ((1 << FIXED_ONE) - 1); // max value when using div the demoniator may be and not considered zero
+		static constexpr value_type FIXED_DIV_ZERO = (FIXED_ONE - 1); // max value when using div the demoniator may be and not considered zero
 
 		inline static constexpr value_type fixed_mult(value_type a, value_type b) { return (a >> FRACHALF) * (b >> FRACHALF); }
 		// numerator, demoniator
 		inline static constexpr value_type fixed_qdiv(value_type a, value_type b) { return (a / (b >> FRACHALF)) << FRACHALF; }
 		// returns nan if demoniator is close to zero
-		inline static constexpr value_type fixed_div(value_type a, value_type b) { return (b >> FIXED_HALF) == 0 ? FIXED_NAN : fixed_qdiv(a, b); }
+		inline static constexpr value_type fixed_div(value_type a, value_type b) { return (b >> FRACHALF) == 0 ? FIXED_NAN : fixed_qdiv(a, b); }
 		inline static constexpr value_type fixed_fpart(value_type a) { return a & (FIXED_ONE - 1); } // Return the fractional part of 'a'.
 		inline static constexpr value_type fixed_rfpart(value_type a) { return FIXED_ONE - fixed_fpart(a); } // Return one minus the fractional part of 'a'.
 		inline static constexpr value_type fixed_ipart(value_type a) { return a - fixed_fpart(a); } // Returns the integer (whole) part of 'a'.
@@ -91,9 +91,9 @@ namespace doom_cpp {
 		constexpr fixed_t() : _val{} {}
 		constexpr fixed_t(value_type val) : _val{ val << FRACBITS } {}
 		constexpr fixed_t(float val) : _val{ fixed_fromfloat(val) } {}
-		constexpr operator int32_t() const { return fixed_ipart(_val); }
+		constexpr operator int32_t() const { return fixed_round(_val) >> FRACBITS; }
 		constexpr operator float() const { return fixed_tofloat(_val); }
-		constexpr operator bool() const { return  (_val >> FIXED_HALF) != 0; }
+		constexpr operator bool() const { return  (_val >> FRACHALF) != 0; }
 		fixed_t& operator*=(const fixed_t&r) { _val = fixed_mult(_val, r._val); return *this; }
 		fixed_t& operator/=(const fixed_t&r) { _val = fixed_div(_val, r._val); return *this; }
 		fixed_t& operator+=(const fixed_t&r) { _val = _val+ r._val; return *this; }
@@ -109,6 +109,10 @@ namespace doom_cpp {
 		bool operator<=(const fixed_t&r) const { return _val <= r._val; }
 		bool operator<(const fixed_t&r) const { return _val < r._val; }
 		bool operator>(const fixed_t&r) const { return _val > r._val; }
+		inline fixed_t round() const noexcept { return fixed_round(_val); }
+		inline fixed_t ceil() const noexcept { return _val < value_type{} || fixed_ipart(_val) == _val ? fixed_ipart(_val + FIXED_ONE):  fixed_ipart(_val - FIXED_ONE);}
+		inline fixed_t floor() const noexcept { return _val < value_type{} || fixed_ipart(_val) == _val ? fixed_ipart(_val + FIXED_ONE) : fixed_ipart(_val - FIXED_ONE); }
+		inline fixed_t trunc() const noexcept { return fixed_ipart(_val); }
 	private:
 		value_type _val;
 	};
@@ -158,3 +162,9 @@ namespace doom_cpp {
 	//  called by R_PointToAngle.
 	int SlopeDiv(unsigned int num, unsigned int den);
 }
+namespace std {
+	static inline doom_cpp::fixed_t round(doom_cpp::fixed_t v) noexcept { return v.round(); }
+	static inline doom_cpp::fixed_t ceil(doom_cpp::fixed_t v) noexcept { return v.ceil(); }
+	static inline doom_cpp::fixed_t floor(doom_cpp::fixed_t v) noexcept { return v.floor(); }
+	static inline doom_cpp::fixed_t trunc(doom_cpp::fixed_t v) noexcept { return v.trunc(); }
+};

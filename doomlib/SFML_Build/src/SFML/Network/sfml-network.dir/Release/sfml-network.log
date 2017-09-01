@@ -1,0 +1,21 @@
+﻿  Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/src/SFML/Network/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/src/SFML/Network/CMakeFiles/generate.stamp is up-to-date.
+  Ftp.cpp
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Network\Ftp.cpp(466): warning C4244: 'argument': conversion from 'std::streamoff' to 'int', possible loss of data
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Network\Ftp.cpp(466): warning C4244: 'argument': conversion from 'std::streamoff' to 'const unsigned int', possible loss of data
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Network\Ftp.cpp(634): warning C4244: '=': conversion from 'std::streamsize' to '::size_t', possible loss of data
+  Http.cpp
+  IpAddress.cpp
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Network\IpAddress.cpp(92): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\um\winsock2.h(1846): note: see declaration of 'inet_ntoa'
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Network\IpAddress.cpp(184): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\um\winsock2.h(1828): note: see declaration of 'inet_addr'
+  Packet.cpp
+  Socket.cpp
+  SocketSelector.cpp
+  TcpListener.cpp
+  TcpSocket.cpp
+  UdpSocket.cpp
+  SocketImpl.cpp
+  Generating Code...
+  sfml-network.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\lib\Release\sfml-network-s.lib

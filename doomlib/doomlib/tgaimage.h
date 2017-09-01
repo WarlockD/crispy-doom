@@ -24,6 +24,12 @@ struct TGAColor {
 	union {
 		unsigned char bgra[4];
 		uint32_t num;
+		struct {
+			uint8_t b;
+			uint8_t g;
+			uint8_t r;
+			uint8_t a;
+		};
 	};
     unsigned char bytespp;
 
@@ -55,15 +61,12 @@ struct TGAColor {
 
     unsigned char& operator[](const int i) { return bgra[i]; }
 	const unsigned char& operator[](const int i) const { return bgra[i]; }
-	uint8_t b() const { return bgra[0]; }
-	uint8_t g() const { return bgra[1]; }
-	uint8_t r() const { return bgra[2]; }
-	uint8_t a() const { return bgra[3]; }
+
 
     TGAColor operator *(float intensity) const {
         TGAColor res = *this;
         intensity = (intensity>1.f?1.f:(intensity<0.f?0.f:intensity));
-        for (int i=0; i<4; i++) res.bgra[i] = bgra[i] * intensity;
+        for (int i=0; i<4; i++) res.bgra[i] = uint8_t(bgra[i] * intensity);
         return res;
     }
 };

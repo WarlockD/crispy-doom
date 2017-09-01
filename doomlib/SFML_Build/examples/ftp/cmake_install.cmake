@@ -1,4 +1,4 @@
-# Install script for directory: D:/Documents/GitHub/crispy-doom/doomlib/SFML/examples/ftp
+# Install script for directory: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/ftp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,17 +29,17 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "examples" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/Debug/ftp-d.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/Debug/ftp-d.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/Release/ftp.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/Release/ftp.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/MinSizeRel/ftp.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/MinSizeRel/ftp.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/RelWithDebInfo/ftp.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE EXECUTABLE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/examples/ftp/RelWithDebInfo/ftp.exe")
   endif()
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "examples" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE FILE FILES "D:/Documents/GitHub/crispy-doom/doomlib/SFML/examples/ftp/Ftp.cpp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/./examples/ftp" TYPE FILE FILES "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/examples/ftp/Ftp.cpp")
 endif()
 

@@ -13,6 +13,8 @@
 #include <cassert>
 #include <cstdarg>
 #include <Windows.h>
+#include "linedrawing.h"
+
 
 static constexpr bool islineending(int c) { return c == '\r' || c == '\n'; }
 namespace doom_cpp {
@@ -51,6 +53,8 @@ namespace doom_cpp {
 
 }
 static constexpr size_t total_doom_memory = 8000000U;
+static constexpr size_t screen_width = 640;
+static constexpr size_t screen_height = 480;
 uint8_t s_doom_memory[total_doom_memory];
 //static std::vector<uint8_t> doom_memory;
 class SFML_framebuffer {
@@ -59,8 +63,10 @@ class SFML_framebuffer {
 public:
 	SFML_framebuffer(size_t width, size_t height) { _image.create(width, height);  _texture.create(width, height);}
 	void set(size_t x, size_t y, const TGAColor& v) {
-		sf::Color c(v.r(), v.g(), v.b(), v.a());
+		sf::Color c(v.r, v.g, v.b, v.a);
 		_image.setPixel(x, y, c); 
+
+		
 	}
 	sf::Texture& getTexture() {
 		_texture.loadFromImage(_image);
@@ -79,7 +85,72 @@ void doom_start() {
 }
 #include "our_gl.h"
 TinyTest<float> test(640, 480);
+uint32_t* blackbox_refresh();
+void blackbox_init(size_t width, size_t height);
+
+#include "bitmap_view.h"
+////////////////////////////////////////////////////////////
+/// Function called whenever one of our windows receives a message
+///
+////////////////////////////////////////////////////////////
+CBitmap m_bmp;
+HWND button;
+
+
+LRESULT CALLBACK onEvent(HWND handle, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		// Quit when we close the main window
+	case WM_CREATE:
+		m_bmp.CreateCompatibleBitmap(GetDC(handle), screen_width, screen_height);
+		break;
+	case WM_CLOSE:
+	{
+		PostQuitMessage(0);
+		return 0;
+	}
+
+	// Quit when we click the "quit" button
+	case WM_COMMAND:
+	{
+		if (reinterpret_cast<HWND>(lParam) == button)
+		{
+			PostQuitMessage(0);
+			return 0;
+		}
+	}
+	case WM_PAINT:
+
+
+		break;
+	}
+
+	return DefWindowProc(handle, message, wParam, lParam);
+}
+
+
 void tiny_test() {
+	sf::Texture texture_out;
+	sf::Image screen_image;
+	sf::Image texutre_image;
+	assert(texutre_image.loadFromFile("thing.png"));
+	screen_image.create(screen_width, screen_height);
+
+	blackbox_init(screen_width, screen_height);
+#if 0
+
+	XForm<float> xtest;
+	xtest.AppendRotationX(32);
+	render_texture<color_t> screen(const_cast<uint8_t*>(screen_image.getPixelsPtr()), screen_width, screen_height);
+	render_texture<color_t> texture;
+	screen.setup(const_cast<uint8_t*>(screen_image.getPixelsPtr()), screen_width, screen_height);
+
+	std::vector<Vertex> verts;
+
+	auto edge = CreateEdge(verts.begin(), verts.end(), verts.end());
+	edge.setup(verts.begin());
+#endif
 	test.init();
 	test.load("diablo3_pose.obj");
 
@@ -113,10 +184,15 @@ void tiny_test() {
 		clock.restart();
 		// Clear the window
 		window.clear(sf::Color(50, 200, 50));
+#if 0
 		test.render(image);
-		sprite.setTexture(image.getTexture());
-		window.draw(sprite);
 
+#else
+		blackbox_refresh();
+		texture_out.loadFromImage(screen_image);
+		sprite.setTexture(texture_out);
+#endif
+		window.draw(sprite);
 
 		// Display things on screen
 		window.display();
@@ -124,6 +200,113 @@ void tiny_test() {
 
 }
 
+// main.cpp:
+CComModule _Module;
+
+int simple_window() {
+	blackbox_init(screen_width, screen_height);
+	HINSTANCE instance = GetModuleHandle(NULL);
+	_Module.Init(NULL, instance);
+	CBitmapWindow wndMain;
+	MSG msg;
+	
+	// Create & show our main window
+	if (NULL == wndMain.Create(NULL, CWindow::rcDefault,
+		_T("My First ATL Window")))
+	{
+		// Bad news, window creation failed
+		return 1;
+	}
+	msg.message = static_cast<UINT>(~WM_QUIT);
+	wndMain.ShowWindow(1);
+	wndMain.UpdateWindow();
+	wndMain.CreateBitmap(screen_width, screen_height);
+	// Run the message loop
+	while (msg.message != WM_QUIT)
+	{
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			// If a message was waiting in the message queue, process it
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			// idle stuff
+			wndMain.Update(blackbox_refresh());
+		}
+	}
+	while (GetMessage(&msg, NULL, 0, 0) > 0)
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	blackbox_refresh();
+	_Module.Term();
+	return msg.wParam;
+
+
+	// Define a class for our main window
+	WNDCLASS windowClass;
+	windowClass.style = 0;
+	windowClass.lpfnWndProc = &onEvent;
+	windowClass.cbClsExtra = 0;
+	windowClass.cbWndExtra = 0;
+	windowClass.hInstance = instance;
+	windowClass.hIcon = NULL;
+	windowClass.hCursor = 0;
+	windowClass.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_BACKGROUND);
+	windowClass.lpszMenuName = NULL;
+	windowClass.lpszClassName = TEXT("SFML App");
+	RegisterClass(&windowClass);
+
+	// Let's create the main window
+	HWND window = CreateWindow(TEXT("SFML App"), TEXT("SFML Win32"), WS_SYSMENU | WS_VISIBLE, 200, 200, 660, 520, NULL, NULL, instance, NULL);
+	// Add a button for exiting
+	button = CreateWindow(TEXT("BUTTON"), TEXT("Quit"), WS_CHILD | WS_VISIBLE, 560, 440, 80, 40, window, NULL, instance, NULL);
+
+	// Loop until a WM_QUIT message is received
+	MSG message;
+	message.message = static_cast<UINT>(~WM_QUIT);
+	while (message.message != WM_QUIT)
+	{
+		if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
+		{
+			// If a message was waiting in the message queue, process it
+			TranslateMessage(&message);
+			DispatchMessage(&message);
+		}
+		else
+		{
+#if 0
+			float time = clock.getElapsedTime().asSeconds();
+
+			// Clear views
+			SFMLView1.clear();
+			SFMLView2.clear();
+
+			// Draw sprite 1 on view 1
+			sprite1.setRotation(time * 100);
+			SFMLView1.draw(sprite1);
+
+			// Draw sprite 2 on view 2
+			sprite2.setPosition(std::cos(time) * 100.f, 0.f);
+			SFMLView2.draw(sprite2);
+
+			// Display each view on screen
+			SFMLView1.display();
+			SFMLView2.display();
+#endif
+		}
+	}
+
+	// Destroy the main window (all its child controls will be destroyed)
+	DestroyWindow(window);
+
+	// Don't forget to unregister the window class
+	UnregisterClass(TEXT("SFML App"), instance);
+	return 0;
+}
 
 int main(int argc, const char* argv[]) {
 
@@ -131,9 +314,11 @@ int main(int argc, const char* argv[]) {
 	doom_cpp::Z_Init(s_doom_memory, total_doom_memory);
 	//doom_cpp::Z_FileDumpHeap(stderr);
 //	doom_start();
-
-
-	tiny_test();
+	vector_ops::Vec<3, int> test1 = { 4 ,3 };
+	vector_ops::Vec<8, int> test2 = { 2,2,2,2 };
+	vector_ops::Vec<12, int> combine = test1 + test2;
+	assert(simple_window() == 0);
+	//tiny_test();
 	while (1) {}
 
 #if 0

@@ -1,0 +1,40 @@
+﻿  Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/src/SFML/Graphics/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/src/SFML/Graphics/CMakeFiles/generate.stamp is up-to-date.
+  BlendMode.cpp
+  Color.cpp
+  Font.cpp
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Graphics\Font.cpp(634): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Graphics\Font.cpp(636): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Graphics\Font.cpp(648): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML\src\SFML\Graphics\Font.cpp(650): warning C4018: '<': signed/unsigned mismatch
+  Glsl.cpp
+  GLCheck.cpp
+  GLExtensions.cpp
+  Image.cpp
+  ImageLoader.cpp
+  RenderStates.cpp
+  RenderTexture.cpp
+  RenderTarget.cpp
+  RenderWindow.cpp
+  Shader.cpp
+  Texture.cpp
+  TextureSaver.cpp
+  Transform.cpp
+  Transformable.cpp
+  View.cpp
+  Vertex.cpp
+  GLLoader.cpp
+  Generating Code...
+  Compiling...
+  Shape.cpp
+  CircleShape.cpp
+  RectangleShape.cpp
+  ConvexShape.cpp
+  Sprite.cpp
+  Text.cpp
+  VertexArray.cpp
+  RenderTextureImpl.cpp
+  RenderTextureImplFBO.cpp
+  RenderTextureImplDefault.cpp
+  Generating Code...
+  sfml-graphics.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\lib\Release\sfml-graphics-s.lib

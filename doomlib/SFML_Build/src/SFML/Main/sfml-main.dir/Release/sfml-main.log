@@ -1,0 +1,4 @@
+﻿  Building Custom Rule C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML/src/SFML/Main/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/src/SFML/Main/CMakeFiles/generate.stamp is up-to-date.
+  MainWin32.cpp
+  sfml-main.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\lib\Release\sfml-main.lib

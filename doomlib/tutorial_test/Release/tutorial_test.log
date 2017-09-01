@@ -1,0 +1,1806 @@
+﻿  demoII12_12.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.h(338): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.h(339): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.h(340): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+demoII12_12.cpp(197): warning C4101: 'hdc': unreferenced local variable
+demoII12_12.cpp(198): warning C4101: 'ps': unreferenced local variable
+demoII12_12.cpp(402): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+demoII12_12.cpp(404): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+demoII12_12.cpp(407): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+demoII12_12.cpp(415): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+demoII12_12.cpp(417): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+demoII12_12.cpp(464): warning C4305: 'argument': truncation from 'double' to 'float'
+demoII12_12.cpp(478): warning C4305: 'argument': truncation from 'double' to 'float'
+demoII12_12.cpp(771): warning C4305: '+=': truncation from 'double' to 'float'
+demoII12_12.cpp(772): warning C4305: '+=': truncation from 'double' to 'float'
+demoII12_12.cpp(773): warning C4305: '+=': truncation from 'double' to 'float'
+demoII12_12.cpp(1132): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+demoII12_12.cpp(1165): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+demoII12_12.cpp(1168): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  main.cpp
+  t3dlib1.cpp
+t3dlib1.cpp(210): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(211): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(364): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(365): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(366): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(367): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(404): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(405): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(406): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(407): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(445): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(446): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(447): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(448): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(485): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(486): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(487): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(488): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+t3dlib1.cpp(763): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(766): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(770): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(773): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(837): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(838): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(894): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(895): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(951): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(952): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(954): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(955): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(1702): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1707): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1713): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1719): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1727): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1734): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1743): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1750): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1759): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1765): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1774): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1780): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1823): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1830): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1839): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1846): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1855): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1861): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1870): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(1876): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+t3dlib1.cpp(2253): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib1.cpp(2260): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'BYTE *'
+  t3dlib1.cpp(2260): note: consider using '%hhd' in the format string
+t3dlib1.cpp(2260): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 2 has type 'BYTE *'
+  t3dlib1.cpp(2260): note: consider using '%hhd' in the format string
+t3dlib1.cpp(2260): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 3 has type 'BYTE *'
+  t3dlib1.cpp(2260): note: consider using '%hhd' in the format string
+t3dlib1.cpp(2260): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 4 has type 'BYTE *'
+  t3dlib1.cpp(2260): note: consider using '%hhd' in the format string
+t3dlib1.cpp(2260): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1192): note: see declaration of 'fscanf'
+t3dlib1.cpp(2282): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib1.cpp(2578): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib1.cpp(2587): warning C4996: '_ftime64': This function or variable may be unsafe. Consider using _ftime64_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\sys/timeb.h(76): note: see declaration of '_ftime64'
+t3dlib1.cpp(2588): warning C4996: 'ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\time.h(475): note: see declaration of 'ctime'
+t3dlib1.cpp(2590): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+t3dlib1.cpp(2600): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib1.cpp(2652): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1464): note: see declaration of 'vsprintf'
+t3dlib1.cpp(3507): warning C4101: 'work_color': unreferenced local variable
+t3dlib1.cpp(4080): warning C4018: '<': signed/unsigned mismatch
+t3dlib1.cpp(4130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(4246): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(4369): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(4493): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(5130): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5131): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5132): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5217): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5226): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5234): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5235): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5236): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5237): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5243): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5244): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5250): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5251): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5587): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5588): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5600): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5601): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5644): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5653): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5661): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5662): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5663): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5664): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5670): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5671): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5677): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(5678): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6014): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6015): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6027): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6028): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6157): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6168): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6197): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6208): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6240): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(6243): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+t3dlib1.cpp(6243): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+t3dlib1.cpp(6250): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib1.cpp(6251): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  t3dlib10.cpp
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(338): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(339): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(340): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib10.cpp(122): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(123): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(125): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(126): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(128): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(129): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(378): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(440): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(682): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(784): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(80): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(76): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(80): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(81): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(81): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(934): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(935): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(937): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(938): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(940): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(941): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1223): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(1297): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(1594): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(1720): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(880): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(876): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(876): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(880): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(881): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(881): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(876): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(1892): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1893): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1895): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1896): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1898): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(1899): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(2181): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(2318): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(2678): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(2867): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(1835): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(1831): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(1831): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(1835): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(1836): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(1836): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(1831): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(3103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3104): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3106): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3107): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3109): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3110): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(3396): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(3488): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(3804): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(3950): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(3045): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(3041): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(3041): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(3045): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(3046): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(3046): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(3041): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(4162): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4163): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4165): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4166): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4168): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4169): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(4559): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(4681): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(5124): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(5323): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(4087): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(4087): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(4088): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(4088): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(4083): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(5554): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5555): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5557): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5558): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5560): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5561): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(5887): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(5969): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(6299): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(6439): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(5498): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(5494): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(5494): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(5498): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(5499): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(5499): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(5494): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(5494): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(6858): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6859): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6861): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6862): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6864): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6865): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(6826): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(6826): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(6827): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(6827): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(7475): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7476): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7478): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7479): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7481): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7482): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(7431): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(7427): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(7431): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(7432): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(7432): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(7427): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(8299): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8300): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8302): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8303): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8305): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8306): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(8252): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(8248): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(8252): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(8253): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(8253): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(8248): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(9376): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9377): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9379): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9380): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9382): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9383): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(9329): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(9325): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(9329): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(9330): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(9330): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(9325): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(10281): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10282): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10284): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10285): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10287): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10288): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(10232): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(10228): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(10228): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(10232): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(10233): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(10233): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(10228): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(11186): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11187): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11189): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11190): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11192): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11193): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(11135): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(11131): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(11131): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(11135): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(11136): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(11136): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(11131): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(12120): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12121): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12123): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12124): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12126): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12127): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(12066): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(12062): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(12062): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(12066): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(12067): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(12067): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(12062): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(13108): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13109): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13112): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13114): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(13052): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(13048): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(13048): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(13052): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(13053): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(13053): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(13048): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(14127): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14128): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14131): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14133): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14134): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(14062): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(14058): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(14062): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(14063): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(14058): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(14063): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(14058): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(14058): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(14058): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(15422): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15423): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15425): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15426): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15428): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15429): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(15376): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(15372): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(15376): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(15377): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(15377): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(15372): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(15372): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(16501): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16502): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16504): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16505): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16507): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16508): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(16466): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(16487): warning C4101: 'g_src1': unreferenced local variable
+t3dlib10.cpp(16487): warning C4101: 'b_src1': unreferenced local variable
+t3dlib10.cpp(16466): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(16467): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(16488): warning C4101: 'b_src2': unreferenced local variable
+t3dlib10.cpp(16467): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(16488): warning C4101: 'g_src2': unreferenced local variable
+t3dlib10.cpp(16488): warning C4101: 'r_src2': unreferenced local variable
+t3dlib10.cpp(16487): warning C4101: 'r_src1': unreferenced local variable
+t3dlib10.cpp(17123): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17124): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17126): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17127): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17129): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17130): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17079): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(17075): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(17079): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(17080): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(17080): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(17075): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(17959): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17960): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17962): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17963): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17965): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17966): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(17912): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(17908): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(17912): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(17913): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(17913): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(17908): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(18897): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18898): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18900): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18901): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18903): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18904): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(18833): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(18829): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(18833): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(18834): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(18829): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(18834): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(18829): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(18829): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(18829): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(20196): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20197): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20199): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20200): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20202): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20203): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(20150): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(20146): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(20150): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(20151): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(20151): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(20146): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(20146): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(21125): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21126): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21128): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21129): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21131): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21132): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21385): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(21447): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(21689): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(21791): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(21083): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(21079): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(21083): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(21084): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(21084): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(21942): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21943): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21945): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21946): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21948): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(21949): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22235): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(22311): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(22609): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(22737): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(21888): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(21884): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(21884): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(21888): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(21889): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(21889): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(21884): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(22913): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22914): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22916): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22917): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22919): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(22920): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23210): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(23304): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(23622): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(23769): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(22855): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(22851): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(22851): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(22855): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(22856): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(22856): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(22851): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(23980): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23981): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23983): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23984): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23986): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(23987): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(24381): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(24504): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(24948): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(25148): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(23906): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(23906): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(23907): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(23907): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(23902): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(25381): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25382): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25384): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25385): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25387): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25388): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(25718): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(25800): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(26130): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(26270): warning C4018: '<': signed/unsigned mismatch
+t3dlib10.cpp(25325): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(25321): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(25321): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(25325): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(25326): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(25326): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(25321): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(25321): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(26716): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib10.cpp(27475): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib10.cpp(27476): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(90): note: see declaration of 'strcat'
+t3dlib10.cpp(26649): warning C4101: 'b': unreferenced local variable
+t3dlib10.cpp(26652): warning C4101: 'texture_vertices': unreferenced local variable
+t3dlib10.cpp(26646): warning C4101: 'token_buffer': unreferenced local variable
+t3dlib10.cpp(26647): warning C4101: 'token': unreferenced local variable
+t3dlib10.cpp(26645): warning C4101: 'seps': unreferenced local variable
+t3dlib10.cpp(26649): warning C4101: 'g': unreferenced local variable
+t3dlib10.cpp(26649): warning C4101: 'r': unreferenced local variable
+t3dlib10.cpp(28051): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+t3dlib10.cpp(27997): warning C4101: 'buffer': unreferenced local variable
+t3dlib10.cpp(28411): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28412): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28414): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28415): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28417): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28418): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(28703): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(28777): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(29074): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(29200): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(28357): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(28353): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(28353): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(28357): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(28358): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(28358): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(28353): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(29372): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29373): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29375): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29376): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29378): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29379): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(29664): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(29801): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(30162): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(30351): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(29315): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(29311): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(29311): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(29315): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(29316): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(29316): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(29311): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(30589): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30590): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30592): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30593): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30595): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30596): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(30873): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(30948): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(31247): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(31374): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(30535): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(30531): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(30531): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(30535): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(30536): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(30536): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(30531): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(31550): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31551): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31553): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31554): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31556): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31557): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(31843): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(31924): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(32230): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(32362): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(31494): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(31490): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(31490): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(31494): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(31495): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(31495): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(31490): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(32539): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32540): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32542): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32543): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32545): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32546): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(32827): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(32920): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(33236): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(33380): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(32481): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(32477): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(32477): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(32481): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(32482): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(32482): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(32477): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(33577): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33578): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33580): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33581): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33583): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33584): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(33872): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(33971): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(34293): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(34443): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(33517): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(33513): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(33513): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(33517): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(33518): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(33518): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(33513): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(34618): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34619): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34621): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34622): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34624): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34625): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(34874): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(34936): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(35176): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(35278): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(34576): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(34572): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(34576): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(34577): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(34577): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(35432): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35433): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35435): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35436): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35438): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35439): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(35725): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(35817): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(36133): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(36278): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(35374): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(35370): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(35370): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(35374): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(35375): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(35375): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(35370): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(36489): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36490): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36492): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36493): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36495): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36496): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(36884): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(37006): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(37449): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(37647): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(36414): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(36414): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(36415): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(36415): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(36410): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(37878): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(37879): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(37881): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(37882): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(37884): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(37885): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(38210): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(38292): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(38622): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(38762): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(37822): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(37818): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(37818): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(37822): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(37823): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(37823): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(37818): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(37818): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(38921): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib10.cpp(39089): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib10.cpp(39117): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib10.cpp(39283): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39284): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39286): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39287): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39289): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39290): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(39544): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(39607): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(39848): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(39951): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(39241): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(39237): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(39241): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(39242): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(39242): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(40104): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40105): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40107): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40108): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40110): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(40400): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(40477): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(40776): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(40904): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(40050): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(40046): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(40046): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(40050): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(40051): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(40051): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(40046): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(41080): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41081): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41083): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41084): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41086): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41087): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(41369): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(41445): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(41745): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(41873): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(41026): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(41022): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(41022): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(41026): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(41027): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(41027): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(41022): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(42051): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42052): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42054): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42055): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42057): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42058): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(42346): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(42428): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(42734): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(42868): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(41995): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(41991): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(41991): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(41995): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(41996): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(41996): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(41991): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(43048): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43049): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43051): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43052): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43054): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43055): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(43340): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(43434): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(43751): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(43896): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(42990): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(42986): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(42986): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(42990): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(42991): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(42991): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(42986): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(44096): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44097): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44099): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44100): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44102): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(44394): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(44494): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(44818): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(44969): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(44036): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(44032): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(44032): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(44036): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(44037): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(44037): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(44032): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(45163): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45164): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45166): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45167): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45169): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45170): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(45462): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(45556): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(45873): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(46019): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(45105): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(45101): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(45101): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(45105): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(45106): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(45106): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(45101): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(46232): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46233): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46235): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46236): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46238): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46239): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(46632): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(46757): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(47201): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(47400): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(46157): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(46157): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(46158): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 's': unreferenced local variable
+t3dlib10.cpp(46158): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 't': unreferenced local variable
+t3dlib10.cpp(46153): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(47633): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47634): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47636): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47637): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47639): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47640): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(47970): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(48053): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(48384): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(48524): warning C4018: '>': signed/unsigned mismatch
+t3dlib10.cpp(47577): warning C4101: 'index_y': unreferenced local variable
+t3dlib10.cpp(47573): warning C4101: 'z': unreferenced local variable
+t3dlib10.cpp(47573): warning C4101: 'v': unreferenced local variable
+t3dlib10.cpp(47577): warning C4101: 'index_x': unreferenced local variable
+t3dlib10.cpp(47578): warning C4101: 'y': unreferenced local variable
+t3dlib10.cpp(47578): warning C4101: 'x': unreferenced local variable
+t3dlib10.cpp(47573): warning C4101: 'w': unreferenced local variable
+t3dlib10.cpp(47573): warning C4101: 'u': unreferenced local variable
+t3dlib10.cpp(49184): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(49185): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(49186): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(49187): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib10.cpp(49366): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib10.cpp(49817): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+t3dlib10.cpp(50274): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  t3dlib2.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+t3dlib2.cpp(71): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+  t3dlib3.cpp
+  t3dlib4.cpp
+t3dlib4.cpp(52): warning C4101: 'fp_prod': unreferenced local variable
+t3dlib4.cpp(178): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(195): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(238): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(256): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(291): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(324): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(345): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(370): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(371): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(372): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(374): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(375): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(376): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(397): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(743): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib4.cpp(1020): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(1251): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(1277): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(1367): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib4.cpp(1533): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  t3dlib5.cpp
+t3dlib5.cpp(172): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib5.cpp(188): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib5.cpp(201): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib5.cpp(245): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib5.cpp(255): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib5.cpp(693): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(694): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(722): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(723): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(746): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(747): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(809): warning C4101: 'presult': unreferenced local variable
+t3dlib5.cpp(979): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(999): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1227): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1228): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1280): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1281): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1666): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1667): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1727): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(1728): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2014): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2019): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2024): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2067): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2074): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2081): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2131): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2136): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2180): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2187): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2194): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib5.cpp(2346): warning C4101: 'mtmp': unreferenced local variable
+t3dlib5.cpp(2466): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2470): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2472): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2514): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2520): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2524): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+t3dlib5.cpp(2528): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  t3dlib6.cpp
+t3dlib6.cpp(92): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib6.cpp(126): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib6.cpp(167): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib6.cpp(201): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib6.cpp(253): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(271): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib6.cpp(422): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(459): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(475): warning C4018: '>=': signed/unsigned mismatch
+t3dlib6.cpp(495): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(518): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(590): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(616): warning C4018: '>=': signed/unsigned mismatch
+t3dlib6.cpp(640): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(663): warning C4018: '>=': signed/unsigned mismatch
+t3dlib6.cpp(684): warning C4018: '>=': signed/unsigned mismatch
+t3dlib6.cpp(691): warning C4018: '<': signed/unsigned mismatch
+t3dlib6.cpp(785): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(812): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(829): warning C4018: '>': signed/unsigned mismatch
+t3dlib6.cpp(832): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(849): warning C4018: '<': signed/unsigned mismatch
+t3dlib6.cpp(852): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(915): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(993): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(1118): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+t3dlib6.cpp(1300): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(1301): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(1308): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(1302): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(431): note: see declaration of 'strtok'
+t3dlib6.cpp(1305): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(431): note: see declaration of 'strtok'
+t3dlib6.cpp(1481): warning C4101: 'tmp_string': unreferenced local variable
+t3dlib6.cpp(1699): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(2350): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib6.cpp(1638): warning C4101: 'b': unreferenced local variable
+t3dlib6.cpp(1635): warning C4101: 'token_buffer': unreferenced local variable
+t3dlib6.cpp(1636): warning C4101: 'token': unreferenced local variable
+t3dlib6.cpp(1634): warning C4101: 'seps': unreferenced local variable
+t3dlib6.cpp(1638): warning C4101: 'g': unreferenced local variable
+t3dlib6.cpp(1638): warning C4101: 'r': unreferenced local variable
+t3dlib6.cpp(2935): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+t3dlib6.cpp(3219): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3220): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3221): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3275): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3276): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3277): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3335): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3336): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3337): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3408): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3409): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3410): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3356): warning C4101: 'd': unreferenced local variable
+t3dlib6.cpp(3582): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3583): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3584): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3638): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3639): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3640): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3698): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3699): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3700): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3771): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3772): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3773): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3719): warning C4101: 'd': unreferenced local variable
+t3dlib6.cpp(3946): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3947): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3948): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4002): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4003): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4004): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4062): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4063): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4064): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4135): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4136): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4137): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(3835): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib6.cpp(4083): warning C4101: 'd': unreferenced local variable
+t3dlib6.cpp(4297): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4298): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4299): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4353): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4354): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4355): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4413): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4414): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4415): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4486): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4487): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4488): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib6.cpp(4200): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib6.cpp(4434): warning C4101: 'd': unreferenced local variable
+  t3dlib7.cpp
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(338): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(339): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(340): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(458): warning C4101: 'presult': unreferenced local variable
+t3dlib7.cpp(545): warning C4101: 'presult': unreferenced local variable
+t3dlib7.cpp(804): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(824): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1078): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1079): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1139): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1140): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1277): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1278): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1331): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1332): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+t3dlib7.cpp(1528): warning C4101: 'base_color': unreferenced local variable
+t3dlib7.cpp(1648): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(1653): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(1658): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(1707): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(1712): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(1717): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(2042): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2043): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2044): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2106): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2107): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2108): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2175): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2176): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2177): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2256): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2257): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2258): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2402): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2403): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2404): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2414): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2415): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2416): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2426): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2427): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2428): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2475): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2476): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2477): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2491): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2492): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2493): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2506): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2507): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2508): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2557): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2558): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2559): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2572): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2573): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2574): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2587): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2588): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2589): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2653): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2654): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2655): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2694): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2695): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2696): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2735): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2736): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2737): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(1887): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib7.cpp(1896): warning C4101: 'd': unreferenced local variable
+t3dlib7.cpp(2974): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2975): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2976): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3038): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3039): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3040): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3107): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3108): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3109): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3188): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3189): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3190): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3330): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3331): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3332): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3342): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3343): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3344): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3354): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3355): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3356): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3403): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3404): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3405): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3419): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3420): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3421): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3434): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3435): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3436): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3485): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3486): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3487): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3500): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3501): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3502): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3515): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3516): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3517): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3581): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3582): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3583): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3622): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3623): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3624): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3663): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3664): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3665): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(2822): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib7.cpp(2831): warning C4101: 'd': unreferenced local variable
+t3dlib7.cpp(3893): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3894): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3895): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3957): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3958): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3959): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4026): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4027): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4028): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4107): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4108): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4109): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4254): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4255): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4256): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4266): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4267): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4268): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4278): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4279): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4280): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4327): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4328): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4329): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4343): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4344): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4345): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4358): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4359): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4360): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4409): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4410): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4411): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4424): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4425): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4426): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4439): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4440): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4441): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4505): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4506): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4507): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4546): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4547): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4548): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4587): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4588): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4589): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(3747): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib7.cpp(3756): warning C4101: 'd': unreferenced local variable
+t3dlib7.cpp(4810): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4811): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4812): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4874): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4875): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4876): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4943): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4944): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4945): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5024): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5025): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5026): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5166): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5167): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5168): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5178): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5179): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5180): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5190): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5191): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5192): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5239): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5240): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5241): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5255): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5256): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5257): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5270): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5271): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5272): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5321): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5322): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5323): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5336): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5337): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5338): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5351): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5352): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5353): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5417): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5418): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5419): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5458): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5459): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5460): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5499): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5500): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(5501): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib7.cpp(4671): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib7.cpp(4680): warning C4101: 'd': unreferenced local variable
+t3dlib7.cpp(5717): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(6476): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(6477): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(90): note: see declaration of 'strcat'
+t3dlib7.cpp(5650): warning C4101: 'b': unreferenced local variable
+t3dlib7.cpp(5653): warning C4101: 'texture_vertices': unreferenced local variable
+t3dlib7.cpp(5647): warning C4101: 'token_buffer': unreferenced local variable
+t3dlib7.cpp(5648): warning C4101: 'token': unreferenced local variable
+t3dlib7.cpp(5646): warning C4101: 'seps': unreferenced local variable
+t3dlib7.cpp(5650): warning C4101: 'g': unreferenced local variable
+t3dlib7.cpp(5650): warning C4101: 'r': unreferenced local variable
+t3dlib7.cpp(6895): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(6896): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(6903): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(6897): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(431): note: see declaration of 'strtok'
+t3dlib7.cpp(6900): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(431): note: see declaration of 'strtok'
+t3dlib7.cpp(7091): warning C4101: 'tmp_string': unreferenced local variable
+t3dlib7.cpp(7341): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib7.cpp(7357): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib7.cpp(7380): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib7.cpp(7427): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib7.cpp(7436): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+t3dlib7.cpp(7630): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7637): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7644): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7683): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7690): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7697): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(7740): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7741): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7742): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7743): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7745): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7746): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7747): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7748): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7750): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7751): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7752): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7753): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7789): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7790): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7793): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7794): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7797): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7798): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7841): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7842): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7843): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7844): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7846): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7847): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7848): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7849): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7851): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7852): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7853): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7854): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7890): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7891): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7894): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7895): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7898): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7899): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7951): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7952): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7953): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7954): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7956): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7957): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7958): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7959): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7961): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7962): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7963): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7964): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(7999): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8000): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8003): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8004): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8007): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8008): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8060): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8061): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8062): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8063): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8065): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8066): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8067): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8068): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8070): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8071): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8072): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8073): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8109): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8110): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8113): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8114): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8117): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8118): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(8149): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(8145): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(8149): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(8150): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(8150): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(8145): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(8956): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(8952): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(8956): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(8957): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(8957): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(8952): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(9789): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(9785): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(9789): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(9790): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(9790): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(9785): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(10600): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(10596): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(10600): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(10601): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(10601): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(10596): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(11526): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11529): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11534): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11544): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11547): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11552): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11617): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11625): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11485): warning C4101: 'temp_y': unreferenced local variable
+t3dlib7.cpp(11695): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11698): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11703): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11713): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11716): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11721): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11786): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11794): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11655): warning C4101: 'temp_y': unreferenced local variable
+t3dlib7.cpp(11933): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11936): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11941): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11951): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(11954): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(11959): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(12008): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12021): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12029): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12091): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12094): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(12099): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(12109): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12112): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(12117): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(12180): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12188): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(12057): warning C4101: 'temp_y': unreferenced local variable
+t3dlib7.cpp(12286): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(129): note: see declaration of 'strcpy'
+t3dlib7.cpp(12287): warning C4996: '_strupr': This function or variable may be unsafe. Consider using _strupr_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\string.h(450): note: see declaration of '_strupr'
+t3dlib7.cpp(12323): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+t3dlib7.cpp(12622): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(12618): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(12622): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(12623): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(12623): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(12618): warning C4101: 'w': unreferenced local variable
+t3dlib7.cpp(12618): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(13537): warning C4101: 'index_y': unreferenced local variable
+t3dlib7.cpp(13533): warning C4101: 'v': unreferenced local variable
+t3dlib7.cpp(13537): warning C4101: 'index_x': unreferenced local variable
+t3dlib7.cpp(13538): warning C4101: 'y': unreferenced local variable
+t3dlib7.cpp(13538): warning C4101: 'x': unreferenced local variable
+t3dlib7.cpp(13533): warning C4101: 'w': unreferenced local variable
+t3dlib7.cpp(13533): warning C4101: 'u': unreferenced local variable
+t3dlib7.cpp(14683): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14684): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14688): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14689): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14693): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14694): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14732): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14733): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14737): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14738): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14742): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14743): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14789): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+t3dlib7.cpp(14819): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14820): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14824): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14825): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14829): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14830): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14868): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14869): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14873): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14874): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14878): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib7.cpp(14879): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  t3dlib8.cpp
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(338): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(339): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(340): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib8.cpp(127): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+t3dlib8.cpp(198): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+t3dlib8.cpp(655): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.14393.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+t3dlib8.cpp(601): warning C4101: 'buffer': unreferenced local variable
+t3dlib8.cpp(1166): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1167): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1168): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1230): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1231): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1232): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1299): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1300): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1301): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1380): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1381): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1382): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1526): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1527): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1528): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1538): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1539): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1540): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1550): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1551): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1552): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1599): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1600): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1601): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1615): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1616): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1617): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1630): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1631): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1632): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1681): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1682): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1683): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1696): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1697): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1698): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1711): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1712): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1713): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1777): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1778): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1779): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1818): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1819): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1820): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1859): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1860): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1861): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1011): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib8.cpp(1020): warning C4101: 'd': unreferenced local variable
+t3dlib8.cpp(2098): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2099): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2100): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2162): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2163): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2164): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2231): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2232): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2233): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2312): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2313): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2314): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2454): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2455): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2456): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2466): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2467): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2468): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2478): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2479): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2480): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2527): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2528): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2529): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2543): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2544): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2545): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2558): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2559): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2560): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2609): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2610): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2611): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2624): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2625): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2626): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2639): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2640): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2641): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2705): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2706): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2707): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2746): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2747): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2748): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2787): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2788): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2789): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(1946): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib8.cpp(1955): warning C4101: 'd': unreferenced local variable
+t3dlib8.cpp(3017): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3018): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3019): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3081): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3082): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3083): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3150): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3151): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3152): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3231): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3232): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3233): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3378): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3379): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3380): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3390): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3391): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3392): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3402): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3403): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3404): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3451): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3452): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3453): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3467): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3468): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3469): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3482): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3483): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3484): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3533): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3534): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3535): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3548): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3549): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3550): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3563): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3564): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3565): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3629): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3630): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3631): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3670): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3671): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3672): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3711): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3712): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3713): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(2871): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib8.cpp(2880): warning C4101: 'd': unreferenced local variable
+t3dlib8.cpp(3934): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3935): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3936): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3998): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3999): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4000): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4067): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4068): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4069): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4148): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4149): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4150): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4290): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4291): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4292): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4302): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4303): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4304): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4314): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4315): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4316): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4363): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4364): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4365): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4379): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4380): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4381): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4394): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4395): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4396): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4445): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4446): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4447): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4460): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4461): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4462): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4475): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4476): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4477): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4541): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4542): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4543): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4582): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4583): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4584): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4623): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4624): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(4625): warning C4244: '+=': conversion from 'float' to 'unsigned int', possible loss of data
+t3dlib8.cpp(3795): warning C4101: 'shaded_color': unreferenced local variable
+t3dlib8.cpp(3804): warning C4101: 'd': unreferenced local variable
+t3dlib8.cpp(4781): warning C4101: 'presult': unreferenced local variable
+  t3dlib9.cpp
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(338): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(339): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\tutorial_test\T3DLIB7.H(340): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+t3dlib9.cpp(112): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(113): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(115): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(116): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(118): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(119): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(367): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(429): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(671): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(773): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(70): warning C4101: 'index_y': unreferenced local variable
+t3dlib9.cpp(66): warning C4101: 'z': unreferenced local variable
+t3dlib9.cpp(70): warning C4101: 'index_x': unreferenced local variable
+t3dlib9.cpp(71): warning C4101: 'y': unreferenced local variable
+t3dlib9.cpp(71): warning C4101: 'x': unreferenced local variable
+t3dlib9.cpp(923): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(924): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(926): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(927): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(929): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(930): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1212): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(1286): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(1583): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(1709): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(869): warning C4101: 'index_y': unreferenced local variable
+t3dlib9.cpp(865): warning C4101: 'z': unreferenced local variable
+t3dlib9.cpp(865): warning C4101: 'v': unreferenced local variable
+t3dlib9.cpp(869): warning C4101: 'index_x': unreferenced local variable
+t3dlib9.cpp(870): warning C4101: 'y': unreferenced local variable
+t3dlib9.cpp(870): warning C4101: 'x': unreferenced local variable
+t3dlib9.cpp(865): warning C4101: 'u': unreferenced local variable
+t3dlib9.cpp(1882): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1883): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1885): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1886): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1888): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(1889): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2175): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(2267): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(2587): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(2733): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(1824): warning C4101: 'index_y': unreferenced local variable
+t3dlib9.cpp(1820): warning C4101: 'z': unreferenced local variable
+t3dlib9.cpp(1820): warning C4101: 'v': unreferenced local variable
+t3dlib9.cpp(1824): warning C4101: 'index_x': unreferenced local variable
+t3dlib9.cpp(1825): warning C4101: 'y': unreferenced local variable
+t3dlib9.cpp(1825): warning C4101: 'x': unreferenced local variable
+t3dlib9.cpp(1820): warning C4101: 'u': unreferenced local variable
+t3dlib9.cpp(2925): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2926): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2928): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2929): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2931): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(2932): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+t3dlib9.cpp(3258): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(3340): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(3670): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(3810): warning C4018: '<': signed/unsigned mismatch
+t3dlib9.cpp(2869): warning C4101: 'index_y': unreferenced local variable
+t3dlib9.cpp(2865): warning C4101: 'z': unreferenced local variable
+t3dlib9.cpp(2865): warning C4101: 'v': unreferenced local variable
+t3dlib9.cpp(2869): warning C4101: 'index_x': unreferenced local variable
+t3dlib9.cpp(2870): warning C4101: 'y': unreferenced local variable
+t3dlib9.cpp(2870): warning C4101: 'x': unreferenced local variable
+t3dlib9.cpp(2865): warning C4101: 'w': unreferenced local variable
+t3dlib9.cpp(2865): warning C4101: 'u': unreferenced local variable
+  Generating code
+  All 191 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  tutorial_test.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\Release\tutorial_test.exe

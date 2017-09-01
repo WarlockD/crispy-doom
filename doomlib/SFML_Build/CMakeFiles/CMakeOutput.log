@@ -9,40 +9,40 @@ The output was:
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:41 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:17 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
   Creating directory "Debug\CompilerIdC.tlog\".
 InitializeBuildStatus:
   Creating "Debug\CompilerIdC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
   CMakeCCompilerId.c
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
-  CompilerIdC.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdC\.\CompilerIdC.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdC\.\CompilerIdC.exe
 PostBuildEvent:
   for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
   :VCEnd
-  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\cl.exe
+  CMAKE_C_COMPILER=F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\cl.exe
 FinalizeBuildStatus:
   Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
   Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdC\CompilerIdC.vcxproj" (default targets).
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdC\CompilerIdC.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:01.07
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
 
-The C compiler identification is MSVC, found in "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/3.9.0-rc4/CompilerIdC/CompilerIdC.exe"
+The C compiler identification is MSVC, found in "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/3.9.0-rc5/CompilerIdC/CompilerIdC.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler:  
@@ -54,231 +54,231 @@ The output was:
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:42 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:18 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
   Creating directory "Debug\CompilerIdCXX.tlog\".
 InitializeBuildStatus:
   Creating "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /nologo /W0 /WX- /diagnostics:classic /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
   CMakeCXXCompilerId.cpp
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
-  CompilerIdCXX.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdCXX\.\CompilerIdCXX.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdCXX\.\CompilerIdCXX.exe
 PostBuildEvent:
   for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
   :VCEnd
-  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\cl.exe
+  CMAKE_CXX_COMPILER=F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\cl.exe
 FinalizeBuildStatus:
   Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
   Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc4\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\3.9.0-rc5\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.80
+Time Elapsed 00:00:00.90
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
 
-The CXX compiler identification is MSVC, found in "D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/3.9.0-rc4/CompilerIdCXX/CompilerIdCXX.exe"
+The CXX compiler identification is MSVC, found in "C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/3.9.0-rc5/CompilerIdCXX/CompilerIdCXX.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_140e6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_08537.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:43 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_140e6.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:19 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_08537.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_140e6.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_140e6.dir\Debug\cmTC_140e6.tlog\".
+  Creating directory "cmTC_08537.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_08537.dir\Debug\cmTC_08537.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_140e6.dir\Debug\cmTC_140e6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_08537.dir\Debug\cmTC_08537.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_140e6.dir\Debug\\" /Fd"cmTC_140e6.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCCompiler.c"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08537.dir\Debug\\" /Fd"cmTC_08537.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCCompiler.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_140e6.dir\Debug\\" /Fd"cmTC_140e6.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCCompiler.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08537.dir\Debug\\" /Fd"cmTC_08537.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCCompiler.c"
   testCCompiler.c
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_140e6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_140e6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_140e6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_140e6.dir\Debug\testCCompiler.obj
-  cmTC_140e6.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_140e6.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_08537.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_08537.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_08537.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_08537.dir\Debug\testCCompiler.obj
+  cmTC_08537.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_08537.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_140e6.dir\Debug\cmTC_140e6.tlog\unsuccessfulbuild".
-  Touching "cmTC_140e6.dir\Debug\cmTC_140e6.tlog\cmTC_140e6.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_140e6.vcxproj" (default targets).
+  Deleting file "cmTC_08537.dir\Debug\cmTC_08537.tlog\unsuccessfulbuild".
+  Touching "cmTC_08537.dir\Debug\cmTC_08537.tlog\cmTC_08537.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_08537.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.25
+Time Elapsed 00:00:00.92
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_78a57.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_2b40b.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:45 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_78a57.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:20 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_2b40b.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_78a57.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_78a57.dir\Debug\cmTC_78a57.tlog\".
+  Creating directory "cmTC_2b40b.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_2b40b.dir\Debug\cmTC_2b40b.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_78a57.dir\Debug\cmTC_78a57.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_2b40b.dir\Debug\cmTC_2b40b.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_78a57.dir\Debug\\" /Fd"cmTC_78a57.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCCompilerABI.c"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2b40b.dir\Debug\\" /Fd"cmTC_2b40b.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCCompilerABI.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_78a57.dir\Debug\\" /Fd"cmTC_78a57.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2b40b.dir\Debug\\" /Fd"cmTC_2b40b.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCCompilerABI.c"
   CMakeCCompilerABI.c
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_78a57.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_78a57.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_78a57.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_78a57.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_78a57.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_78a57.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_2b40b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_2b40b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_2b40b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_2b40b.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_2b40b.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_2b40b.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_78a57.dir\Debug\cmTC_78a57.tlog\unsuccessfulbuild".
-  Touching "cmTC_78a57.dir\Debug\cmTC_78a57.tlog\cmTC_78a57.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_78a57.vcxproj" (default targets).
+  Deleting file "cmTC_2b40b.dir\Debug\cmTC_2b40b.tlog\unsuccessfulbuild".
+  Touching "cmTC_2b40b.dir\Debug\cmTC_2b40b.tlog\cmTC_2b40b.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_2b40b.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.95
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_cf7bb.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_f23e3.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:46 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_cf7bb.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:22 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_f23e3.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_cf7bb.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_cf7bb.dir\Debug\cmTC_cf7bb.tlog\".
+  Creating directory "cmTC_f23e3.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_f23e3.dir\Debug\cmTC_f23e3.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_cf7bb.dir\Debug\cmTC_cf7bb.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_f23e3.dir\Debug\cmTC_f23e3.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_cf7bb.dir\Debug\\" /Fd"cmTC_cf7bb.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f23e3.dir\Debug\\" /Fd"cmTC_f23e3.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_cf7bb.dir\Debug\\" /Fd"cmTC_cf7bb.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f23e3.dir\Debug\\" /Fd"cmTC_f23e3.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
   testCXXCompiler.cxx
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_cf7bb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_cf7bb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_cf7bb.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_cf7bb.dir\Debug\testCXXCompiler.obj
-  cmTC_cf7bb.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_cf7bb.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_f23e3.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_f23e3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_f23e3.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f23e3.dir\Debug\testCXXCompiler.obj
+  cmTC_f23e3.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_f23e3.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_cf7bb.dir\Debug\cmTC_cf7bb.tlog\unsuccessfulbuild".
-  Touching "cmTC_cf7bb.dir\Debug\cmTC_cf7bb.tlog\cmTC_cf7bb.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_cf7bb.vcxproj" (default targets).
+  Deleting file "cmTC_f23e3.dir\Debug\cmTC_f23e3.tlog\unsuccessfulbuild".
+  Touching "cmTC_f23e3.dir\Debug\cmTC_f23e3.tlog\cmTC_f23e3.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_f23e3.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:00.95
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_43414.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_d84aa.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:47 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_43414.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:23 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_d84aa.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_43414.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_43414.dir\Debug\cmTC_43414.tlog\".
+  Creating directory "cmTC_d84aa.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_d84aa.dir\Debug\cmTC_d84aa.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_43414.dir\Debug\cmTC_43414.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_d84aa.dir\Debug\cmTC_d84aa.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_43414.dir\Debug\\" /Fd"cmTC_43414.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXCompilerABI.cpp"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d84aa.dir\Debug\\" /Fd"cmTC_d84aa.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXCompilerABI.cpp"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_43414.dir\Debug\\" /Fd"cmTC_43414.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXCompilerABI.cpp"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d84aa.dir\Debug\\" /Fd"cmTC_d84aa.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.9\Modules\CMakeCXXCompilerABI.cpp"
   CMakeCXXCompilerABI.cpp
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_43414.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_43414.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_43414.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_43414.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_43414.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_43414.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_d84aa.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_d84aa.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_d84aa.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_d84aa.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_d84aa.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_d84aa.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_43414.dir\Debug\cmTC_43414.tlog\unsuccessfulbuild".
-  Touching "cmTC_43414.dir\Debug\cmTC_43414.tlog\cmTC_43414.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_43414.vcxproj" (default targets).
+  Deleting file "cmTC_d84aa.dir\Debug\cmTC_d84aa.tlog\unsuccessfulbuild".
+  Touching "cmTC_d84aa.dir\Debug\cmTC_d84aa.tlog\cmTC_d84aa.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_d84aa.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.94
+Time Elapsed 00:00:00.89
 
 
 
 
 Detecting CXX [] compiler features compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_79fb4.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_f2ff7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:48 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_79fb4.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:24 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_f2ff7.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_79fb4.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_79fb4.dir\Debug\cmTC_79fb4.tlog\".
+  Creating directory "cmTC_f2ff7.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_f2ff7.dir\Debug\cmTC_f2ff7.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_79fb4.dir\Debug\cmTC_79fb4.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_f2ff7.dir\Debug\cmTC_f2ff7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_79fb4.dir\Debug\\" /Fd"cmTC_79fb4.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f2ff7.dir\Debug\\" /Fd"cmTC_f2ff7.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_79fb4.dir\Debug\\" /Fd"cmTC_79fb4.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f2ff7.dir\Debug\\" /Fd"cmTC_f2ff7.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   feature_tests.cxx
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_79fb4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_79fb4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_79fb4.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_79fb4.dir\Debug\feature_tests.obj
-  cmTC_79fb4.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_79fb4.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_f2ff7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_f2ff7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_f2ff7.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f2ff7.dir\Debug\feature_tests.obj
+  cmTC_f2ff7.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_f2ff7.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_79fb4.dir\Debug\cmTC_79fb4.tlog\unsuccessfulbuild".
-  Touching "cmTC_79fb4.dir\Debug\cmTC_79fb4.tlog\cmTC_79fb4.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_79fb4.vcxproj" (default targets).
+  Deleting file "cmTC_f2ff7.dir\Debug\cmTC_f2ff7.tlog\unsuccessfulbuild".
+  Touching "cmTC_f2ff7.dir\Debug\cmTC_f2ff7.tlog\cmTC_f2ff7.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_f2ff7.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.93
+Time Elapsed 00:00:00.87
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -339,41 +339,41 @@ Time Elapsed 00:00:00.93
 
 
 Detecting CXX [] compiler features compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_c9ac0.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0d2a7.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:50 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_c9ac0.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:26 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0d2a7.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_c9ac0.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_c9ac0.dir\Debug\cmTC_c9ac0.tlog\".
+  Creating directory "cmTC_0d2a7.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_0d2a7.dir\Debug\cmTC_0d2a7.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_c9ac0.dir\Debug\cmTC_c9ac0.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_0d2a7.dir\Debug\cmTC_0d2a7.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c9ac0.dir\Debug\\" /Fd"cmTC_c9ac0.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0d2a7.dir\Debug\\" /Fd"cmTC_0d2a7.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c9ac0.dir\Debug\\" /Fd"cmTC_c9ac0.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_0d2a7.dir\Debug\\" /Fd"cmTC_0d2a7.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   feature_tests.cxx
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_c9ac0.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_c9ac0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_c9ac0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c9ac0.dir\Debug\feature_tests.obj
-  cmTC_c9ac0.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_c9ac0.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0d2a7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0d2a7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0d2a7.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0d2a7.dir\Debug\feature_tests.obj
+  cmTC_0d2a7.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0d2a7.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_c9ac0.dir\Debug\cmTC_c9ac0.tlog\unsuccessfulbuild".
-  Touching "cmTC_c9ac0.dir\Debug\cmTC_c9ac0.tlog\cmTC_c9ac0.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_c9ac0.vcxproj" (default targets).
+  Deleting file "cmTC_0d2a7.dir\Debug\cmTC_0d2a7.tlog\unsuccessfulbuild".
+  Touching "cmTC_0d2a7.dir\Debug\cmTC_0d2a7.tlog\cmTC_0d2a7.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0d2a7.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.86
+Time Elapsed 00:00:00.89
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -434,41 +434,41 @@ Time Elapsed 00:00:00.86
 
 
 Detecting CXX [] compiler features compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a5d9b.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_7b097.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:51 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_a5d9b.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:27 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_7b097.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_a5d9b.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_a5d9b.dir\Debug\cmTC_a5d9b.tlog\".
+  Creating directory "cmTC_7b097.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_7b097.dir\Debug\cmTC_7b097.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_a5d9b.dir\Debug\cmTC_a5d9b.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_7b097.dir\Debug\cmTC_7b097.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a5d9b.dir\Debug\\" /Fd"cmTC_a5d9b.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7b097.dir\Debug\\" /Fd"cmTC_7b097.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a5d9b.dir\Debug\\" /Fd"cmTC_a5d9b.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7b097.dir\Debug\\" /Fd"cmTC_7b097.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   feature_tests.cxx
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_a5d9b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_a5d9b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_a5d9b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a5d9b.dir\Debug\feature_tests.obj
-  cmTC_a5d9b.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_a5d9b.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_7b097.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_7b097.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_7b097.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7b097.dir\Debug\feature_tests.obj
+  cmTC_7b097.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_7b097.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_a5d9b.dir\Debug\cmTC_a5d9b.tlog\unsuccessfulbuild".
-  Touching "cmTC_a5d9b.dir\Debug\cmTC_a5d9b.tlog\cmTC_a5d9b.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_a5d9b.vcxproj" (default targets).
+  Deleting file "cmTC_7b097.dir\Debug\cmTC_7b097.tlog\unsuccessfulbuild".
+  Touching "cmTC_7b097.dir\Debug\cmTC_7b097.tlog\cmTC_7b097.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_7b097.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.00
+Time Elapsed 00:00:00.88
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -529,41 +529,41 @@ Time Elapsed 00:00:01.00
 
 
 Detecting CXX [] compiler features compiled with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_da987.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_8e5bb.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:53 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_da987.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:29 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_8e5bb.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_da987.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_da987.dir\Debug\cmTC_da987.tlog\".
+  Creating directory "cmTC_8e5bb.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_8e5bb.dir\Debug\cmTC_8e5bb.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_da987.dir\Debug\cmTC_da987.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_8e5bb.dir\Debug\cmTC_8e5bb.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_da987.dir\Debug\\" /Fd"cmTC_da987.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8e5bb.dir\Debug\\" /Fd"cmTC_8e5bb.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_da987.dir\Debug\\" /Fd"cmTC_da987.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_8e5bb.dir\Debug\\" /Fd"cmTC_8e5bb.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\feature_tests.cxx"
   feature_tests.cxx
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_da987.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_da987.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_da987.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_da987.dir\Debug\feature_tests.obj
-  cmTC_da987.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_da987.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_8e5bb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_8e5bb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_8e5bb.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_8e5bb.dir\Debug\feature_tests.obj
+  cmTC_8e5bb.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_8e5bb.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_da987.dir\Debug\cmTC_da987.tlog\unsuccessfulbuild".
-  Touching "cmTC_da987.dir\Debug\cmTC_da987.tlog\cmTC_da987.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_da987.vcxproj" (default targets).
+  Deleting file "cmTC_8e5bb.dir\Debug\cmTC_8e5bb.tlog\unsuccessfulbuild".
+  Touching "cmTC_8e5bb.dir\Debug\cmTC_8e5bb.tlog\cmTC_8e5bb.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_8e5bb.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.90
+Time Elapsed 00:00:00.95
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -622,35 +622,35 @@ Time Elapsed 00:00:00.90
     Feature record: CXX_FEATURE:1cxx_variadic_macros
     Feature record: CXX_FEATURE:1cxx_variadic_templates
 Determining if the include file sys/types.h exists passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0f76e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_b8431.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:55 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0f76e.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:31 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_b8431.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_0f76e.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_0f76e.dir\Debug\cmTC_0f76e.tlog\".
+  Creating directory "cmTC_b8431.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_b8431.dir\Debug\cmTC_b8431.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_0f76e.dir\Debug\cmTC_0f76e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_b8431.dir\Debug\cmTC_b8431.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f76e.dir\Debug\\" /Fd"cmTC_0f76e.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b8431.dir\Debug\\" /Fd"cmTC_b8431.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f76e.dir\Debug\\" /Fd"cmTC_0f76e.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b8431.dir\Debug\\" /Fd"cmTC_b8431.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   CheckIncludeFile.c
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0f76e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0f76e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0f76e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0f76e.dir\Debug\CheckIncludeFile.obj
-  cmTC_0f76e.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0f76e.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_b8431.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_b8431.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_b8431.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b8431.dir\Debug\CheckIncludeFile.obj
+  cmTC_b8431.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_b8431.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_0f76e.dir\Debug\cmTC_0f76e.tlog\unsuccessfulbuild".
-  Touching "cmTC_0f76e.dir\Debug\cmTC_0f76e.tlog\cmTC_0f76e.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0f76e.vcxproj" (default targets).
+  Deleting file "cmTC_b8431.dir\Debug\cmTC_b8431.tlog\unsuccessfulbuild".
+  Touching "cmTC_b8431.dir\Debug\cmTC_b8431.tlog\cmTC_b8431.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_b8431.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
@@ -660,116 +660,116 @@ Time Elapsed 00:00:00.87
 
 
 Determining if the include file stdint.h exists passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_b144a.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_e05b1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:56 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_b144a.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:32 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_e05b1.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_b144a.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_b144a.dir\Debug\cmTC_b144a.tlog\".
+  Creating directory "cmTC_e05b1.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_e05b1.dir\Debug\cmTC_e05b1.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_b144a.dir\Debug\cmTC_b144a.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_e05b1.dir\Debug\cmTC_e05b1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b144a.dir\Debug\\" /Fd"cmTC_b144a.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e05b1.dir\Debug\\" /Fd"cmTC_e05b1.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b144a.dir\Debug\\" /Fd"cmTC_b144a.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e05b1.dir\Debug\\" /Fd"cmTC_e05b1.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   CheckIncludeFile.c
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_b144a.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_b144a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_b144a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b144a.dir\Debug\CheckIncludeFile.obj
-  cmTC_b144a.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_b144a.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_e05b1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_e05b1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_e05b1.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e05b1.dir\Debug\CheckIncludeFile.obj
+  cmTC_e05b1.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_e05b1.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_b144a.dir\Debug\cmTC_b144a.tlog\unsuccessfulbuild".
-  Touching "cmTC_b144a.dir\Debug\cmTC_b144a.tlog\cmTC_b144a.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_b144a.vcxproj" (default targets).
+  Deleting file "cmTC_e05b1.dir\Debug\cmTC_e05b1.tlog\unsuccessfulbuild".
+  Touching "cmTC_e05b1.dir\Debug\cmTC_e05b1.tlog\cmTC_e05b1.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_e05b1.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.00
+Time Elapsed 00:00:00.83
 
 
 Determining if the include file stddef.h exists passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_cdc84.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_0d711.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.1.1012.6693
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 8/26/2017 4:12:57 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_cdc84.vcxproj" on node 1 (default targets).
+Build started 8/29/2017 6:53:33 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0d711.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_cdc84.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_cdc84.dir\Debug\cmTC_cdc84.tlog\".
+  Creating directory "cmTC_0d711.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_0d711.dir\Debug\cmTC_0d711.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_cdc84.dir\Debug\cmTC_cdc84.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_0d711.dir\Debug\cmTC_0d711.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cdc84.dir\Debug\\" /Fd"cmTC_cdc84.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0d711.dir\Debug\\" /Fd"cmTC_0d711.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cdc84.dir\Debug\\" /Fd"cmTC_cdc84.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0d711.dir\Debug\\" /Fd"cmTC_0d711.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
   CheckIncludeFile.c
   
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_cdc84.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_cdc84.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_cdc84.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_cdc84.dir\Debug\CheckIncludeFile.obj
-  cmTC_cdc84.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_cdc84.exe
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0d711.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0d711.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_0d711.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0d711.dir\Debug\CheckIncludeFile.obj
+  cmTC_0d711.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_0d711.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_cdc84.dir\Debug\cmTC_cdc84.tlog\unsuccessfulbuild".
-  Touching "cmTC_cdc84.dir\Debug\cmTC_cdc84.tlog\cmTC_cdc84.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_cdc84.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.89
-
-
-Determining size of void* passed with the following output:
-Change Dir: D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_79670.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.1.1012.6693
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 8/26/2017 4:12:58 AM.
-Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_79670.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_79670.dir\Debug\".
-  Creating directory "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_79670.dir\Debug\cmTC_79670.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_79670.dir\Debug\cmTC_79670.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_79670.dir\Debug\\" /Fd"cmTC_79670.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_79670.dir\Debug\\" /Fd"cmTC_79670.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c"
-  SIZEOF_VOID_PTR.c
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_79670.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_79670.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_79670.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_79670.dir\Debug\SIZEOF_VOID_PTR.obj
-  cmTC_79670.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_79670.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_79670.dir\Debug\cmTC_79670.tlog\unsuccessfulbuild".
-  Touching "cmTC_79670.dir\Debug\cmTC_79670.tlog\cmTC_79670.lastbuildstate".
-Done Building Project "D:\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_79670.vcxproj" (default targets).
+  Deleting file "cmTC_0d711.dir\Debug\cmTC_0d711.tlog\unsuccessfulbuild".
+  Touching "cmTC_0d711.dir\Debug\cmTC_0d711.tlog\cmTC_0d711.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_0d711.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
 Time Elapsed 00:00:00.86
+
+
+Determining size of void* passed with the following output:
+Change Dir: C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp
+
+Run Build Command:"F:\Microsoft Visual Studio\2017\Professional/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_97265.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.1.1012.6693
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 8/29/2017 6:53:34 AM.
+Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_97265.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_97265.dir\Debug\".
+  Creating directory "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_97265.dir\Debug\cmTC_97265.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_97265.dir\Debug\cmTC_97265.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_97265.dir\Debug\\" /Fd"cmTC_97265.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.10.25019 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_97265.dir\Debug\\" /Fd"cmTC_97265.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c"
+  SIZEOF_VOID_PTR.c
+  
+Link:
+  F:\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_97265.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_97265.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Paul/Documents/GitHub/crispy-doom/doomlib/SFML_Build/CMakeFiles/CMakeTmp/Debug/cmTC_97265.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_97265.dir\Debug\SIZEOF_VOID_PTR.obj
+  cmTC_97265.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\Debug\cmTC_97265.exe
+FinalizeBuildStatus:
+  Deleting file "cmTC_97265.dir\Debug\cmTC_97265.tlog\unsuccessfulbuild".
+  Touching "cmTC_97265.dir\Debug\cmTC_97265.tlog\cmTC_97265.lastbuildstate".
+Done Building Project "C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\SFML_Build\CMakeFiles\CMakeTmp\cmTC_97265.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.88
 
 

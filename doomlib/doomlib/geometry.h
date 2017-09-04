@@ -1,11 +1,6 @@
 #ifndef __GEOMETRY_H__
 #define __GEOMETRY_H__
 #include "tiny_common.h"
-#include <cmath>
-#include <vector>
-#include <cassert>
-#include <iostream>
-#include <array>
 
 template<size_t DimCols,size_t DimRows,typename T> class mat;
 namespace priv {
@@ -152,52 +147,143 @@ template <typename T> struct vec<3,T> {
 		std::array<value_type, 3> data;
 	};
 };
-struct color_rgba {
 
-};
-template <size_t DIM, typename T> struct color {
-	using value_type = T;
-	static constexpr size_t dim = DIM;
-	constexpr color() { for (size_t i = DIM; i--; data[i] = T()); }
-	//  template<typename ... Args>
-	//   constexpr vec(Args&& ... args) : data{ std::forward<Args>(args)... } {}
-	template<size_t UN, typename U>
-	constexpr color(const color<UN, U>& v) : data{ convert_array<U,UN,T,DIM>(v.data) } {}
 
-	constexpr      T& operator[](const size_t i) { return data[i]; }
-	constexpr const T& operator[](const size_t i) const { return data[i]; }
-	std::array<T, DIM> data;
-};
-
-// this is indexed color
-template<> struct color<4, uint8_t> {
-	using value_type = uint8_t;
-	static constexpr size_t dim = 4;
-	constexpr color() : r(0),g(0),b(0), a(0xFF) {}
-	constexpr color(value_type R, value_type G, value_type B, value_type A=0xFF) : r(R), g(G), b(B), a(A) {}
-	constexpr      value_type& operator[](const size_t i) { return data[i]; }
-	constexpr const value_type& operator[](const size_t i) const { return data[i]; }
-	union {
-		uint32_t number;
-		value_type data[4];
-		struct {
-			value_type r;
-			value_type g;
-			value_type b;
-			value_type a;
-		};
+namespace priv {
+	template<size_t LAST_BIT>
+	struct bit_type {
+		using type = typename std::conditional<LAST_BIT == 0, void,
+			typename std::conditional<LAST_BIT <= 8, uint8_t,
+			typename std::conditional<LAST_BIT <= 16, uint16_t,
+			typename std::conditional<LAST_BIT <= 32, uint32_t,
+			typename std::conditional<LAST_BIT <= 64, uint64_t,
+			void>::type>::type>::type>::type>::type;
 	};
+	template<size_t SHIFT, size_t SIZE = 1>
+	class bit_traits {
+		using value_type = typename bit_type<SHIFT + SIZE>::type;
+		static constexpr size_t size = SIZE;
+		static constexpr size_t shift = SHIFT;
+	};
+
+	template<typename T, size_t SHIFT, size_t SIZE>
+	class bit_field {
+	public:
+		static_assert(sizeof(typename bit_type<SHIFT + SIZE>::type) <= sizeof(T), "Type to small");
+		using value_type = T;
+		static constexpr size_t size = SIZE;
+		static constexpr size_t shift = SHIFT;
+		static constexpr value_type mask = (1u << shift) - 1u;
+		static constexpr value_type set_bits(value_type value) { return ((value << shift) & mask); }
+		static constexpr value_type clear_bits(value_type value) { return (value & ~(mask << shift)); }
+		static constexpr value_type get_bits(value_type value) { return  (value_ >> shift) & mask; }
+		template <class T2>
+		bit_field &operator=(T2 value) {
+			value_ = clear_bits(value_) | set_bits(value); ;
+			return *this;
+		}
+		operator value_type() const { return get_bits(value_); }
+		explicit operator bool() const { return value_ & (mask << shift); }
+		bit_field &operator++() { return *this = *this + 1; }
+		value_type operator++(int) { T r = *this; ++*this; return r; }
+		bit_field &operator--() { return *this = *this - 1; }
+		value_type operator--(int) { T r = *this; --*this; return r; }
+	private:
+		value_type& value_;
+	};
+
+	template<typename TT>
+	class bit_field<TT,0U, 0U> {
+	public:
+		using value_type = TT;
+		static constexpr size_t size = 0;
+		static constexpr size_t shift = 0;
+		
+		template<typename T>static constexpr T set_bits(T value) { return value; }
+		template<typename T>static constexpr T clear_bits(T value) { return value; }
+		template<typename T>static constexpr T get_bits(T value) { return 0; }
+
+		template <class T2>
+		bit_field &operator=(T2 value) { return *this; }
+
+		operator value_type() const { return 0; }
+		explicit operator bool() const { return false; }
+		bit_field &operator++() { return *this; }
+		value_type operator++(int) { return *this; }
+		bit_field &operator--() { return *this; }
+		value_type operator--(int) { return *this; }
+	};
+
 };
 
+template<size_t SHIFT, size_t SIZE>
+using color_component = priv::bit_traits<SHIFT, SIZE>;
 
-template <size_t DIM, typename T,typename F>
-constexpr static inline color<DIM,T> operator*(const color<DIM, T>& c, F intensity) {
-	color<DIM, T> ret;
+
+
+
+template <typename RED_COMP, typename GREEN_COMP, typename BLUE_COMP, typename ALPHA_COMP = color_component<0,0>>
+class color {
+	static constexpr size_t total_bits = RED_COMP::size + GREEN_COMP::size + BLUE_COMP::size + ALPHA_COMP::size;
+	using value_type = priv::bit_type<total_bits>;
+	using red_type = priv::bit_field<value_type, RED_COMP::shift, RED_COMP::size>;
+	using green_type = priv::bit_field<value_type, GREEN_COMP::shift, GREEN_COMP::size>;
+	using blue_type = priv::bit_field<value_type, BLUE_COMP::shift, BLUE_COMP::size>;
+	using alpha_type = priv::bit_field<value_type, ALPHA_COMP::shift, ALPHA_COMP::size>;
+	
+	const red_type red() const { return _value; }
+	const green_type green() const { return _value; }
+	const blue_type blue() const { return _value; }
+	const blue_type alpha() const { return _value; }
+	red_type red()  { return _value; }
+	green_type green()  { return _value; }
+	blue_type blue()  { return _value; }
+	blue_type alpha()  { return _value; }
+	constexpr bool has_alpha() const { return alpha_type::size != 0; }
+	constexpr size_t size() const { return sizeof(value_type); }
+	const uint8_t* data() const { return reinterpret_cast<uint8_t*>(&_value); }
+
+	color() : : _value(alpha_type::set(td::numeric_limits<ALPHA>::max())) {}
+	template<typename RED, typename GREEN, typename BLUE,typename ALPHA>
+	color(RED r, GREEN g, BLUE b, ALPHA a = std::numeric_limits<ALPHA>::max()) : _value(red_type::set(r) | green_type::set(g) | blue_type::set(b) | alpha_type::set(a)) {}
+	template<typename RED, typename GREEN, typename BLUE, typename ALPHA>
+	color(const color<RED,GREEN,BLUE,ALPHA>& copy) : _value(red_type::set(copy.red()) | green_type::set(copy.green()) | blue_type::set(copy.blue()) | alpha_type::set(copy.alpha())) {}
+private:
+	value_type _value;
+};
+
+// this builds a 16 bit color value in 5.5.5 format (1-bit alpha mode)
+#define _RGB16BIT555(r,g,b) ((b & 31) + ((g & 31) << 5) + ((r & 31) << 10))
+
+// this builds a 16 bit color value in 5.6.5 format (green dominate mode)
+#define _RGB16BIT565(r,g,b) ((b & 31) + ((g & 63) << 5) + ((r & 31) << 11))
+
+// this builds a 24 bit color value in 8.8.8 format 
+#define _RGB24BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) )
+
+// this builds a 32 bit color value in A.8.8.8 format (8-bit alpha mode)
+#define _RGB32BIT(a,r,g,b) ((b) + ((g) << 8) + ((r) << 16) + ((a) << 24))
+
+using color_rgb1555 = color<color_component<10, 5>, color_component<5, 5>, color_component<0, 5>, color_component<15, 1>>;
+using color_rgb565 = color<color_component<11, 5>, color_component<5, 6>, color_component<0, 5>>;
+using color_rgb888 = color<color_component<16, 8>, color_component<8, 8>, color_component<0, 8>>;
+using color_rgb8888 = color<color_component<16, 8>, color_component<8, 8>, color_component<0, 8>, color_component<24, 8>>;
+
+
+template <typename RED_COMP, typename GREEN_COMP, typename BLUE_COMP, typename ALPHA_COMP,typename F>
+constexpr static inline color<RED_COMP, GREEN_COMP, BLUE_COMP, ALPHA_COMP> 
+	operator*(const color<RED_COMP, GREEN_COMP, BLUE_COMP, ALPHA_COMP> & c, F intensity) {
+	using color_type = color<RED_COMP, GREEN_COMP, BLUE_COMP, ALPHA_COMP>;
+	using value_type = typename color_type::value_type;
 	intensity = (intensity > F{ 1 } ? F{ 1 } : (intensity < F{ 0 } ? F{ 0 } : intensity));
-	for (size_t i = 0; i<DIM; i++) ret.data[i] = priv::convert<F,T>(c.data[i] * intensity);
+	color_type ret(priv::convert<F, value_type>(c.red() * intensity), 
+		priv::convert<F, value_type>(c.green() * intensity), 
+		priv::convert<F, value_type>(c.blue() * intensity), 
+		c.alpha());
 	return ret;
 }
-using color_t = color<4, uint8_t>;
+
+using color_t = color_rgb8888;
 
 #if 0
 template <typename T> struct vec<4, T> {

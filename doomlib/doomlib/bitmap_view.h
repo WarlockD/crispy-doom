@@ -4,10 +4,15 @@
 #include <atlapp.h>
 #include <atlwin.h>
 #include <atlscrl.h>
+#include <atlframe.h>
+
 typedef CWinTraits<WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
 	WS_EX_APPWINDOW> CMyWindowTraits;
 
-class CBitmapWindow : public CWindowImpl<CBitmapWindow, CWindow, CMyWindowTraits>
+
+
+//class CBitmapWindow : public CWindowImpl<CBitmapWindow, CWindow, CMyWindowTraits>
+class CBitmapWindow : public CDoubleBufferWindowImpl<CBitmapWindow, CWindow, CMyWindowTraits>
 {
 public:
 	CBitmap m_bmp;
@@ -16,8 +21,9 @@ public:
 
 	BEGIN_MSG_MAP(CBitmapWindow)
 		MESSAGE_HANDLER(WM_CLOSE, OnClose)
-		MESSAGE_HANDLER(WM_PAINT, OnPaint)
+	//	MESSAGE_HANDLER(WM_PAINT, OnPaint)
 		MESSAGE_HANDLER(WM_DESTROY, OnDestroy)
+		CHAIN_MSG_MAP(CDoubleBufferWindowImpl)
 	END_MSG_MAP()
 
 	void DoPaint(CDCHandle dc)
@@ -41,6 +47,7 @@ public:
 		m_bmp.SetBitmapBits(m_size.cx*m_size.cy, pixels);
 		this->Invalidate();
 	}
+#if 0
 	LRESULT OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
 		ATLASSERT(::IsWindow(m_hWnd));
@@ -50,7 +57,7 @@ public:
 			DoPaint(CPaintDC(m_hWnd).m_hDC);
 		return 0;
 	}
-
+#endif
 	LRESULT OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
 		DestroyWindow();

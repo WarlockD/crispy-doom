@@ -72,6 +72,18 @@ low-level hardware-dependent drawing code). */
 		MaxX, MaxY, MaxZ;
 } ;
 
+ struct bcolor_t {
+	 union {
+		 struct {
+			 uint8_t r; ///< Red component
+			 uint8_t g; ///< Green component
+			 uint8_t b; ///< Blue component
+			 uint8_t a; ///< Alpha (opacity) component 
+		 };
+		 uint32_t num;
+	 };
+ };
+
 /* fields common to every object */
 struct Object {
 	virtual void DrawFunc() = 0;	 /* draws object */

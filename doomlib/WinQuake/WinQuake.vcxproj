@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{17D2978F-F427-465D-ACAC-B286E942B5A7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WinQuake</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Winmm.lib;WSock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\quake\adivtab.h" />
+    <ClInclude Include="..\quake\anorms.h" />
+    <ClInclude Include="..\quake\anorm_dots.h" />
+    <ClInclude Include="..\quake\asm_draw.h" />
+    <ClInclude Include="..\quake\asm_i386.h" />
+    <ClInclude Include="..\quake\block16.h" />
+    <ClInclude Include="..\quake\block8.h" />
+    <ClInclude Include="..\quake\bspfile.h" />
+    <ClInclude Include="..\quake\cdaudio.h" />
+    <ClInclude Include="..\quake\client.h" />
+    <ClInclude Include="..\quake\cmd.h" />
+    <ClInclude Include="..\quake\common.h" />
+    <ClInclude Include="..\quake\conproc.h" />
+    <ClInclude Include="..\quake\console.h" />
+    <ClInclude Include="..\quake\crc.h" />
+    <ClInclude Include="..\quake\cvar.h" />
+    <ClInclude Include="..\quake\draw.h" />
+    <ClInclude Include="..\quake\d_iface.h" />
+    <ClInclude Include="..\quake\d_ifacea.h" />
+    <ClInclude Include="..\quake\d_local.h" />
+    <ClInclude Include="..\quake\glquake.h" />
+    <ClInclude Include="..\quake\glquake2.h" />
+    <ClInclude Include="..\quake\gl_model.h" />
+    <ClInclude Include="..\quake\gl_warp_sin.h" />
+    <ClInclude Include="..\quake\input.h" />
+    <ClInclude Include="..\quake\keys.h" />
+    <ClInclude Include="..\quake\mathlib.h" />
+    <ClInclude Include="..\quake\menu.h" />
+    <ClInclude Include="..\quake\model.h" />
+    <ClInclude Include="..\quake\modelgen.h" />
+    <ClInclude Include="..\quake\mpdosock.h" />
+    <ClInclude Include="..\quake\net.h" />
+    <ClInclude Include="..\quake\net_bw.h" />
+    <ClInclude Include="..\quake\net_dgrm.h" />
+    <ClInclude Include="..\quake\net_ipx.h" />
+    <ClInclude Include="..\quake\net_loop.h" />
+    <ClInclude Include="..\quake\net_mp.h" />
+    <ClInclude Include="..\quake\net_ser.h" />
+    <ClInclude Include="..\quake\net_udp.h" />
+    <ClInclude Include="..\quake\net_vcr.h" />
+    <ClInclude Include="..\quake\net_wins.h" />
+    <ClInclude Include="..\quake\net_wipx.h" />
+    <ClInclude Include="..\quake\progdefs.h" />
+    <ClInclude Include="..\quake\progs.h" />
+    <ClInclude Include="..\quake\protocol.h" />
+    <ClInclude Include="..\quake\pr_comp.h" />
+    <ClInclude Include="..\quake\quakeasm.h" />
+    <ClInclude Include="..\quake\quakedef.h" />
+    <ClInclude Include="..\quake\render.h" />
+    <ClInclude Include="..\quake\resource.h" />
+    <ClInclude Include="..\quake\r_local.h" />
+    <ClInclude Include="..\quake\r_shared.h" />
+    <ClInclude Include="..\quake\sbar.h" />
+    <ClInclude Include="..\quake\screen.h" />
+    <ClInclude Include="..\quake\server.h" />
+    <ClInclude Include="..\quake\sound.h" />
+    <ClInclude Include="..\quake\spritegn.h" />
+    <ClInclude Include="..\quake\sys.h" />
+    <ClInclude Include="..\quake\vgamodes.h" />
+    <ClInclude Include="..\quake\vid.h" />
+    <ClInclude Include="..\quake\vid_dos.h" />
+    <ClInclude Include="..\quake\view.h" />
+    <ClInclude Include="..\quake\vregset.h" />
+    <ClInclude Include="..\quake\wad.h" />
+    <ClInclude Include="..\quake\winquake.h" />
+    <ClInclude Include="..\quake\world.h" />
+    <ClInclude Include="..\quake\zone.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\quake\cd_null.c" />
+    <ClCompile Include="..\quake\chase.c" />
+    <ClCompile Include="..\quake\cl_demo.c" />
+    <ClCompile Include="..\quake\cl_input.c" />
+    <ClCompile Include="..\quake\cl_main.c" />
+    <ClCompile Include="..\quake\cl_parse.c" />
+    <ClCompile Include="..\quake\cl_tent.c" />
+    <ClCompile Include="..\quake\cmd.c" />
+    <ClCompile Include="..\quake\common.c" />
+    <ClCompile Include="..\quake\conproc.c" />
+    <ClCompile Include="..\quake\console.c" />
+    <ClCompile Include="..\quake\crc.c" />
+    <ClCompile Include="..\quake\cvar.c" />
+    <ClCompile Include="..\quake\draw.c" />
+    <ClCompile Include="..\quake\d_edge.c" />
+    <ClCompile Include="..\quake\d_fill.c" />
+    <ClCompile Include="..\quake\d_init.c" />
+    <ClCompile Include="..\quake\d_modech.c" />
+    <ClCompile Include="..\quake\d_part.c" />
+    <ClCompile Include="..\quake\d_polyse.c" />
+    <ClCompile Include="..\quake\d_scan.c" />
+    <ClCompile Include="..\quake\d_sky.c" />
+    <ClCompile Include="..\quake\d_sprite.c" />
+    <ClCompile Include="..\quake\d_surf.c" />
+    <ClCompile Include="..\quake\d_vars.c" />
+    <ClCompile Include="..\quake\d_zpoint.c" />
+    <ClCompile Include="..\quake\host.c" />
+    <ClCompile Include="..\quake\host_cmd.c" />
+    <ClCompile Include="..\quake\in_null.c" />
+    <ClCompile Include="..\quake\keys.c" />
+    <ClCompile Include="..\quake\mathlib.c" />
+    <ClCompile Include="..\quake\menu.c" />
+    <ClCompile Include="..\quake\model.c" />
+    <ClCompile Include="..\quake\net_loop.c" />
+    <ClCompile Include="..\quake\net_main.c" />
+    <ClCompile Include="..\quake\net_none.c" />
+    <ClCompile Include="..\quake\net_vcr.c" />
+    <ClCompile Include="..\quake\nonintel.c" />
+    <ClCompile Include="..\quake\pr_cmds.c" />
+    <ClCompile Include="..\quake\pr_edict.c" />
+    <ClCompile Include="..\quake\pr_exec.c" />
+    <ClCompile Include="..\quake\r_aclip.c" />
+    <ClCompile Include="..\quake\r_alias.c" />
+    <ClCompile Include="..\quake\r_bsp.c" />
+    <ClCompile Include="..\quake\r_draw.c" />
+    <ClCompile Include="..\quake\r_edge.c" />
+    <ClCompile Include="..\quake\r_efrag.c" />
+    <ClCompile Include="..\quake\r_light.c" />
+    <ClCompile Include="..\quake\r_main.c" />
+    <ClCompile Include="..\quake\r_misc.c" />
+    <ClCompile Include="..\quake\r_part.c" />
+    <ClCompile Include="..\quake\r_sky.c" />
+    <ClCompile Include="..\quake\r_sprite.c" />
+    <ClCompile Include="..\quake\r_surf.c" />
+    <ClCompile Include="..\quake\r_vars.c" />
+    <ClCompile Include="..\quake\sbar.c" />
+    <ClCompile Include="..\quake\screen.c" />
+    <ClCompile Include="..\quake\snd_next.c" />
+    <ClCompile Include="..\quake\snd_null.c" />
+    <ClCompile Include="..\quake\sv_main.c" />
+    <ClCompile Include="..\quake\sv_move.c" />
+    <ClCompile Include="..\quake\sv_phys.c" />
+    <ClCompile Include="..\quake\sv_user.c" />
+    <ClCompile Include="..\quake\sys_win.cpp" />
+    <ClCompile Include="..\quake\vid_null.cpp" />
+    <ClCompile Include="..\quake\view.c" />
+    <ClCompile Include="..\quake\wad.c" />
+    <ClCompile Include="..\quake\world.c" />
+    <ClCompile Include="..\quake\zone.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

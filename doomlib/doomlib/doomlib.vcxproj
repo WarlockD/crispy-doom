@@ -78,7 +78,7 @@
     <Linkage-sfml-audio>static</Linkage-sfml-audio>
     <Linkage-sfml-graphics>static</Linkage-sfml-graphics>
     <Linkage-sfml-system>static</Linkage-sfml-system>
-    <IncludePath>..\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\wtl\Include;$(IncludePath)</IncludePath>
     <LibraryPath>..\SFML\extlibs\libs-msvc-universal\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -89,7 +89,7 @@
     <Linkage-sfml-audio>static</Linkage-sfml-audio>
     <Linkage-sfml-graphics>static</Linkage-sfml-graphics>
     <Linkage-sfml-system>static</Linkage-sfml-system>
-    <IncludePath>..\SFML\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\wtl\Include;$(IncludePath)</IncludePath>
     <LibraryPath>..\SFML\extlibs\libs-msvc-universal\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +111,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>flac.lib;freetype.lib;jpeg.lib;ogg.lib;openal32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;gdi32.lib;winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,7 +125,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>flac.lib;freetype.lib;jpeg.lib;ogg.lib;openal32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;gdi32.lib;winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\quake\snd_null.c" />
     <ClCompile Include="black_cubes.cpp" />
     <ClCompile Include="black_fillpoly.cpp" />
     <ClCompile Include="doom_common.cpp" />
@@ -178,26 +179,6 @@
     <ClCompile Include="w_doom.cpp" />
     <ClCompile Include="xform_stuff.cpp" />
     <ClCompile Include="z_doom.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SFML_Build\src\SFML\Audio\sfml-audio.vcxproj">
-      <Project>{76dc1e12-962d-311f-b581-6b366814a3c4}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SFML_Build\src\SFML\Graphics\sfml-graphics.vcxproj">
-      <Project>{94d65101-3043-3790-bdd1-b8693fa59de5}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SFML_Build\src\SFML\Main\sfml-main.vcxproj">
-      <Project>{2eed7754-8c33-3917-91c3-b3d2503657f3}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SFML_Build\src\SFML\Network\sfml-network.vcxproj">
-      <Project>{f85a5923-e1bb-34d3-b917-b73a0107e8ad}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SFML_Build\src\SFML\System\sfml-system.vcxproj">
-      <Project>{95c17390-471f-3b96-bb93-b13f66d0fc6b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SFML_Build\src\SFML\Window\sfml-window.vcxproj">
-      <Project>{6f04bed4-e59a-3372-859f-5711b3415e90}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bitmap_view.h" />

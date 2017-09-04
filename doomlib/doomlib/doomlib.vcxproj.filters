@@ -75,6 +75,9 @@
     <ClCompile Include="black_fillpoly.cpp">
       <Filter>blackbook</Filter>
     </ClCompile>
+    <ClCompile Include="..\quake\snd_null.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ByteBuffer.hpp">

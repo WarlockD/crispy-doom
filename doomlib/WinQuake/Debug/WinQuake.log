@@ -1,0 +1,12 @@
+﻿  vid_null.cpp
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'bestmatchmetric': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'db': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'dr': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(179): warning C4101: 'basenummodes': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'i': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(180): warning C4101: 'ptmp': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 't': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'bestmatch': unreferenced local variable
+d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'dg': unreferenced local variable
+  WinQuake.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\Debug\WinQuake.exe
+  WinQuake.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\Debug\WinQuake.pdb (Partial PDB)

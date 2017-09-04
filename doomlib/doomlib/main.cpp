@@ -1,6 +1,4 @@
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
@@ -57,25 +55,7 @@ static constexpr size_t screen_width = 640;
 static constexpr size_t screen_height = 480;
 uint8_t s_doom_memory[total_doom_memory];
 //static std::vector<uint8_t> doom_memory;
-class SFML_framebuffer {
-	sf::Texture _texture;
-	sf::Image _image;
-public:
-	SFML_framebuffer(size_t width, size_t height) { _image.create(width, height);  _texture.create(width, height);}
-	void set(size_t x, size_t y, const TGAColor& v) {
-		sf::Color c(v.r, v.g, v.b, v.a);
-		_image.setPixel(x, y, c); 
 
-		
-	}
-	sf::Texture& getTexture() {
-		_texture.loadFromImage(_image);
-		return _texture;
-	}
-
-	size_t get_width() const { return _image.getSize().x; }
-	size_t get_height() const { return _image.getSize().x; }
-};
 static doom_cpp::Video<320, 200> screen;
 void doom_start() {
 	// because of scope, go here
@@ -131,11 +111,6 @@ LRESULT CALLBACK onEvent(HWND handle, UINT message, WPARAM wParam, LPARAM lParam
 
 
 void tiny_test() {
-	sf::Texture texture_out;
-	sf::Image screen_image;
-	sf::Image texutre_image;
-	assert(texutre_image.loadFromFile("thing.png"));
-	screen_image.create(screen_width, screen_height);
 
 	blackbox_init(screen_width, screen_height);
 #if 0
@@ -154,49 +129,6 @@ void tiny_test() {
 	test.init();
 	test.load("diablo3_pose.obj");
 
-	SFML_framebuffer image(640, 480);
-	// Create the window of the application
-	sf::RenderWindow window(sf::VideoMode(640, 480, 32), "SFML Pong",
-		sf::Style::Titlebar | sf::Style::Close);
-	window.setVerticalSyncEnabled(true);
-	sf::Sprite sprite;
-	sf::Clock clock; // starts the clock
-	while (window.isOpen())
-	{
-		// Handle events
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			// Window closed or escape key pressed: exit
-			if ((event.type == sf::Event::Closed) ||
-				((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
-			{
-				window.close();
-				break;
-			}
-		}
-		sf::Time elapsed1 = clock.getElapsedTime();
-		if (elapsed1.asMilliseconds() > 10)
-			clock.restart();
-		//std::cout << elapsed1.asSeconds() << std::endl;
-
-
-		clock.restart();
-		// Clear the window
-		window.clear(sf::Color(50, 200, 50));
-#if 0
-		test.render(image);
-
-#else
-		blackbox_refresh();
-		texture_out.loadFromImage(screen_image);
-		sprite.setTexture(texture_out);
-#endif
-		window.draw(sprite);
-
-		// Display things on screen
-		window.display();
-	}
 
 }
 

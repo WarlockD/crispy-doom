@@ -135,7 +135,7 @@ struct vertex {
 	Color color;
 };
 // default vertex
-using Vertex = vertex<color<4, uint8_t>, float, int>;
+using Vertex = vertex<color_rgb8888, float, int>;
 
 template<typename VT = Vertex, typename IT = std::vector<Vertex>::iterator>
 class Edge {

@@ -1,5 +1,10 @@
 #include "polygon.h"
-#include <SFML\Graphics.hpp>
+
+#include <vector>
+#include <cstdlib>
+#include <string>
+#include <list>
+#include <algorithm>
 
 /* clip rectangle; clips to the screen */
 int ClipMinX = 0, ClipMinY = 0;
@@ -9,17 +14,7 @@ int RecalcAllXforms = 1, NumObjects = 0;
 Xform WorldViewXform;   /* initialized from floats */
 						/* pointers to objects */
 Object *ObjectList[MAX_OBJECTS];
-struct bcolor_t {
-	union {
-		struct {
-			uint8_t r; ///< Red component
-			uint8_t g; ///< Green component
-			uint8_t b; ///< Blue component
-			uint8_t a; ///< Alpha (opacity) component 
-		};
-		uint32_t num;
-	};
-};
+
 static std::vector<bcolor_t> backbuffer;
 static bcolor_t PaletteBlock[256]; /* 256 RGBA entries */
 
@@ -69,7 +64,7 @@ void InitializePalette()
 /* Converts a model color (a color in the RGB color cube, in the current
 color model) to a color index for mode X. Pure primary colors are
 special-cased, and everything else is handled by a 2-2-2 model. */
-int ModelColorToColorIndex(sf::Color c)
+int ModelColorToColorIndex(bcolor_t c)
 {
 	if (c.r== 0) {
 		if (c.g == 0) {
@@ -151,7 +146,8 @@ void FillRectangleX(int StartX, int StartY, int EndX, int EndY, unsigned int Pag
 }
 
 uint32_t* blackbox_refresh() {
-	int Done = 0, i;
+	int Done = 0;
+	int i = 0;
 	Object *ObjectPtr;
 	memset(backbuffer.data(), 0, SCREEN_HEIGHT*SCREEN_WIDTH * sizeof(uint32_t));
 	/* Keep transforming the cube, drawing it to the undisplayed page,

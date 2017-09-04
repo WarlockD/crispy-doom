@@ -1,2 +1,1 @@
-﻿  tutorial_test.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\Debug\tutorial_test.exe
-  tutorial_test.vcxproj -> C:\Users\Paul\Documents\GitHub\crispy-doom\doomlib\Debug\tutorial_test.pdb (Partial PDB)
+﻿D:\Documents\GitHub\crispy-doom\doomlib\tutorial_test\tutorial_test.vcxproj : error MSB4057: The target "Deploy" does not exist in the project.

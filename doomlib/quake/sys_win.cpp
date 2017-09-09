@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 //#pragma comment(lib,"ws2_32.lib")
 #define MINIMUM_WIN_MEMORY		0x0880000
-#define MAXIMUM_WIN_MEMORY		0x1000000
+#define MAXIMUM_WIN_MEMORY		0x4000000
 
 #define CONSOLE_ERROR_TIMEOUT	60.0	// # of seconds to wait on Sys_Error running
 										//  dedicated before exiting
@@ -55,21 +55,21 @@ static HANDLE	hFile;
 static HANDLE	heventParent;
 static HANDLE	heventChild;
 
-extern "C" void MaskExceptions (void);
-extern "C" void Sys_InitFloatTime (void);
-extern "C" void Sys_PushFPCW_SetHigh (void);
-extern "C" void Sys_PopFPCW (void);
+ void MaskExceptions (void);
+ void Sys_InitFloatTime (void);
+ void Sys_PushFPCW_SetHigh (void);
+ void Sys_PopFPCW (void);
 
 
 
 
 CBitmapWindow wndMain;
 
-extern "C" void Sys_HighFPPrecision(void)
+ void Sys_HighFPPrecision(void)
 {
 }
 
-extern "C" void Sys_LowFPPrecision(void)
+ void Sys_LowFPPrecision(void)
 {
 }
 
@@ -120,7 +120,7 @@ int filelength (FILE *f)
 	return end;
 }
 
-extern "C" int Sys_FileOpenRead (char *path, int *hndl)
+ int Sys_FileOpenRead (char *path, int *hndl)
 {
 	FILE	*f;
 	int		i, retval;
@@ -149,7 +149,7 @@ extern "C" int Sys_FileOpenRead (char *path, int *hndl)
 	return retval;
 }
 
-extern "C" int Sys_FileOpenWrite (char *path)
+ int Sys_FileOpenWrite (char *path)
 {
 	FILE	*f;
 	int		i;
@@ -169,7 +169,7 @@ extern "C" int Sys_FileOpenWrite (char *path)
 	return i;
 }
 
-extern "C" void Sys_FileClose (int handle)
+ void Sys_FileClose (int handle)
 {
 	int		t;
 
@@ -179,7 +179,7 @@ extern "C" void Sys_FileClose (int handle)
 	VID_ForceLockState (t);
 }
 
-extern "C" void Sys_FileSeek (int handle, int position)
+ void Sys_FileSeek (int handle, int position)
 {
 	int		t;
 
@@ -188,7 +188,7 @@ extern "C" void Sys_FileSeek (int handle, int position)
 	VID_ForceLockState (t);
 }
 
-extern "C" int Sys_FileRead (int handle, void *dest, int count)
+ int Sys_FileRead (int handle, void *dest, int count)
 {
 	int		t, x;
 
@@ -198,7 +198,7 @@ extern "C" int Sys_FileRead (int handle, void *dest, int count)
 	return x;
 }
 
-extern "C" int Sys_FileWrite (int handle, void *data, int count)
+ int Sys_FileWrite (int handle, void *data, int count)
 {
 	int		t, x;
 
@@ -208,7 +208,7 @@ extern "C" int Sys_FileWrite (int handle, void *data, int count)
 	return x;
 }
 
-extern "C" int	Sys_FileTime (char *path)
+ int	Sys_FileTime (char *path)
 {
 	FILE	*f;
 	int		t, retval;
@@ -234,7 +234,7 @@ extern "C" int	Sys_FileTime (char *path)
 //extern _mk
 
 #include <direct.h>
-extern "C" void Sys_mkdir (char *path)
+ void Sys_mkdir (char *path)
 {
 	_mkdir (path);
 }
@@ -253,7 +253,7 @@ SYSTEM IO
 Sys_MakeCodeWriteable
 ================
 */
-extern "C" void Sys_MakeCodeWriteable (unsigned long startaddr, unsigned long length)
+ void Sys_MakeCodeWriteable (unsigned long startaddr, unsigned long length)
 {
 	//DWORD  flOldProtect;
 
@@ -264,7 +264,6 @@ extern "C" void Sys_MakeCodeWriteable (unsigned long startaddr, unsigned long le
 
 
 
-extern "C" {
 	void Sys_SetFPCW(void)
 	{
 	}
@@ -280,8 +279,6 @@ extern "C" {
 	void MaskExceptions(void)
 	{
 	}
-};
-
 
 /*
 ================
@@ -291,7 +288,7 @@ Sys_Init
 
 CComModule _Module; 
 
-extern "C" void Sys_Init (void)
+ void Sys_Init (void)
 {
 	LARGE_INTEGER	PerformanceFreq;
 	unsigned int	lowpart, highpart;
@@ -345,7 +342,7 @@ extern "C" void Sys_Init (void)
 }
 
 
-extern "C" void Sys_Error (char *error, ...)
+ void Sys_Error (char *error, ...)
 {
 	va_list		argptr;
 	char		text[1024], text2[1024];
@@ -424,7 +421,7 @@ extern "C" void Sys_Error (char *error, ...)
 	exit (1);
 }
 
-extern "C" void Sys_Printf (char *fmt, ...)
+ void Sys_Printf (char *fmt, ...)
 {
 	va_list		argptr;
 	char		text[1024];
@@ -440,7 +437,7 @@ extern "C" void Sys_Printf (char *fmt, ...)
 	}
 }
 
-extern "C" void Sys_Quit (void)
+ void Sys_Quit (void)
 {
 
 	VID_ForceUnlockedAndReturnState ();
@@ -465,7 +462,7 @@ extern "C" void Sys_Quit (void)
 Sys_FloatTime
 ================
 */
-extern "C" double Sys_FloatTime (void)
+ double Sys_FloatTime (void)
 {
 	static int			sametimecount;
 	static unsigned int	oldtime;
@@ -532,7 +529,7 @@ extern "C" double Sys_FloatTime (void)
 Sys_InitFloatTime
 ================
 */
-extern "C" void Sys_InitFloatTime (void)
+ void Sys_InitFloatTime (void)
 {
 	int		j;
 
@@ -553,7 +550,7 @@ extern "C" void Sys_InitFloatTime (void)
 }
 
 
-extern "C" char *Sys_ConsoleInput (void)
+ char *Sys_ConsoleInput (void)
 {
 	static char	text[256];
 	static int		len;
@@ -633,13 +630,13 @@ extern "C" char *Sys_ConsoleInput (void)
 	return NULL;
 }
 
-extern "C" void Sys_Sleep (void)
+ void Sys_Sleep (void)
 {
 	Sleep (1);
 }
 
 
-extern "C" void Sys_SendKeyEvents (void)
+ void Sys_SendKeyEvents (void)
 {
     MSG        msg;
 
@@ -671,7 +668,7 @@ extern "C" void Sys_SendKeyEvents (void)
 WinMain
 ==================
 */
-extern "C" void SleepUntilInput (int time)
+ void SleepUntilInput (int time)
 {
 
 	MsgWaitForMultipleObjects(1, &tevent, FALSE, time, QS_ALLINPUT);
@@ -719,7 +716,8 @@ double Sys_DoubleTime(void)
 
 
 	
-extern "C" int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+
 {
     MSG				msg;
 	quakeparms_t	parms;
@@ -734,6 +732,7 @@ extern "C" int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPS
     if (hPrevInstance)
         return 0;
 
+	
 	global_hInstance = hInstance;
 	global_nCmdShow = nCmdShow;
 

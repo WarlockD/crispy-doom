@@ -56,6 +56,7 @@ void test_dma_serial();
 extern "C" uint32_t GetTimerFreq();
 extern "C"  int quake_main (int argc, char **argv);
 int
+
 main(int argc, char* argv[])
 {
   // By customising __initialize_args() it is possible to pass arguments,
@@ -76,7 +77,7 @@ main(int argc, char* argv[])
   // at high speed.
   trace_printf("System clock: %u Hz, AB1 is %u Hz\n", SystemCoreClock,GetTimerFreq());
 
-
+  quake_main(argc,argv);
  // M_FindResponseFile();
   //DoomMain();
   //D_DoomMain();

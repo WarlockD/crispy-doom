@@ -195,63 +195,63 @@ typedef struct client_s
 
 //============================================================================
 
-extern	cvar_t	teamplay;
-extern	cvar_t	skill;
-extern	cvar_t	deathmatch;
-extern	cvar_t	coop;
-extern	cvar_t	fraglimit;
-extern	cvar_t	timelimit;
+EXTERN 	cvar_t	teamplay;
+EXTERN 	cvar_t	skill;
+EXTERN 	cvar_t	deathmatch;
+EXTERN 	cvar_t	coop;
+EXTERN 	cvar_t	fraglimit;
+EXTERN 	cvar_t	timelimit;
 
-extern	server_static_t	svs;				// persistant server info
-extern	server_t		sv;					// local server
+EXTERN 	server_static_t	svs;				// persistant server info
+EXTERN 	server_t		sv;					// local server
 
-extern	client_t	*host_client;
+EXTERN 	client_t	*host_client;
 
-extern	jmp_buf 	host_abortserver;
+EXTERN 	jmp_buf 	host_abortserver;
 
-extern	double		host_time;
+EXTERN 	double		host_time;
 
-extern	edict_t		*sv_player;
+EXTERN 	edict_t		*sv_player;
 
 //===========================================================
 
-void SV_Init (void);
+EXTERN_CPP void SV_Init (void);
 
-void SV_StartParticle (vec3_t org, vec3_t dir, int color, int count);
-void SV_StartSound (edict_t *entity, int channel, char *sample, int volume,
+EXTERN_CPP void SV_StartParticle (vec3_t org, vec3_t dir, int color, int count);
+EXTERN_CPP void SV_StartSound (edict_t *entity, int channel, char *sample, int volume,
     float attenuation);
 
-void SV_DropClient (qboolean crash);
+EXTERN_CPP void SV_DropClient (qboolean crash);
 
-void SV_SendClientMessages (void);
-void SV_ClearDatagram (void);
+EXTERN_CPP void SV_SendClientMessages (void);
+EXTERN_CPP void SV_ClearDatagram (void);
 
-int SV_ModelIndex (char *name);
+EXTERN_CPP int SV_ModelIndex (char *name);
 
-void SV_SetIdealPitch (void);
+EXTERN_CPP void SV_SetIdealPitch (void);
 
-void SV_AddUpdates (void);
+EXTERN_CPP void SV_AddUpdates (void);
 
-void SV_ClientThink (void);
-void SV_AddClientToServer (struct qsocket_s	*ret);
+EXTERN_CPP void SV_ClientThink (void);
+EXTERN_CPP void SV_AddClientToServer (struct qsocket_s	*ret);
 
-void SV_ClientPrintf (char *fmt, ...);
-void SV_BroadcastPrintf (char *fmt, ...);
+EXTERN_CPP void SV_ClientPrintf (char *fmt, ...);
+EXTERN_CPP void SV_BroadcastPrintf (char *fmt, ...);
 
-void SV_Physics (void);
+EXTERN_CPP void SV_Physics (void);
 
-qboolean SV_CheckBottom (edict_t *ent);
-qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink);
+EXTERN_CPP qboolean SV_CheckBottom (edict_t *ent);
+EXTERN_CPP qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink);
 
-void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg);
+EXTERN_CPP void SV_WriteClientdataToMessage (edict_t *ent, sizebuf_t *msg);
 
-void SV_MoveToGoal (void);
+EXTERN_CPP void SV_MoveToGoal (void);
 
-void SV_CheckForNewClients (void);
-void SV_RunClients (void);
+EXTERN_CPP void SV_CheckForNewClients (void);
+EXTERN_CPP void SV_RunClients (void);
 void SV_SaveSpawnparms ();
 #ifdef QUAKE2
-void SV_SpawnServer (char *server, char *startspot);
+EXTERN_CPP void SV_SpawnServer (char *server, char *startspot);
 #else
-void SV_SpawnServer (char *server);
+EXTERN_CPP void SV_SpawnServer (char *server);
 #endif

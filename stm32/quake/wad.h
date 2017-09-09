@@ -62,14 +62,14 @@ typedef struct
 	char		name[16];				// must be null terminated
 } lumpinfo_t;
 
-extern	int			wad_numlumps;
-extern	lumpinfo_t	*wad_lumps;
-extern	byte		*wad_base;
+EXTERN 	int			wad_numlumps;
+EXTERN 	lumpinfo_t	*wad_lumps;
+EXTERN 	byte		*wad_base;
 
-void	W_LoadWadFile (char *filename);
-void	W_CleanupName (char *in, char *out);
-lumpinfo_t	*W_GetLumpinfo (char *name);
-void	*W_GetLumpName (char *name);
-void	*W_GetLumpNum (int num);
+EXTERN_CPP void	W_LoadWadFile (char *filename);
+EXTERN_CPP void	W_CleanupName (char *in, char *out);
+EXTERN_CPP lumpinfo_t	*W_GetLumpinfo (char *name);
+EXTERN_CPP void	*W_GetLumpName (char *name);
+EXTERN_CPP void	*W_GetLumpNum (int num);
 
-void SwapPic (qpic_t *pic);
+EXTERN_CPP void SwapPic (qpic_t *pic);

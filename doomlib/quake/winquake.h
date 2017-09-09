@@ -124,15 +124,16 @@ public:
 	std::vector<short> zbuffer;
 	std::vector<uint8_t> surfcache;
 	COLORREF ref_pal[256];
-	CBitmap m_backbuffers[2];
+	CBitmap m_backbuffer;
 	bool buffers_setup;
 	int m_current;
 	SIZE m_size;
+	SIZE m_screensize;
 	DWORD m_stride;
 
 	CBitmapWindow() : buffers_setup(false) {}
 
-	CBitmap* backbuffer() { return m_backbuffers + m_current; }
+	CBitmap* backbuffer() { return &m_backbuffer; }
 	void flipbuffer() { m_current = (m_current + 1 & 1); }
 	DWORD width() const { return m_size.cx; }
 	DWORD height() const { return m_size.cy; }
@@ -150,46 +151,16 @@ public:
 				m_bmp_info.bmiColors[iColor].rgbRed = r;
 				m_bmp_info.bmiColors[iColor].rgbGreen = g;
 				m_bmp_info.bmiColors[iColor].rgbBlue = b;
+				m_bmp_info.bmiColors[iColor].rgbReserved = 0;
 			}
 			CDCHandle hdc = this->GetDC();
 			
-			for (size_t i = 0; i < 2; i++) {
-				HBITMAP hBmpOld = hdc.SelectBitmap(m_backbuffers[i]);
-				SetDIBColorTable(hdc, 0,256, m_bmp_info.bmiColors);
-				hdc.SelectBitmap(hBmpOld);
-			}
+			HBITMAP hBmpOld = hdc.SelectBitmap(m_backbuffer);
+			SetDIBColorTable(hdc, 0,256, m_bmp_info.bmiColors);
+			hdc.SelectBitmap(hBmpOld);
 		}
 	}
-	void createbackbuffers(size_t width, size_t height, const uint8_t* palette) {
-		const size_t bitcount = 8;
-		m_size.cx = width;
-		m_size.cy = height;
-		m_stride = ((((width *bitcount) + 31) &~31) >> 3);
-		ZeroMemory(&m_bmp_info, sizeof(CUSTOM_BITMAPINFO));
-		BITMAPINFO* info = (BITMAPINFO*)&m_bmp_info;
-		m_bmp_info.info.biSize = sizeof(BITMAPINFOHEADER);
-		m_bmp_info.info.biHeight = -((int)height);
-		m_bmp_info.info.biWidth = width;
-		m_bmp_info.info.biPlanes = 1;
-		m_bmp_info.info.biBitCount = 8;
-		m_bmp_info.info.biCompression = BI_RGB;
-		m_bmp_info.info.biSizeImage = 0;
-		m_bmp_info.info.biXPelsPerMeter = 0;
-		m_bmp_info.info.biYPelsPerMeter = 0;
-		m_bmp_info.info.biClrUsed = 256; // use 256  colors
-		m_bmp_info.info.biClrImportant = 0; // all colors important
-											//m_bmp.CreateDIBitmap(GetDC(), &m_bmp_info.info,CBM_INIT, &header, 0, NULL, , 256);
-											//m_bmp.CreateDIBitmap(GetDC(), &m_bmp_info.info,CBM_INIT, &header, 0, NULL, , 256);
-		m_backbuffers[0].CreateDIBitmap(GetDC(), &info->bmiHeader, 0, NULL, info, DIB_RGB_COLORS);
-		m_backbuffers[1].CreateDIBitmap(GetDC(), &info->bmiHeader, 0, NULL, info, DIB_RGB_COLORS);
-		//m_backbuffers[0].CreateCompatibleBitmap(GetDC(), width, height); // 24 bit agb?
-		vid_buffer.resize(this->stride() * this->width());
-		back_buffer.resize(this->stride() * this->width());
-		zbuffer.resize(this->height() * this->width()); // this right?
-		surfcache.resize(256 * 1024);
-		buffers_setup = true;
-		SetPalette(palette);
-	}
+	void createbackbuffers(size_t width, size_t height, const uint8_t* palette);
 
 	DECLARE_WND_CLASS(_T("My CBitmapWindow Class"))
 
@@ -197,26 +168,16 @@ public:
 		MESSAGE_HANDLER(WM_CLOSE, OnClose)
 		//	MESSAGE_HANDLER(WM_PAINT, OnPaint)
 		MESSAGE_HANDLER(WM_DESTROY, OnDestroy)
+		MESSAGE_HANDLER(WM_SIZE, OnSize)
 		CHAIN_MSG_MAP(CDoubleBufferWindowImpl)
 	END_MSG_MAP()
 
 
-	void DoPaint(CDCHandle dc)
-	{
-		if (buffers_setup)
-		{
-			CDC dcMem;
-			dcMem.CreateCompatibleDC(dc);
-			HBITMAP hBmpOld = dcMem.SelectBitmap(m_backbuffers[(m_current+1) & 1]);
-			dc.StretchBlt(0, 0, 640, 480, dcMem, 0, 0, 320, 240, SRCCOPY);
-		//	dc.BitBlt(0, 0, m_size.cx, m_size.cy, dcMem, 0, 0, SRCCOPY);
-			dcMem.SelectBitmap(hBmpOld);
-		}
-	}
+	void DoPaint(CDCHandle dc);
 
 	void Update(const uint8_t* pixels) {
-		backbuffer()->SetBitmapBits(width()*height(), pixels);
-		flipbuffer();
+		//backbuffer()->SetBitmapBits(width()*height(), pixels);
+		//flipbuffer();
 		this->Invalidate();
 	}
 #if 0
@@ -230,6 +191,8 @@ public:
 		return 0;
 		}
 #endif
+	LRESULT OnSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	
 	LRESULT OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
 		DestroyWindow();

@@ -47,8 +47,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 // key / value pair sizes
 
-#define	MAX_KEY		32
-#define	MAX_VALUE	1024
+#define	MAX_BSP_KEY		32
+#define	MAX_BSP_VALUE	1024
 
 //=============================================================================
 
@@ -235,58 +235,58 @@ typedef struct
 
 // the utilities get to be lazy and just use large static arrays
 
-extern	int			nummodels;
-extern	dmodel_t	dmodels[MAX_MAP_MODELS];
+EXTERN 	int			nummodels;
+EXTERN 	dmodel_t	dmodels[MAX_MAP_MODELS];
 
-extern	int			visdatasize;
-extern	byte		dvisdata[MAX_MAP_VISIBILITY];
+EXTERN 	int			visdatasize;
+EXTERN 	byte		dvisdata[MAX_MAP_VISIBILITY];
 
-extern	int			lightdatasize;
-extern	byte		dlightdata[MAX_MAP_LIGHTING];
+EXTERN 	int			lightdatasize;
+EXTERN 	byte		dlightdata[MAX_MAP_LIGHTING];
 
-extern	int			texdatasize;
-extern	byte		dtexdata[MAX_MAP_MIPTEX]; // (dmiptexlump_t)
+EXTERN 	int			texdatasize;
+EXTERN 	byte		dtexdata[MAX_MAP_MIPTEX]; // (dmiptexlump_t)
 
-extern	int			entdatasize;
-extern	char		dentdata[MAX_MAP_ENTSTRING];
+EXTERN 	int			entdatasize;
+EXTERN 	char		dentdata[MAX_MAP_ENTSTRING];
 
-extern	int			numleafs;
-extern	dleaf_t		dleafs[MAX_MAP_LEAFS];
+EXTERN 	int			numleafs;
+EXTERN 	dleaf_t		dleafs[MAX_MAP_LEAFS];
 
-extern	int			numplanes;
-extern	dplane_t	dplanes[MAX_MAP_PLANES];
+EXTERN 	int			numplanes;
+EXTERN 	dplane_t	dplanes[MAX_MAP_PLANES];
 
-extern	int			numvertexes;
-extern	dvertex_t	dvertexes[MAX_MAP_VERTS];
+EXTERN 	int			numvertexes;
+EXTERN 	dvertex_t	dvertexes[MAX_MAP_VERTS];
 
-extern	int			numnodes;
-extern	dnode_t		dnodes[MAX_MAP_NODES];
+EXTERN 	int			numnodes;
+EXTERN 	dnode_t		dnodes[MAX_MAP_NODES];
 
-extern	int			numtexinfo;
-extern	texinfo_t	texinfo[MAX_MAP_TEXINFO];
+EXTERN 	int			numtexinfo;
+EXTERN 	texinfo_t	texinfo[MAX_MAP_TEXINFO];
 
-extern	int			numfaces;
-extern	dface_t		dfaces[MAX_MAP_FACES];
+EXTERN 	int			numfaces;
+EXTERN 	dface_t		dfaces[MAX_MAP_FACES];
 
-extern	int			numclipnodes;
-extern	dclipnode_t	dclipnodes[MAX_MAP_CLIPNODES];
+EXTERN 	int			numclipnodes;
+EXTERN 	dclipnode_t	dclipnodes[MAX_MAP_CLIPNODES];
 
-extern	int			numedges;
-extern	dedge_t		dedges[MAX_MAP_EDGES];
+EXTERN 	int			numedges;
+EXTERN 	dedge_t		dedges[MAX_MAP_EDGES];
 
-extern	int			nummarksurfaces;
-extern	unsigned short	dmarksurfaces[MAX_MAP_MARKSURFACES];
+EXTERN 	int			nummarksurfaces;
+EXTERN 	unsigned short	dmarksurfaces[MAX_MAP_MARKSURFACES];
 
-extern	int			numsurfedges;
-extern	int			dsurfedges[MAX_MAP_SURFEDGES];
+EXTERN 	int			numsurfedges;
+EXTERN 	int			dsurfedges[MAX_MAP_SURFEDGES];
 
 
-void DecompressVis (byte *in, byte *decompressed);
-int CompressVis (byte *vis, byte *dest);
+EXTERN_CPP void DecompressVis (byte *in, byte *decompressed);
+EXTERN_CPP int CompressVis (byte *vis, byte *dest);
 
-void	LoadBSPFile (char *filename);
-void	WriteBSPFile (char *filename);
-void	PrintBSPFileSizes (void);
+EXTERN_CPP void	LoadBSPFile (char *filename);
+EXTERN_CPP void	WriteBSPFile (char *filename);
+EXTERN_CPP void	PrintBSPFileSizes (void);
 
 //===============
 
@@ -306,19 +306,20 @@ typedef struct
 	epair_t		*epairs;
 } entity_t;
 
-extern	int			num_entities;
-extern	entity_t	entities[MAX_MAP_ENTITIES];
+EXTERN 	int			num_entities;
+EXTERN 	entity_t	entities[MAX_MAP_ENTITIES];
 
-void	ParseEntities (void);
-void	UnparseEntities (void);
+EXTERN_CPP void	ParseEntities (void);
+EXTERN_CPP void	UnparseEntities (void);
 
-void 	SetKeyValue (entity_t *ent, char *key, char *value);
-char 	*ValueForKey (entity_t *ent, char *key);
+EXTERN_CPP void 	SetKeyValue (entity_t *ent, char *key, char *value);
+EXTERN_CPP char 	*ValueForKey (entity_t *ent, char *key);
 // will return "" if not present
 
-vec_t	FloatForKey (entity_t *ent, char *key);
-void 	GetVectorForKey (entity_t *ent, char *key, vec3_t vec);
+EXTERN_CPP vec_t	FloatForKey (entity_t *ent, char *key);
+EXTERN_CPP void 	GetVectorForKey (entity_t *ent, char *key, vec3_t vec);
 
-epair_t *ParseEpair (void);
+EXTERN_CPP epair_t *ParseEpair (void);
 
 #endif
+

@@ -50,10 +50,10 @@ typedef struct fd_set {
 } fd_set;
 
 #ifdef __cplusplus
-extern "C" {
+EXTERN  "C" {
 #endif
 
-extern int PASCAL FAR __WSAFDIsSet(SOCKET, fd_set FAR *);
+EXTERN  int PASCAL FAR __WSAFDIsSet(SOCKET, fd_set FAR *);
 
 #ifdef __cplusplus
 }
@@ -676,7 +676,7 @@ struct  linger {
 /* Socket function prototypes */
 
 #ifdef __cplusplus
-extern "C" {
+EXTERN  "C" {
 #endif
 
 SOCKET PASCAL FAR accept (SOCKET s, struct sockaddr FAR *addr,

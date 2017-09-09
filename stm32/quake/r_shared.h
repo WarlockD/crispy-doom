@@ -42,25 +42,25 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 //===================================================================
 
-extern void	R_DrawLine (polyvert_t *polyvert0, polyvert_t *polyvert1);
+EXTERN  void	R_DrawLine (polyvert_t *polyvert0, polyvert_t *polyvert1);
 
-extern int		cachewidth;
-extern pixel_t	*cacheblock;
-extern int		screenwidth;
+EXTERN  int		cachewidth;
+EXTERN  pixel_t	*cacheblock;
+EXTERN  int		screenwidth;
 
-extern	float	pixelAspect;
+EXTERN 	float	pixelAspect;
 
-extern int		r_drawnpolycount;
+EXTERN  int		r_drawnpolycount;
 
-extern cvar_t	r_clearcolor;
+EXTERN  cvar_t	r_clearcolor;
 
-extern int	sintable[SIN_BUFFER_SIZE];
-extern int	intsintable[SIN_BUFFER_SIZE];
+EXTERN  int	sintable[SIN_BUFFER_SIZE];
+EXTERN  int	intsintable[SIN_BUFFER_SIZE];
 
-extern	vec3_t	vup, base_vup;
-extern	vec3_t	vpn, base_vpn;
-extern	vec3_t	vright, base_vright;
-extern	entity_t		*currententity;
+EXTERN 	vec3_t	vup, base_vup;
+EXTERN 	vec3_t	vpn, base_vpn;
+EXTERN 	vec3_t	vright, base_vright;
+EXTERN 	entity_t		*currententity;
 
 #define NUMSTACKEDGES		2400
 #define	MINEDGES			NUMSTACKEDGES
@@ -98,7 +98,7 @@ typedef struct surf_s
 	int			pad[2];				// to 64 bytes
 } surf_t;
 
-extern	surf_t	*surfaces, *surface_p, *surf_max;
+EXTERN 	surf_t	*surfaces, *surface_p, *surf_max;
 
 // surfaces are generated in back to front order by the bsp, so if a surf
 // pointer is greater than another one, it should be drawn in front
@@ -108,26 +108,26 @@ extern	surf_t	*surfaces, *surface_p, *surf_max;
 
 //===================================================================
 
-extern vec3_t	sxformaxis[4];	// s axis transformed into viewspace
-extern vec3_t	txformaxis[4];	// t axis transformed into viewspac
+EXTERN  vec3_t	sxformaxis[4];	// s axis transformed into viewspace
+EXTERN  vec3_t	txformaxis[4];	// t axis transformed into viewspac
 
-extern vec3_t	modelorg, base_modelorg;
+EXTERN  vec3_t	modelorg, base_modelorg;
 
-extern	float	xcenter, ycenter;
-extern	float	xscale, yscale;
-extern	float	xscaleinv, yscaleinv;
-extern	float	xscaleshrink, yscaleshrink;
+EXTERN 	float	xcenter, ycenter;
+EXTERN 	float	xscale, yscale;
+EXTERN 	float	xscaleinv, yscaleinv;
+EXTERN 	float	xscaleshrink, yscaleshrink;
 
-extern	int d_lightstylevalue[256]; // 8.8 frac of base light value
+EXTERN 	int d_lightstylevalue[256]; // 8.8 frac of base light value
 
-extern void TransformVector (vec3_t in, vec3_t out);
-extern void SetUpForLineScan(fixed8_t startvertu, fixed8_t startvertv,
+EXTERN  void TransformVector (vec3_t in, vec3_t out);
+EXTERN  void SetUpForLineScan(fixed8_t startvertu, fixed8_t startvertv,
 	fixed8_t endvertu, fixed8_t endvertv);
 
-extern int	r_skymade;
-extern void R_MakeSky (void);
+EXTERN  int	r_skymade;
+EXTERN  void R_MakeSky (void);
 
-extern int	ubasestep, errorterm, erroradjustup, erroradjustdown;
+EXTERN  int	ubasestep, errorterm, erroradjustup, erroradjustdown;
 
 // flags in finalvert_t.flags
 #define ALIAS_LEFT_CLIP				0x0001

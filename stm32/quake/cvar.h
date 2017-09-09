@@ -63,35 +63,35 @@ typedef struct cvar_s
 	struct cvar_s *next;
 } cvar_t;
 
-void 	Cvar_RegisterVariable (cvar_t *variable);
+EXTERN_CPP void 	Cvar_RegisterVariable (cvar_t *variable);
 // registers a cvar that allready has the name, string, and optionally the
 // archive elements set.
 
-void 	Cvar_Set (char *var_name, char *value);
+EXTERN_CPP void 	Cvar_Set (char *var_name, char *value);
 // equivelant to "<name> <variable>" typed at the console
 
-void	Cvar_SetValue (char *var_name, float value);
+EXTERN_CPP void	Cvar_SetValue (char *var_name, float value);
 // expands value to a string and calls Cvar_Set
 
-float	Cvar_VariableValue (char *var_name);
+EXTERN_CPP float	Cvar_VariableValue (char *var_name);
 // returns 0 if not defined or non numeric
 
-char	*Cvar_VariableString (char *var_name);
+EXTERN_CPP char	*Cvar_VariableString (char *var_name);
 // returns an empty string if not defined
 
-char 	*Cvar_CompleteVariable (char *partial);
+EXTERN_CPP char 	*Cvar_CompleteVariable (char *partial);
 // attempts to match a partial variable name for command line completion
 // returns NULL if nothing fits
 
-qboolean Cvar_Command (void);
+EXTERN_CPP qboolean Cvar_Command (void);
 // called by Cmd_ExecuteString when Cmd_Argv(0) doesn't match a known
 // command.  Returns true if the command was a variable reference that
 // was handled. (print or change)
 
-void 	Cvar_WriteVariables (FILE *f);
+EXTERN_CPP void 	Cvar_WriteVariables (FILE *f);
 // Writes lines containing "set variable value" for all variables
 // with the archive flag set to true.
 
-cvar_t *Cvar_FindVar (char *var_name);
+EXTERN_CPP cvar_t *Cvar_FindVar (char *var_name);
 
-extern cvar_t	*cvar_vars;
+EXTERN  cvar_t	*cvar_vars;

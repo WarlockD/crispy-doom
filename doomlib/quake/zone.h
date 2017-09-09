@@ -82,6 +82,12 @@ Zone block
 
 
 */
+#ifndef _ZONE_H_
+#define _ZONE_H_
+
+#include <vector>
+#include <string>
+#include <string_stream>
 
 EXTERN_CPP void Memory_Init (void *buf, int size);
 
@@ -128,4 +134,41 @@ EXTERN_CPP void *Cache_Alloc (cache_user_t *c, int size, char *name);
 EXTERN_CPP void Cache_Report (void);
 
 
+template <typename T>
+class zmalloc_allocator {
+public:
+	typedef size_t size_type;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+	template<typename _Tp1>
+	struct rebind
+	{
+		typedef zmalloc_allocator<_Tp1> other;
+	};
+	pointer allocate(size_type n, const void *hint = nullptr)
+	{
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (pointer*)Z_Malloc(n);
+	}
+
+	void deallocate(pointer p, size_type n)
+	{
+		(void)n;
+		Z_Free(p);
+		//fprintf(stderr, "Dealloc %d bytes (%p).\n", n * sizeof(T), p);
+	}
+	zmalloc_allocator() { }
+	zmalloc_allocator(const zmalloc_allocator &a) { }
+	template <class U>
+	zmalloc_allocator(const zmalloc_allocator<U> &a) { }
+	~zmalloc_allocator() throw() { }
+};
+
+using string_t = std::basic_string<char, std::char_traits<char>, zmalloc_allocator<char>>;
+using string_view_t = std::string_view;
+
+template<typename T>
+using vector_t = std::vector<T, zmalloc_allocator<T>>;
+
+#endif // _ZONE_H_
 

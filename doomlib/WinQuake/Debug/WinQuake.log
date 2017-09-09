@@ -1,12 +1,20 @@
-﻿  vid_null.cpp
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'bestmatchmetric': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'db': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'dr': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(179): warning C4101: 'basenummodes': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'i': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(180): warning C4101: 'ptmp': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 't': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'bestmatch': unreferenced local variable
-d:\documents\github\crispy-doom\doomlib\quake\vid_null.cpp(178): warning C4101: 'dg': unreferenced local variable
-  WinQuake.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\Debug\WinQuake.exe
-  WinQuake.vcxproj -> D:\Documents\GitHub\crispy-doom\doomlib\Debug\WinQuake.pdb (Partial PDB)
+﻿  console.cpp
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(229): error C2440: '=': cannot convert from 'void *' to 'char *'
+  c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(229): note: Conversion from 'void*' to pointer to non-'void' requires an explicit cast
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(224): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1772): note: see declaration of 'sprintf'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(225): warning C4996: 'unlink': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _unlink. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(380): note: see declaration of 'unlink'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(321): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(362): error C3861: 'open': identifier not found
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(363): error C3861: 'write': identifier not found
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(364): error C3861: 'close': identifier not found
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(360): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1467): note: see declaration of 'vsprintf'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(384): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1467): note: see declaration of 'vsprintf'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(433): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1467): note: see declaration of 'vsprintf'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(454): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\stdio.h(1467): note: see declaration of 'vsprintf'
+c:\users\paul\documents\github\crispy-doom\doomlib\quake\console.cpp(536): warning C4244: '=': conversion from 'double' to 'float', possible loss of data

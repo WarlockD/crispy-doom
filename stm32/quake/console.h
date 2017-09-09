@@ -21,26 +21,64 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 // console
 //
-extern int con_totallines;
-extern int con_backscroll;
-extern	qboolean con_forcedup;	// because no entities to refresh
-extern qboolean con_initialized;
-extern byte *con_chars;
-extern	int	con_notifylines;		// scan lines to clear for notify lines
+#if 0
+EXTERN  int con_totallines;
+EXTERN  int con_backscroll;
+EXTERN 	qboolean con_forcedup;	// because no entities to refresh
+EXTERN  qboolean con_initialized;
+EXTERN  byte *con_chars;
+EXTERN 	int	con_notifylines;		// scan lines to clear for notify lines
 
-void Con_DrawCharacter (int cx, int line, int num);
+EXTERN_CPP void Con_DrawCharacter (int cx, int line, int num);
 
-void Con_CheckResize (void);
-void Con_Init (void);
-void Con_DrawConsole (int lines, qboolean drawinput);
-void Con_Print (char *txt);
-void Con_Printf (char *fmt, ...);
-void Con_DPrintf (char *fmt, ...);
-void Con_SafePrintf (char *fmt, ...);
-void Con_Clear_f (void);
-void Con_DrawNotify (void);
-void Con_ClearNotify (void);
-void Con_ToggleConsole_f (void);
+EXTERN_CPP void Con_CheckResize (void);
+EXTERN_CPP void Con_Init (void);
+EXTERN_CPP void Con_DrawConsole (int lines, qboolean drawinput);
+EXTERN_CPP void Con_Print (char *txt);
+EXTERN_CPP void Con_Printf (char *fmt, ...);
+EXTERN_CPP void Con_DPrintf (char *fmt, ...);
+EXTERN_CPP void Con_SafePrintf (char *fmt, ...);
+EXTERN_CPP void Con_Clear_f (void);
+EXTERN_CPP void Con_DrawNotify (void);
+EXTERN_CPP void Con_ClearNotify (void);
+EXTERN_CPP void Con_ToggleConsole_f (void);
 
-void Con_NotifyBox (char *text);	// during startup for sound / cd warnings
+EXTERN_CPP void Con_NotifyBox (char *text);	// during startup for sound / cd warnings
+#endif
 
+#define		CON_TEXTSIZE	16384
+typedef struct
+{
+	char	text[CON_TEXTSIZE];
+	int		current;		// line where next message will be printed
+	int		x;				// offset in current line for next print
+	int		display;		// bottom of console displays this line
+} console_t;
+
+EXTERN	console_t	con_main;
+EXTERN	console_t	con_chat;
+EXTERN	console_t	*con;			// point to either con_main or con_chat
+
+EXTERN	int			con_ormask;
+
+EXTERN int con_totallines;
+EXTERN qboolean con_initialized;
+EXTERN byte *con_chars;
+EXTERN	int	con_notifylines;		// scan lines to clear for notify lines
+EXTERN qboolean 	con_forcedup;
+EXTERN_CPP void Con_DrawCharacter (int cx, int line, int num);
+
+EXTERN_CPP void Con_CheckResize (void);
+EXTERN_CPP void Con_Init (void);
+//EXTERN_CPP void Con_DrawConsole (int lines);
+EXTERN_CPP void Con_DrawConsole (int lines, qboolean drawinput);
+EXTERN_CPP void Con_Print (char *txt);
+EXTERN_CPP void Con_Printf (char *fmt, ...);
+EXTERN_CPP void Con_DPrintf (char *fmt, ...);
+EXTERN_CPP void Con_SafePrintf (char *fmt, ...);
+EXTERN_CPP void Con_Clear_f (void);
+EXTERN_CPP void Con_DrawNotify (void);
+EXTERN_CPP void Con_ClearNotify (void);
+EXTERN_CPP void Con_ToggleConsole_f (void);
+
+EXTERN_CPP void Con_NotifyBox (char *text);	// during startup for sound / cd warnings

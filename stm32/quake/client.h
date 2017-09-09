@@ -139,7 +139,7 @@ typedef struct
 	
 } client_static_t;
 
-extern client_static_t	cls;
+EXTERN  client_static_t	cls;
 
 //
 // the client_state_t structure is wiped completely at every
@@ -238,138 +238,140 @@ typedef struct
 //
 // cvars
 //
-extern	cvar_t	cl_name;
-extern	cvar_t	cl_color;
+EXTERN 	cvar_t	cl_name;
+EXTERN 	cvar_t	cl_color;
 
-extern	cvar_t	cl_upspeed;
-extern	cvar_t	cl_forwardspeed;
-extern	cvar_t	cl_backspeed;
-extern	cvar_t	cl_sidespeed;
+EXTERN 	cvar_t	cl_upspeed;
+EXTERN 	cvar_t	cl_forwardspeed;
+EXTERN 	cvar_t	cl_backspeed;
+EXTERN 	cvar_t	cl_sidespeed;
 
-extern	cvar_t	cl_movespeedkey;
+EXTERN 	cvar_t	cl_movespeedkey;
 
-extern	cvar_t	cl_yawspeed;
-extern	cvar_t	cl_pitchspeed;
+EXTERN 	cvar_t	cl_yawspeed;
+EXTERN 	cvar_t	cl_pitchspeed;
 
-extern	cvar_t	cl_anglespeedkey;
+EXTERN 	cvar_t	cl_anglespeedkey;
 
-extern	cvar_t	cl_autofire;
+EXTERN 	cvar_t	cl_autofire;
 
-extern	cvar_t	cl_shownet;
-extern	cvar_t	cl_nolerp;
+EXTERN 	cvar_t	cl_shownet;
+EXTERN 	cvar_t	cl_nolerp;
 
-extern	cvar_t	cl_pitchdriftspeed;
-extern	cvar_t	lookspring;
-extern	cvar_t	lookstrafe;
-extern	cvar_t	sensitivity;
+EXTERN 	cvar_t	cl_pitchdriftspeed;
+EXTERN 	cvar_t	lookspring;
+EXTERN 	cvar_t	lookstrafe;
+EXTERN 	cvar_t	sensitivity;
 
-extern	cvar_t	m_pitch;
-extern	cvar_t	m_yaw;
-extern	cvar_t	m_forward;
-extern	cvar_t	m_side;
+EXTERN 	cvar_t	m_pitch;
+EXTERN 	cvar_t	m_yaw;
+EXTERN 	cvar_t	m_forward;
+EXTERN 	cvar_t	m_side;
 
 
 #define	MAX_TEMP_ENTITIES	64			// lightning bolts, etc
 #define	MAX_STATIC_ENTITIES	128			// torches, etc
 
-extern	client_state_t	cl;
+EXTERN 	client_state_t	cl;
 
 // FIXME, allocate dynamically
-extern	efrag_t			cl_efrags[MAX_EFRAGS];
-extern	entity_t		cl_entities[MAX_EDICTS];
-extern	entity_t		cl_static_entities[MAX_STATIC_ENTITIES];
-extern	lightstyle_t	cl_lightstyle[MAX_LIGHTSTYLES];
-extern	dlight_t		cl_dlights[MAX_DLIGHTS];
-extern	entity_t		cl_temp_entities[MAX_TEMP_ENTITIES];
-extern	beam_t			cl_beams[MAX_BEAMS];
+EXTERN 	efrag_t			cl_efrags[MAX_EFRAGS];
+EXTERN 	entity_t		cl_entities[MAX_EDICTS];
+EXTERN 	entity_t		cl_static_entities[MAX_STATIC_ENTITIES];
+EXTERN 	lightstyle_t	cl_lightstyle[MAX_LIGHTSTYLES];
+EXTERN 	dlight_t		cl_dlights[MAX_DLIGHTS];
+EXTERN 	entity_t		cl_temp_entities[MAX_TEMP_ENTITIES];
+EXTERN 	beam_t			cl_beams[MAX_BEAMS];
 
 //=============================================================================
 
 //
 // cl_main
 //
-dlight_t *CL_AllocDlight (int key);
-void	CL_DecayLights (void);
 
-void CL_Init (void);
 
-void CL_EstablishConnection (char *host);
-void CL_Signon1 (void);
-void CL_Signon2 (void);
-void CL_Signon3 (void);
-void CL_Signon4 (void);
+	dlight_t *CL_AllocDlight(int key);
+	void	CL_DecayLights(void);
 
-void CL_Disconnect (void);
-void CL_Disconnect_f (void);
-void CL_NextDemo (void);
+	EXTERN_CPP void CL_Init(void);
+
+	EXTERN_CPP void CL_EstablishConnection(char *host);
+	EXTERN_CPP void CL_Signon1(void);
+	EXTERN_CPP void CL_Signon2(void);
+	EXTERN_CPP void CL_Signon3(void);
+	EXTERN_CPP void CL_Signon4(void);
+
+	EXTERN_CPP void CL_Disconnect(void);
+	EXTERN_CPP void CL_Disconnect_f(void);
+	EXTERN_CPP void CL_NextDemo(void);
 
 #define			MAX_VISEDICTS	256
-extern	int				cl_numvisedicts;
-extern	entity_t		*cl_visedicts[MAX_VISEDICTS];
+	EXTERN	int				cl_numvisedicts;
+	EXTERN	entity_t		*cl_visedicts[MAX_VISEDICTS];
 
-//
-// cl_input
-//
-typedef struct
-{
-	int		down[2];		// key nums holding it down
-	int		state;			// low bit is down state
-} kbutton_t;
+	//
+	// cl_input
+	//
+	typedef struct
+	{
+		int		down[2];		// key nums holding it down
+		int		state;			// low bit is down state
+	} kbutton_t;
 
-extern	kbutton_t	in_mlook, in_klook;
-extern 	kbutton_t 	in_strafe;
-extern 	kbutton_t 	in_speed;
+	EXTERN	kbutton_t	in_mlook, in_klook;
+	EXTERN 	kbutton_t 	in_strafe;
+	EXTERN 	kbutton_t 	in_speed;
 
-void CL_InitInput (void);
-void CL_SendCmd (void);
-void CL_SendMove (usercmd_t *cmd);
+	EXTERN_CPP void CL_InitInput(void);
+	EXTERN_CPP void CL_SendCmd(void);
+	EXTERN_CPP void CL_SendMove(usercmd_t *cmd);
 
-void CL_ParseTEnt (void);
-void CL_UpdateTEnts (void);
+	EXTERN_CPP void CL_ParseTEnt(void);
+	EXTERN_CPP void CL_UpdateTEnts(void);
 
-void CL_ClearState (void);
-
-
-int  CL_ReadFromServer (void);
-void CL_WriteToServer (usercmd_t *cmd);
-void CL_BaseMove (usercmd_t *cmd);
+	EXTERN_CPP void CL_ClearState(void);
 
 
-float CL_KeyState (kbutton_t *key);
-char *Key_KeynumToString (int keynum);
-
-//
-// cl_demo.c
-//
-void CL_StopPlayback (void);
-int CL_GetMessage (void);
-
-void CL_Stop_f (void);
-void CL_Record_f (void);
-void CL_PlayDemo_f (void);
-void CL_TimeDemo_f (void);
-
-//
-// cl_parse.c
-//
-void CL_ParseServerMessage (void);
-void CL_NewTranslation (int slot);
-
-//
-// view
-//
-void V_StartPitchDrift (void);
-void V_StopPitchDrift (void);
-
-void V_RenderView (void);
-void V_UpdatePalette (void);
-void V_Register (void);
-void V_ParseDamage (void);
-void V_SetContentsColor (int contents);
+	EXTERN_CPP int  CL_ReadFromServer(void);
+	EXTERN_CPP void CL_WriteToServer(usercmd_t *cmd);
+	EXTERN_CPP void CL_BaseMove(usercmd_t *cmd);
 
 
-//
-// cl_tent
-//
-void CL_InitTEnts (void);
-void CL_SignonReply (void);
+	EXTERN_CPP float CL_KeyState(kbutton_t *key);
+	EXTERN_CPP char *Key_KeynumToString(int keynum);
+
+	//
+	// cl_demo.c
+	//
+	EXTERN_CPP void CL_StopPlayback(void);
+	EXTERN_CPP int CL_GetMessage(void);
+
+	EXTERN_CPP void CL_Stop_f(void);
+	EXTERN_CPP void CL_Record_f(void);
+	EXTERN_CPP void CL_PlayDemo_f(void);
+	EXTERN_CPP void CL_TimeDemo_f(void);
+
+	//
+	// cl_parse.c
+	//
+	EXTERN_CPP void CL_ParseServerMessage(void);
+	EXTERN_CPP void CL_NewTranslation(int slot);
+
+	//
+	// view
+	//
+	EXTERN_CPP void V_StartPitchDrift(void);
+	EXTERN_CPP void V_StopPitchDrift(void);
+
+	EXTERN_CPP void V_RenderView(void);
+	EXTERN_CPP void V_UpdatePalette(void);
+	EXTERN_CPP void V_Register(void);
+	EXTERN_CPP void V_ParseDamage(void);
+	EXTERN_CPP void V_SetContentsColor(int contents);
+
+
+	//
+	// cl_tent
+	//
+	EXTERN_CPP void CL_InitTEnts(void);
+	EXTERN_CPP void CL_SignonReply(void);

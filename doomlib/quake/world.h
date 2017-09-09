@@ -25,7 +25,7 @@ typedef struct
 	float	dist;
 } plane_t;
 
-typedef struct
+struct trace_t
 {
 	qboolean	allsolid;	// if true, plane is not valid
 	qboolean	startsolid;	// if true, the initial point was in a solid area
@@ -35,7 +35,9 @@ typedef struct
 	vec3_t	endpos;			// final position
 	plane_t	plane;			// surface normal at impact
 	edict_t	*ent;			// entity the surface is on
-} trace_t;
+	trace_t() : allsolid(true), startsolid(false), inopen(false), inwater(false), fraction(1.0f), endpos(), plane(), ent(nullptr) {}
+	trace_t(const vec3_t& endpos) : allsolid(true), startsolid(false), inopen(false), inwater(false), fraction(1.0f), endpos(endpos), plane(), ent(nullptr) {}
+} ;
 
 
 #define	MOVE_NORMAL		0
@@ -65,7 +67,7 @@ EXTERN_CPP int SV_TruePointContents (vec3_t p);
 
 EXTERN_CPP edict_t	*SV_TestEntityPosition (edict_t *ent);
 
-EXTERN_CPP trace_t SV_Move (vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, int type, edict_t *passedict);
+EXTERN_CPP trace_t SV_Move (vec3_t& start, vec3_t& mins, vec3_t& maxs, vec3_t& end, int type, edict_t *passedict);
 // mins and maxs are reletive
 
 // if the entire move stays in a solid volume, trace.allsolid will be set

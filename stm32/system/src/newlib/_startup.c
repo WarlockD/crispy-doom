@@ -226,14 +226,15 @@ __bss_end_guard;
 #define DATA_GUARD_BAD_VALUE (0xCADEBABA)
 #define DATA_BEGIN_GUARD_VALUE (0x12345678)
 #define DATA_END_GUARD_VALUE (0x98765432)
-
-static uint32_t volatile __attribute__ ((section(".data_begin")))
+#
+static uint32_t volatile __attribute__ ((section(".sdram_begin")))
 __data_begin_guard = DATA_BEGIN_GUARD_VALUE;
 
-static uint32_t volatile __attribute__ ((section(".data_end")))
+static uint32_t volatile __attribute__ ((section(".sdram_end")))
 __data_end_guard = DATA_END_GUARD_VALUE;
 
 #endif // defined(DEBUG) && (OS_INCLUDE_STARTUP_GUARD_CHECKS)
+
 
 // This is the place where Cortex-M core will go immediately after reset,
 // via a call or jump from the Reset_Handler.

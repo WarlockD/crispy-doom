@@ -148,9 +148,9 @@ typedef struct qsocket_s
 
 } qsocket_t;
 
-extern qsocket_t	*net_activeSockets;
-extern qsocket_t	*net_freeSockets;
-extern int			net_numsockets;
+EXTERN  qsocket_t	*net_activeSockets;
+EXTERN  qsocket_t	*net_freeSockets;
+EXTERN  int			net_numsockets;
 
 typedef struct
 {
@@ -178,8 +178,8 @@ typedef struct
 } net_landriver_t;
 
 #define	MAX_NET_DRIVERS		8
-extern int 				net_numlandrivers;
-extern net_landriver_t	net_landrivers[MAX_NET_DRIVERS];
+EXTERN  int 				net_numlandrivers;
+EXTERN  net_landriver_t	net_landrivers[MAX_NET_DRIVERS];
 
 typedef struct
 {
@@ -200,25 +200,25 @@ typedef struct
 	int			controlSock;
 } net_driver_t;
 
-extern int			net_numdrivers;
-extern net_driver_t	net_drivers[MAX_NET_DRIVERS];
+EXTERN  int			net_numdrivers;
+EXTERN  net_driver_t	net_drivers[MAX_NET_DRIVERS];
 
-extern int			DEFAULTnet_hostport;
-extern int			net_hostport;
+EXTERN  int			DEFAULTnet_hostport;
+EXTERN  int			net_hostport;
 
-extern int net_driverlevel;
-extern cvar_t		hostname;
-extern char			playername[];
-extern int			playercolor;
+EXTERN  int net_driverlevel;
+EXTERN  cvar_t		hostname;
+EXTERN  char			playername[];
+EXTERN  int			playercolor;
 
-extern int		messagesSent;
-extern int		messagesReceived;
-extern int		unreliableMessagesSent;
-extern int		unreliableMessagesReceived;
+EXTERN  int		messagesSent;
+EXTERN  int		messagesReceived;
+EXTERN  int		unreliableMessagesSent;
+EXTERN  int		unreliableMessagesReceived;
 
-qsocket_t *NET_NewQSocket (void);
-void NET_FreeQSocket(qsocket_t *);
-double SetNetTime(void);
+EXTERN_CPP qsocket_t *NET_NewQSocket (void);
+EXTERN_CPP void NET_FreeQSocket(qsocket_t *);
+EXTERN_CPP double SetNetTime(void);
 
 
 #define HOSTCACHESIZE	8
@@ -235,26 +235,26 @@ typedef struct
 	struct qsockaddr addr;
 } hostcache_t;
 
-extern int hostCacheCount;
-extern hostcache_t hostcache[HOSTCACHESIZE];
+EXTERN  int hostCacheCount;
+EXTERN  hostcache_t hostcache[HOSTCACHESIZE];
 
 #if !defined(_WIN32 ) && !defined (__linux__) && !defined (__sun__)
 #ifndef htonl
-extern unsigned long htonl (unsigned long hostlong);
+EXTERN  unsigned long htonl (unsigned long hostlong);
 #endif
 #ifndef htons
-extern unsigned short htons (unsigned short hostshort);
+EXTERN  unsigned short htons (unsigned short hostshort);
 #endif
 #ifndef ntohl
-extern unsigned long ntohl (unsigned long netlong);
+EXTERN  unsigned long ntohl (unsigned long netlong);
 #endif
 #ifndef ntohs
-extern unsigned short ntohs (unsigned short netshort);
+EXTERN  unsigned short ntohs (unsigned short netshort);
 #endif
 #endif
 
 #ifdef IDGODS
-qboolean IsID(struct qsockaddr *addr);
+EXTERN_CPP qboolean IsID(struct qsockaddr *addr);
 #endif
 
 //============================================================================
@@ -263,12 +263,12 @@ qboolean IsID(struct qsockaddr *addr);
 //
 //============================================================================
 
-extern	double		net_time;
-extern	sizebuf_t	net_message;
-extern	int			net_activeconnections;
+EXTERN 	double		net_time;
+EXTERN 	sizebuf_t	net_message;
+EXTERN 	int			net_activeconnections;
 
-void		NET_Init (void);
-void		NET_Shutdown (void);
+EXTERN_CPP void		NET_Init (void);
+EXTERN_CPP void		NET_Shutdown (void);
 
 struct qsocket_s	*NET_CheckNewConnections (void);
 // returns a new connection number if there is one pending, else -1
@@ -276,29 +276,29 @@ struct qsocket_s	*NET_CheckNewConnections (void);
 struct qsocket_s	*NET_Connect (char *host);
 // called by client to connect to a host.  Returns -1 if not able to
 
-qboolean NET_CanSendMessage (qsocket_t *sock);
+EXTERN_CPP qboolean NET_CanSendMessage (qsocket_t *sock);
 // Returns true or false if the given qsocket can currently accept a
 // message to be transmitted.
 
-int			NET_GetMessage (struct qsocket_s *sock);
+EXTERN_CPP int			NET_GetMessage (struct qsocket_s *sock);
 // returns data in net_message sizebuf
 // returns 0 if no data is waiting
 // returns 1 if a message was received
 // returns 2 if an unreliable message was received
 // returns -1 if the connection died
 
-int			NET_SendMessage (struct qsocket_s *sock, sizebuf_t *data);
-int			NET_SendUnreliableMessage (struct qsocket_s *sock, sizebuf_t *data);
+EXTERN_CPP int			NET_SendMessage (struct qsocket_s *sock, sizebuf_t *data);
+EXTERN_CPP int			NET_SendUnreliableMessage (struct qsocket_s *sock, sizebuf_t *data);
 // returns 0 if the message connot be delivered reliably, but the connection
 //		is still considered valid
 // returns 1 if the message was sent properly
 // returns -1 if the connection died
 
-int			NET_SendToAll(sizebuf_t *data, int blocktime);
+EXTERN_CPP int			NET_SendToAll(sizebuf_t *data, int blocktime);
 // This is a reliable *blocking* send to all attached clients.
 
 
-void		NET_Close (struct qsocket_s *sock);
+EXTERN_CPP void		NET_Close (struct qsocket_s *sock);
 // if a dead connection is returned by a get or send function, this function
 // should be called when it is convenient
 
@@ -307,7 +307,7 @@ void		NET_Close (struct qsocket_s *sock);
 // from a server.
 // A netcon_t number will not be reused until this function is called for it
 
-void NET_Poll(void);
+EXTERN_CPP void NET_Poll(void);
 
 
 typedef struct _PollProcedure
@@ -318,20 +318,20 @@ typedef struct _PollProcedure
 	void					*arg;
 } PollProcedure;
 
-void SchedulePollProcedure(PollProcedure *pp, double timeOffset);
+EXTERN_CPP void SchedulePollProcedure(PollProcedure *pp, double timeOffset);
 
-extern	qboolean	serialAvailable;
-extern	qboolean	ipxAvailable;
-extern	qboolean	tcpipAvailable;
-extern	char		my_ipx_address[NET_NAMELEN];
-extern	char		my_tcpip_address[NET_NAMELEN];
-extern void (*GetComPortConfig) (int portNumber, int *port, int *irq, int *baud, qboolean *useModem);
-extern void (*SetComPortConfig) (int portNumber, int port, int irq, int baud, qboolean useModem);
-extern void (*GetModemConfig) (int portNumber, char *dialType, char *clear, char *init, char *hangup);
-extern void (*SetModemConfig) (int portNumber, char *dialType, char *clear, char *init, char *hangup);
+EXTERN 	qboolean	serialAvailable;
+EXTERN 	qboolean	ipxAvailable;
+EXTERN 	qboolean	tcpipAvailable;
+EXTERN 	char		my_ipx_address[NET_NAMELEN];
+EXTERN 	char		my_tcpip_address[NET_NAMELEN];
+EXTERN  void (*GetComPortConfig) (int portNumber, int *port, int *irq, int *baud, qboolean *useModem);
+EXTERN  void (*SetComPortConfig) (int portNumber, int port, int irq, int baud, qboolean useModem);
+EXTERN  void (*GetModemConfig) (int portNumber, char *dialType, char *clear, char *init, char *hangup);
+EXTERN  void (*SetModemConfig) (int portNumber, char *dialType, char *clear, char *init, char *hangup);
 
-extern	qboolean	slistInProgress;
-extern	qboolean	slistSilent;
-extern	qboolean	slistLocal;
+EXTERN 	qboolean	slistInProgress;
+EXTERN 	qboolean	slistSilent;
+EXTERN 	qboolean	slistLocal;
 
-void NET_Slist_f (void);
+EXTERN_CPP void NET_Slist_f (void);

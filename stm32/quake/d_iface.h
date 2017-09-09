@@ -106,74 +106,74 @@ typedef struct
 	int		color;
 } zpointdesc_t;
 
-extern cvar_t	r_drawflat;
-extern int		d_spanpixcount;
-extern int		r_framecount;		// sequence # of current frame since Quake
+EXTERN  cvar_t	r_drawflat;
+EXTERN  int		d_spanpixcount;
+EXTERN  int		r_framecount;		// sequence # of current frame since Quake
 									//  started
-extern qboolean	r_drawpolys;		// 1 if driver wants clipped polygons
+EXTERN  qboolean	r_drawpolys;		// 1 if driver wants clipped polygons
 									//  rather than a span list
-extern qboolean	r_drawculledpolys;	// 1 if driver wants clipped polygons that
+EXTERN  qboolean	r_drawculledpolys;	// 1 if driver wants clipped polygons that
 									//  have been culled by the edge list
-extern qboolean	r_worldpolysbacktofront;	// 1 if driver wants polygons
+EXTERN  qboolean	r_worldpolysbacktofront;	// 1 if driver wants polygons
 											//  delivered back to front rather
 											//  than front to back
-extern qboolean	r_recursiveaffinetriangles;	// true if a driver wants to use
+EXTERN  qboolean	r_recursiveaffinetriangles;	// true if a driver wants to use
 											//  recursive triangular subdivison
 											//  and vertex drawing via
 											//  D_PolysetDrawFinalVerts() past
 											//  a certain distance (normally 
 											//  only used by the software
 											//  driver)
-extern float	r_aliasuvscale;		// scale-up factor for screen u and v
+EXTERN  float	r_aliasuvscale;		// scale-up factor for screen u and v
 									//  on Alias vertices passed to driver
-extern int		r_pixbytes;
-extern qboolean	r_dowarp;
+EXTERN  int		r_pixbytes;
+EXTERN  qboolean	r_dowarp;
 
-extern affinetridesc_t	r_affinetridesc;
-extern spritedesc_t		r_spritedesc;
-extern zpointdesc_t		r_zpointdesc;
-extern polydesc_t		r_polydesc;
+EXTERN  affinetridesc_t	r_affinetridesc;
+EXTERN  spritedesc_t		r_spritedesc;
+EXTERN  zpointdesc_t		r_zpointdesc;
+EXTERN  polydesc_t		r_polydesc;
 
-extern int		d_con_indirect;	// if 0, Quake will draw console directly
+EXTERN  int		d_con_indirect;	// if 0, Quake will draw console directly
 								//  to vid.buffer; if 1, Quake will
 								//  draw console via D_DrawRect. Must be
 								//  defined by driver
 
-extern vec3_t	r_pright, r_pup, r_ppn;
+EXTERN  vec3_t	r_pright, r_pup, r_ppn;
 
 
-void D_Aff8Patch (void *pcolormap);
-void D_BeginDirectRect (int x, int y, byte *pbitmap, int width, int height);
-void D_DisableBackBufferAccess (void);
-void D_EndDirectRect (int x, int y, int width, int height);
-void D_PolysetDraw (void);
-void D_PolysetDrawFinalVerts (finalvert_t *fv, int numverts);
-void D_DrawParticle (particle_t *pparticle);
-void D_DrawPoly (void);
-void D_DrawSprite (void);
-void D_DrawSurfaces (void);
-void D_DrawZPoint (void);
-void D_EnableBackBufferAccess (void);
-void D_EndParticles (void);
-void D_Init (void);
-void D_ViewChanged (void);
-void D_SetupFrame (void);
-void D_StartParticles (void);
-void D_TurnZOn (void);
-void D_WarpScreen (void);
+EXTERN_CPP void D_Aff8Patch (void *pcolormap);
+EXTERN_CPP void D_BeginDirectRect (int x, int y, byte *pbitmap, int width, int height);
+EXTERN_CPP void D_DisableBackBufferAccess (void);
+EXTERN_CPP void D_EndDirectRect (int x, int y, int width, int height);
+EXTERN_CPP void D_PolysetDraw (void);
+EXTERN_CPP void D_PolysetDrawFinalVerts (finalvert_t *fv, int numverts);
+EXTERN_CPP void D_DrawParticle (particle_t *pparticle);
+EXTERN_CPP void D_DrawPoly (void);
+EXTERN_CPP void D_DrawSprite (void);
+EXTERN_CPP void D_DrawSurfaces (void);
+EXTERN_CPP void D_DrawZPoint (void);
+EXTERN_CPP void D_EnableBackBufferAccess (void);
+EXTERN_CPP void D_EndParticles (void);
+EXTERN_CPP void D_Init (void);
+EXTERN_CPP void D_ViewChanged (void);
+EXTERN_CPP void D_SetupFrame (void);
+EXTERN_CPP void D_StartParticles (void);
+EXTERN_CPP void D_TurnZOn (void);
+EXTERN_CPP void D_WarpScreen (void);
 
-void D_FillRect (vrect_t *vrect, int color);
-void D_DrawRect (void);
-void D_UpdateRects (vrect_t *prect);
+EXTERN_CPP void D_FillRect (vrect_t *vrect, int color);
+EXTERN_CPP void D_DrawRect (void);
+EXTERN_CPP void D_UpdateRects (vrect_t *prect);
 
 // currently for internal use only, and should be a do-nothing function in
 // hardware drivers
 // FIXME: this should go away
-void D_PolysetUpdateTables (void);
+EXTERN_CPP void D_PolysetUpdateTables (void);
 
 // these are currently for internal use only, and should not be used by drivers
-extern int				r_skydirect;
-extern byte				*r_skysource;
+EXTERN  int				r_skydirect;
+EXTERN  byte				*r_skysource;
 
 // transparency types for D_DrawRect ()
 #define DR_SOLID		0
@@ -182,7 +182,7 @@ extern byte				*r_skysource;
 // !!! must be kept the same as in quakeasm.h !!!
 #define TRANSPARENT_COLOR	0xFF
 
-extern void *acolormap;	// FIXME: should go away
+EXTERN  void *acolormap;	// FIXME: should go away
 
 //=======================================================================//
 
@@ -201,10 +201,10 @@ typedef struct
 	int			surfheight;	// in mipmapped texels
 } drawsurf_t;
 
-extern drawsurf_t	r_drawsurf;
+EXTERN  drawsurf_t	r_drawsurf;
 
-void R_DrawSurface (void);
-void R_GenTile (msurface_t *psurf, void *pdest);
+EXTERN_CPP void R_DrawSurface (void);
+EXTERN_CPP void R_GenTile (msurface_t *psurf, void *pdest);
 
 
 // !!! if this is changed, it must be changed in d_ifacea.h too !!!
@@ -219,11 +219,11 @@ void R_GenTile (msurface_t *psurf, void *pdest);
 #define	SKYSIZE			(1 << SKYSHIFT)
 #define SKYMASK			(SKYSIZE - 1)
 
-extern float	skyspeed, skyspeed2;
-extern float	skytime;
+EXTERN  float	skyspeed, skyspeed2;
+EXTERN  float	skytime;
 
-extern int		c_surf;
-extern vrect_t	scr_vrect;
+EXTERN  int		c_surf;
+EXTERN  vrect_t	scr_vrect;
 
-extern byte		*r_warpbuffer;
+EXTERN  byte		*r_warpbuffer;
 

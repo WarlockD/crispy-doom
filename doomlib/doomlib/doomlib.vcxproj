@@ -163,7 +163,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\quake\snd_null.c" />
     <ClCompile Include="black_cubes.cpp" />
     <ClCompile Include="black_fillpoly.cpp" />
     <ClCompile Include="doom_common.cpp" />

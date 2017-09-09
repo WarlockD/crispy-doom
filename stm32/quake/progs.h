@@ -50,46 +50,46 @@ typedef struct edict_s
 
 //============================================================================
 
-extern	dprograms_t		*progs;
-extern	dfunction_t		*pr_functions;
-extern	char			*pr_strings;
-extern	ddef_t			*pr_globaldefs;
-extern	ddef_t			*pr_fielddefs;
-extern	dstatement_t	*pr_statements;
-extern	globalvars_t	*pr_global_struct;
-extern	float			*pr_globals;			// same as pr_global_struct
+EXTERN 	dprograms_t		*progs;
+EXTERN 	dfunction_t		*pr_functions;
+EXTERN 	char			*pr_strings;
+EXTERN 	ddef_t			*pr_globaldefs;
+EXTERN 	ddef_t			*pr_fielddefs;
+EXTERN 	dstatement_t	*pr_statements;
+EXTERN 	globalvars_t	*pr_global_struct;
+EXTERN 	float			*pr_globals;			// same as pr_global_struct
 
-extern	int				pr_edict_size;	// in bytes
+EXTERN 	int				pr_edict_size;	// in bytes
 
 //============================================================================
 
-void PR_Init (void);
+EXTERN_CPP void PR_Init (void);
 
-void PR_ExecuteProgram (func_t fnum);
-void PR_LoadProgs (void);
+EXTERN_CPP void PR_ExecuteProgram (func_t fnum);
+EXTERN_CPP void PR_LoadProgs (void);
 
-void PR_Profile_f (void);
+EXTERN_CPP void PR_Profile_f (void);
 
-edict_t *ED_Alloc (void);
-void ED_Free (edict_t *ed);
+EXTERN_CPP edict_t *ED_Alloc (void);
+EXTERN_CPP void ED_Free (edict_t *ed);
 
-char	*ED_NewString (char *string);
+EXTERN_CPP char	*ED_NewString (char *string);
 // returns a copy of the string allocated from the server's string heap
 
-void ED_Print (edict_t *ed);
-void ED_Write (FILE *f, edict_t *ed);
-char *ED_ParseEdict (char *data, edict_t *ent);
+EXTERN_CPP void ED_Print (edict_t *ed);
+EXTERN_CPP void ED_Write (FILE *f, edict_t *ed);
+EXTERN_CPP char *ED_ParseEdict (char *data, edict_t *ent);
 
-void ED_WriteGlobals (FILE *f);
-void ED_ParseGlobals (char *data);
+EXTERN_CPP void ED_WriteGlobals (FILE *f);
+EXTERN_CPP void ED_ParseGlobals (char *data);
 
-void ED_LoadFromFile (char *data);
+EXTERN_CPP void ED_LoadFromFile (char *data);
 
 //define EDICT_NUM(n) ((edict_t *)(sv.edicts+ (n)*pr_edict_size))
 //define NUM_FOR_EDICT(e) (((byte *)(e) - sv.edicts)/pr_edict_size)
 
-edict_t *EDICT_NUM(int n);
-int NUM_FOR_EDICT(edict_t *e);
+EXTERN_CPP edict_t *EDICT_NUM(int n);
+EXTERN_CPP int NUM_FOR_EDICT(edict_t *e);
 
 #define	NEXT_EDICT(e) ((edict_t *)( (byte *)e + pr_edict_size))
 
@@ -111,24 +111,24 @@ int NUM_FOR_EDICT(edict_t *e);
 #define	E_VECTOR(e,o) (&((float*)&e->v)[o])
 #define	E_STRING(e,o) (pr_strings + *(string_t *)&((float*)&e->v)[o])
 
-extern	int		type_size[8];
+EXTERN 	int		type_size[8];
 
 typedef void (*builtin_t) (void);
-extern	builtin_t *pr_builtins;
-extern int pr_numbuiltins;
+EXTERN 	builtin_t *pr_builtins;
+EXTERN  int pr_numbuiltins;
 
-extern int		pr_argc;
+EXTERN  int		pr_argc;
 
-extern	qboolean	pr_trace;
-extern	dfunction_t	*pr_xfunction;
-extern	int			pr_xstatement;
+EXTERN 	qboolean	pr_trace;
+EXTERN 	dfunction_t	*pr_xfunction;
+EXTERN 	int			pr_xstatement;
 
-extern	unsigned short		pr_crc;
+EXTERN 	unsigned short		pr_crc;
 
-void PR_RunError (char *error, ...);
+EXTERN_CPP void PR_RunError (char *error, ...);
 
-void ED_PrintEdicts (void);
-void ED_PrintNum (int ent);
+EXTERN_CPP void ED_PrintEdicts (void);
+EXTERN_CPP void ED_PrintNum (int ent);
 
-eval_t *GetEdictFieldValue(edict_t *ed, char *field);
+EXTERN_CPP eval_t *GetEdictFieldValue(edict_t *ed, char *field);
 

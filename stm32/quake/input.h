@@ -19,16 +19,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // input.h -- external (non-keyboard) input devices
 
-void IN_Init (void);
+EXTERN_CPP void IN_Init (void);
 
-void IN_Shutdown (void);
+EXTERN_CPP void IN_Shutdown (void);
 
-void IN_Commands (void);
+EXTERN_CPP void IN_Commands (void);
 // oportunity for devices to stick commands on the script buffer
 
-void IN_Move (usercmd_t *cmd);
+EXTERN_CPP void IN_Move (usercmd_t *cmd);
 // add additional movement on top of the keyboard move cmd
 
-void IN_ClearStates (void);
+EXTERN_CPP void IN_ClearStates (void);
 // restores all button and position states to defaults
 

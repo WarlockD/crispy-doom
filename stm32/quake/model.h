@@ -370,13 +370,13 @@ typedef struct model_s
 
 //============================================================================
 
-void	Mod_Init (void);
-void	Mod_ClearAll (void);
-model_t *Mod_ForName (char *name, qboolean crash);
-void	*Mod_Extradata (model_t *mod);	// handles caching
-void	Mod_TouchModel (char *name);
+EXTERN_CPP void	Mod_Init (void);
+EXTERN_CPP void	Mod_ClearAll (void);
+EXTERN_CPP model_t *Mod_ForName (char *name, qboolean crash);
+EXTERN_CPP void	*Mod_Extradata (model_t *mod);	// handles caching
+EXTERN_CPP void	Mod_TouchModel (char *name);
 
-mleaf_t *Mod_PointInLeaf (float *p, model_t *model);
-byte	*Mod_LeafPVS (mleaf_t *leaf, model_t *model);
+EXTERN_CPP mleaf_t *Mod_PointInLeaf (float *p, model_t *model);
+EXTERN_CPP byte	*Mod_LeafPVS (mleaf_t *leaf, model_t *model);
 
 #endif	// __MODEL__

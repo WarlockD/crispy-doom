@@ -18,10 +18,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 
-int CDAudio_Init(void);
-void CDAudio_Play(byte track, qboolean looping);
-void CDAudio_Stop(void);
-void CDAudio_Pause(void);
-void CDAudio_Resume(void);
-void CDAudio_Shutdown(void);
-void CDAudio_Update(void);
+	EXTERN_CPP	int CDAudio_Init(void);
+	EXTERN_CPP void CDAudio_Play(byte track, qboolean looping);
+	EXTERN_CPP void CDAudio_Stop(void);
+	EXTERN_CPP void CDAudio_Pause(void);
+	EXTERN_CPP void CDAudio_Resume(void);
+	EXTERN_CPP void CDAudio_Shutdown(void);
+	EXTERN_CPP void CDAudio_Update(void);

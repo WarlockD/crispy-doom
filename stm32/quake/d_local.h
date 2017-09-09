@@ -54,58 +54,58 @@ typedef struct sspan_s
 	int				u, v, count;
 } sspan_t;
 
-extern cvar_t	d_subdiv16;
+EXTERN  cvar_t	d_subdiv16;
 
-extern float	scale_for_mip;
+EXTERN  float	scale_for_mip;
 
-extern qboolean		d_roverwrapped;
-extern surfcache_t	*sc_rover;
-extern surfcache_t	*d_initial_rover;
+EXTERN  qboolean		d_roverwrapped;
+EXTERN  surfcache_t	*sc_rover;
+EXTERN  surfcache_t	*d_initial_rover;
 
-extern float	d_sdivzstepu, d_tdivzstepu, d_zistepu;
-extern float	d_sdivzstepv, d_tdivzstepv, d_zistepv;
-extern float	d_sdivzorigin, d_tdivzorigin, d_ziorigin;
+EXTERN  float	d_sdivzstepu, d_tdivzstepu, d_zistepu;
+EXTERN  float	d_sdivzstepv, d_tdivzstepv, d_zistepv;
+EXTERN  float	d_sdivzorigin, d_tdivzorigin, d_ziorigin;
 
 fixed16_t	sadjust, tadjust;
 fixed16_t	bbextents, bbextentt;
 
 
-void D_DrawSpans8 (espan_t *pspans);
-void D_DrawSpans16 (espan_t *pspans);
-void D_DrawZSpans (espan_t *pspans);
-void Turbulent8 (espan_t *pspan);
-void D_SpriteDrawSpans (sspan_t *pspan);
+EXTERN_CPP void D_DrawSpans8 (espan_t *pspans);
+EXTERN_CPP void D_DrawSpans16 (espan_t *pspans);
+EXTERN_CPP void D_DrawZSpans (espan_t *pspans);
+EXTERN_CPP void Turbulent8 (espan_t *pspan);
+EXTERN_CPP void D_SpriteDrawSpans (sspan_t *pspan);
 
-void D_DrawSkyScans8 (espan_t *pspan);
-void D_DrawSkyScans16 (espan_t *pspan);
+EXTERN_CPP void D_DrawSkyScans8 (espan_t *pspan);
+EXTERN_CPP void D_DrawSkyScans16 (espan_t *pspan);
 
-void R_ShowSubDiv (void);
+EXTERN_CPP void R_ShowSubDiv (void);
 void (*prealspandrawer)(void);
-surfcache_t	*D_CacheSurface (msurface_t *surface, int miplevel);
+EXTERN_CPP surfcache_t	*D_CacheSurface (msurface_t *surface, int miplevel);
 
-extern int D_MipLevelForScale (float scale);
+EXTERN_CPP int D_MipLevelForScale (float scale);
 
 #if id386
-extern void D_PolysetAff8Start (void);
-extern void D_PolysetAff8End (void);
+EXTERN  void D_PolysetAff8Start (void);
+EXTERN  void D_PolysetAff8End (void);
 #endif
 
-extern short *d_pzbuffer;
-extern unsigned int d_zrowbytes, d_zwidth;
+EXTERN  short *d_pzbuffer;
+EXTERN  unsigned int d_zrowbytes, d_zwidth;
 
-extern int	*d_pscantable;
-extern int	d_scantable[MAXHEIGHT];
+EXTERN  int	*d_pscantable;
+EXTERN  int	d_scantable[MAXHEIGHT];
 
-extern int	d_vrectx, d_vrecty, d_vrectright_particle, d_vrectbottom_particle;
+EXTERN  int	d_vrectx, d_vrecty, d_vrectright_particle, d_vrectbottom_particle;
 
-extern int	d_y_aspect_shift, d_pix_min, d_pix_max, d_pix_shift;
+EXTERN  int	d_y_aspect_shift, d_pix_min, d_pix_max, d_pix_shift;
 
-extern pixel_t	*d_viewbuffer;
+EXTERN  pixel_t	*d_viewbuffer;
 
-extern short	*zspantable[MAXHEIGHT];
+EXTERN  short	*zspantable[MAXHEIGHT];
 
-extern int		d_minmip;
-extern float	d_scalemip[3];
+EXTERN  int		d_minmip;
+EXTERN  float	d_scalemip[3];
 
-extern void (*d_drawspans) (espan_t *pspan);
+EXTERN  void (*d_drawspans) (espan_t *pspan);
 

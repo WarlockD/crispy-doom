@@ -29,7 +29,8 @@ typedef struct
 {
 	qboolean	allsolid;	// if true, plane is not valid
 	qboolean	startsolid;	// if true, the initial point was in a solid area
-	qboolean	inopen, inwater;
+	qboolean	inopen;
+	qboolean  inwater;
 	float	fraction;		// time completed, 1.0 = didn't hit anything
 	vec3_t	endpos;			// final position
 	plane_t	plane;			// surface normal at impact
@@ -42,29 +43,29 @@ typedef struct
 #define	MOVE_MISSILE	2
 
 
-void SV_ClearWorld (void);
+EXTERN_CPP void SV_ClearWorld (void);
 // called after the world model has been loaded, before linking any entities
 
-void SV_UnlinkEdict (edict_t *ent);
+EXTERN_CPP void SV_UnlinkEdict (edict_t *ent);
 // call before removing an entity, and before trying to move one,
 // so it doesn't clip against itself
 // flags ent->v.modified
 
-void SV_LinkEdict (edict_t *ent, qboolean touch_triggers);
+EXTERN_CPP void SV_LinkEdict (edict_t *ent, qboolean touch_triggers);
 // Needs to be called any time an entity changes origin, mins, maxs, or solid
 // flags ent->v.modified
 // sets ent->v.absmin and ent->v.absmax
 // if touchtriggers, calls prog functions for the intersected triggers
 
-int SV_PointContents (vec3_t p);
-int SV_TruePointContents (vec3_t p);
+EXTERN_CPP int SV_PointContents (vec3_t p);
+EXTERN_CPP int SV_TruePointContents (vec3_t p);
 // returns the CONTENTS_* value from the world at the given point.
 // does not check any entities at all
 // the non-true version remaps the water current contents to content_water
 
-edict_t	*SV_TestEntityPosition (edict_t *ent);
+EXTERN_CPP edict_t	*SV_TestEntityPosition (edict_t *ent);
 
-trace_t SV_Move (vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, int type, edict_t *passedict);
+EXTERN_CPP trace_t SV_Move (vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, int type, edict_t *passedict);
 // mins and maxs are reletive
 
 // if the entire move stays in a solid volume, trace.allsolid will be set

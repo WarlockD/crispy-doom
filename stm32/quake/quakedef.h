@@ -18,7 +18,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 */
 // quakedef.h -- primary header for client
+#ifndef _QUAKEDEF_H_
+#define _QUAKEDEF_H_
 
+#include "quake.hpp"
+
+#if 0
 //#define	GLTEST			// experimental stuff
 
 #define	QUAKE_GAME			// as opposed to utilities
@@ -45,14 +50,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <stdlib.h>
 #include <setjmp.h>
 
+#ifdef __cplusplus
+#define EXTERN_CPP extern "C"
+#else
+#define EXTERN_CPP
+#endif
+
 #if defined(_WIN32) && !defined(WINDED)
 
 #if defined(_M_IX86)
 #define __i386__	1
 #endif
 
-void	VID_LockBuffer (void);
-void	VID_UnlockBuffer (void);
+EXTERN_CPP void	VID_LockBuffer (void);
+EXTERN_CPP void	VID_UnlockBuffer (void);
 
 #else
 
@@ -61,11 +72,15 @@ void	VID_UnlockBuffer (void);
 
 #endif
 
+#if 0
 #if defined __i386__ // && !defined __sun__
 #define id386	1
 #else
 #define id386	0
 #endif
+#endif
+
+#define id386 0
 
 #if id386
 #define UNALIGNED_OK	1	// set to 0 if unaligned accesses are not supported
@@ -76,7 +91,9 @@ void	VID_UnlockBuffer (void);
 // !!! if this is changed, it must be changed in d_ifacea.h too !!!
 #define CACHE_SIZE	32		// used to align key data structures
 
-#define UNUSED(x)	(x = x)	// for pesky compiler / lint warnings
+#ifndef UNUSED
+#define UNUSED(x)	((void)(x))	// for pesky compiler / lint warnings
+#endif
 
 #define	MINIMUM_MEMORY			0x550000
 #define	MINIMUM_MEMORY_LEVELPAK	(MINIMUM_MEMORY + 0x100000)
@@ -262,6 +279,8 @@ typedef struct
 #include "glquake.h"
 #endif
 
+
+
 //=============================================================================
 
 // the host system specifies the base of the directory tree, the
@@ -283,53 +302,57 @@ typedef struct
 
 
 
-extern qboolean noclip_anglehack;
+EXTERN  qboolean noclip_anglehack;
 
 
 //
 // host
 //
-extern	quakeparms_t host_parms;
+EXTERN 	quakeparms_t host_parms;
 
-extern	cvar_t		sys_ticrate;
-extern	cvar_t		sys_nostdout;
-extern	cvar_t		developer;
+EXTERN 	cvar_t		sys_ticrate;
+EXTERN 	cvar_t		sys_nostdout;
+EXTERN 	cvar_t		developer;
 
-extern	qboolean	host_initialized;		// true if into command execution
-extern	double		host_frametime;
-extern	byte		*host_basepal;
-extern	byte		*host_colormap;
-extern	int			host_framecount;	// incremented every frame, never reset
-extern	double		realtime;			// not bounded in any way, changed at
+EXTERN 	qboolean	host_initialized;		// true if into command execution
+EXTERN 	double		host_frametime;
+EXTERN 	byte		*host_basepal;
+EXTERN 	byte		*host_colormap;
+EXTERN 	int			host_framecount;	// incremented every frame, never reset
+EXTERN 	double		realtime;			// not bounded in any way, changed at
 										// start of every frame, never reset
 
-void Host_ClearMemory (void);
-void Host_ServerFrame (void);
-void Host_InitCommands (void);
-void Host_Init (quakeparms_t *parms);
-void Host_Shutdown(void);
-void Host_Error (char *error, ...);
-void Host_EndGame (char *message, ...);
-void Host_Frame (float time);
-void Host_Quit_f (void);
-void Host_ClientCommands (char *fmt, ...);
-void Host_ShutdownServer (qboolean crash);
+EXTERN_CPP void Host_ClearMemory (void);
+EXTERN_CPP void Host_ServerFrame (void);
+EXTERN_CPP void Host_InitCommands (void);
+EXTERN_CPP void Host_Init (quakeparms_t *parms);
+EXTERN_CPP void Host_Shutdown(void);
+EXTERN_CPP void Host_Error (char *error, ...);
+EXTERN_CPP void Host_EndGame (char *message, ...);
+EXTERN_CPP void Host_Frame (float time);
+EXTERN_CPP void Host_Quit_f (void);
+EXTERN_CPP void Host_ClientCommands (char *fmt, ...);
+EXTERN_CPP void Host_ShutdownServer (qboolean crash);
 
-extern qboolean		msg_suppress_1;		// suppresses resolution and cache size console output
+EXTERN  qboolean		msg_suppress_1;		// suppresses resolution and cache size console output
 										//  an fullscreen DIB focus gain/loss
-extern int			current_skill;		// skill level for currently loaded level (in case
+EXTERN  int			current_skill;		// skill level for currently loaded level (in case
 										//  the user changes the cvar while the level is
 										//  running, this reflects the level actually in use)
 
-extern qboolean		isDedicated;
+EXTERN  qboolean		isDedicated;
 
-extern int			minimum_memory;
+EXTERN  int			minimum_memory;
 
 //
 // chase
 //
-extern	cvar_t	chase_active;
+EXTERN 	cvar_t	chase_active;
 
-void Chase_Init (void);
-void Chase_Reset (void);
-void Chase_Update (void);
+EXTERN_CPP void Chase_Init (void);
+EXTERN_CPP void Chase_Reset (void);
+EXTERN_CPP void Chase_Update (void);
+
+#endif
+
+#endif

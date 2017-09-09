@@ -6,8 +6,8 @@ typedef struct
 	int	self;
 	int	other;
 	int	world;
-	float	time;
-	float	frametime;
+	quake_time_t	time;
+	quake_time_t	frametime;
 	float	force_retouch;
 	string_t	mapname;
 	float	deathmatch;

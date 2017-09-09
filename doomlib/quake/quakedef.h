@@ -39,50 +39,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #define	GAMENAME	"id1"
 #endif
 
-#include <math.h>
-#include <string.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <setjmp.h>
+#include <cmath>
+#include <cstring>
+#include <cstdarg>
+#include <cstdio>
+#include <cstdlib>
+#include <csetjmp>
 
-#ifdef __cplusplus
-#define EXTERN_CPP extern "C"
-#else
-#define EXTERN_CPP
-#endif
+#include <type_traits>
+#include <algorithm>
 
-#if defined(_WIN32) && !defined(WINDED)
 
-#if defined(_M_IX86)
-#define __i386__	1
-#endif
-
-EXTERN_CPP void	VID_LockBuffer (void);
-EXTERN_CPP void	VID_UnlockBuffer (void);
-
-#else
 
 #define	VID_LockBuffer()
 #define	VID_UnlockBuffer()
 
-#endif
-
-#if 0
-#if defined __i386__ // && !defined __sun__
-#define id386	1
-#else
-#define id386	0
-#endif
-#endif
-
-#define id386 0
-
-#if id386
-#define UNALIGNED_OK	1	// set to 0 if unaligned accesses are not supported
-#else
-#define UNALIGNED_OK	0
-#endif
 
 // !!! if this is changed, it must be changed in d_ifacea.h too !!!
 #define CACHE_SIZE	32		// used to align key data structures

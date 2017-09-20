@@ -400,12 +400,21 @@ void Cmd_Alias_f (void)
 =============================================================================
 */
 
-typedef struct cmd_function_s
+struct cmd_function_t
 {
-	struct cmd_function_s	*next;
-	char					*name;
-	xcommand_t				function;
-} cmd_function_t;
+	cmd_function_t*				next;
+	const char					*name;
+	xcommand_t					function;
+	cmd_function_t(const char* name, xcommand_t function) : next(nullptr), name(name), function(function) {}
+	void * operator new (size_t size)
+	{
+		return Hunk_Alloc(size);
+	}
+	void operator delete (void * mem)
+	{
+		(void)mem; // we do nothing here
+	}
+} ;
 
 
 #define	MAX_ARGS		80
@@ -418,8 +427,8 @@ static	char		*cmd_args = NULL;
 cmd_source_t	cmd_source;
 
 
-static	cmd_function_t	*cmd_functions;		// possible commands to execute
-
+	
+static HunkData<cmd_function_t> cmd_functions; // possible commands to execute
 /*
 ============
 Cmd_Init
@@ -529,9 +538,9 @@ void Cmd_TokenizeString (char *text)
 Cmd_AddCommand
 ============
 */
-void	Cmd_AddCommand (char *cmd_name, xcommand_t function)
+void	Cmd_AddCommand (const char *cmd_name, xcommand_t function)
 {
-	cmd_function_t	*cmd;
+	HunkData<cmd_function_t> cmd;
 	
 	if (host_initialized)	// because hunk allocation would get stomped
 		Sys_Error ("Cmd_AddCommand after host_initialized");
@@ -553,7 +562,7 @@ void	Cmd_AddCommand (char *cmd_name, xcommand_t function)
 		}
 	}
 
-	cmd = Hunk_Alloc (sizeof(cmd_function_t));
+	cmd = HunkData<cmd_function_t>(sizeof(cmd_function_t));
 	cmd->name = cmd_name;
 	cmd->function = function;
 	cmd->next = cmd_functions;

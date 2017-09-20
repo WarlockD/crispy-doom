@@ -86,7 +86,7 @@ float V_CalcRoll (vec3_t angles, vec3_t velocity)
 	
 	AngleVectors (angles, forward, right, up);
 	side = DotProduct (velocity, right);
-	sign = side < 0 ? -1 : 1;
+	sign = side < 0.0f ? -1.0f : 1.0f;
 	side = fabs(side);
 	
 	value = cl_rollangle.value;
@@ -114,10 +114,10 @@ float V_CalcBob (void)
 	float	bob;
 	float	cycle;
 	
-	cycle = cl.time - (int)(cl.time/cl_bobcycle.value)*cl_bobcycle.value;
+	cycle = (float)cl.time - (int)((float)cl.time/cl_bobcycle.value)*cl_bobcycle.value;
 	cycle /= cl_bobcycle.value;
 	if (cycle < cl_bobup.value)
-		cycle = M_PI * cycle / cl_bobup.value;
+		cycle = (float)M_PI * cycle / cl_bobup.value;
 	else
 		cycle = M_PI + M_PI*(cycle-cl_bobup.value)/(1.0 - cl_bobup.value);
 
@@ -126,7 +126,7 @@ float V_CalcBob (void)
 
 	bob = sqrt(cl.velocity[0]*cl.velocity[0] + cl.velocity[1]*cl.velocity[1]) * cl_bob.value;
 //Con_Printf ("speed: %5.1f\n", Length(cl.velocity));
-	bob = bob*0.3 + bob*0.7*sin(cycle);
+	bob = bob*0.3f + bob*0.7f*sin(cycle);
 	if (bob > 4)
 		bob = 4;
 	else if (bob < -7)
@@ -196,7 +196,7 @@ void V_DriftPitch (void)
 		if ( fabs(cl.cmd.forwardmove) < cl_forwardspeed.value)
 			cl.driftmove = 0;
 		else
-			cl.driftmove += host_frametime;
+			cl.driftmove += (float)host_frametime;
 	
 		if ( cl.driftmove > v_centermove.value)
 		{
@@ -213,8 +213,8 @@ void V_DriftPitch (void)
 		return;
 	}
 
-	move = host_frametime * cl.pitchvel;
-	cl.pitchvel += host_frametime * v_centerspeed.value;
+	move = (float)host_frametime * cl.pitchvel;
+	cl.pitchvel += (float)host_frametime * v_centerspeed.value;
 	
 //Con_Printf ("move: %f (%f)\n", move, host_frametime);
 

@@ -79,7 +79,7 @@ EXTERN 	cmd_source_t	cmd_source;
 
 EXTERN_CPP	void	Cmd_Init(void);
 
-EXTERN_CPP	void	Cmd_AddCommand(char *cmd_name, xcommand_t function);
+EXTERN_CPP	void	Cmd_AddCommand(const char *cmd_name, xcommand_t function);
 	// called by the init functions of other parts of the program to
 	// register commands and functions to call for them.
 	// The cmd_name is referenced later, so it should not be in temp memory

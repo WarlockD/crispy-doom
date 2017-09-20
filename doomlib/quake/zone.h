@@ -87,7 +87,8 @@ Zone block
 
 #include <vector>
 #include <string>
-#include <string_stream>
+#include <sstream>
+#include <memory>
 
 EXTERN_CPP void Memory_Init (void *buf, int size);
 
@@ -100,9 +101,9 @@ EXTERN_CPP void Z_CheckHeap (void);
 EXTERN_CPP int Z_FreeMemory (void);
 
 EXTERN_CPP void *Hunk_Alloc (int size);		// returns 0 filled memory
-EXTERN_CPP void *Hunk_AllocName (int size, char *name);
+EXTERN_CPP void *Hunk_AllocName (int size, const char *name);
 
-EXTERN_CPP void *Hunk_HighAllocName (int size, char *name);
+EXTERN_CPP void *Hunk_HighAllocName (int size, const char *name);
 
 EXTERN_CPP int	Hunk_LowMark (void);
 EXTERN_CPP void Hunk_FreeToLowMark (int mark);
@@ -164,11 +165,101 @@ public:
 	~zmalloc_allocator() throw() { }
 };
 
-using string_t = std::basic_string<char, std::char_traits<char>, zmalloc_allocator<char>>;
-using string_view_t = std::string_view;
+struct ZMemoryObject {
+	static inline void* operator new(size_t size) {
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (void*)Z_Malloc(size);
+	}
+	static inline void* operator new(size_t size, int tag) {
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (void*)Z_TagMalloc(size, tag);
+	}
+	static inline void operator delete(void* ptr) {
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		Z_Free(ptr);
+	}
+};
+struct HunkObject {
+	static inline void* operator new(size_t size) {
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (void*)Hunk_Alloc(n);
+	}
+	static inline  void* operator new(size_t size, const char* name) {
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (void*)Hunk_AllocName(size, name);
+	}
+	static inline  void operator delete(void* ptr) {
+		(void)ptr, size;
+
+	}
+};
+template <typename T>
+class zhunk_allocator {
+public:
+	typedef size_t size_type;
+	typedef T* pointer;
+	typedef const T* const_pointer;
+	template<typename _Tp1>
+	struct rebind
+	{
+		typedef zhunk_allocator<_Tp1> other;
+	};
+	pointer allocate(size_type n, const void *hint = nullptr)
+	{
+		//fprintf(stderr, "Alloc %d bytes.\n", n * sizeof(T));
+		return (pointer*)Hunk_Alloc(n);
+	}
+
+	void deallocate(pointer p, size_type n)
+	{
+		(void)n;
+		//Z_Free(p);
+		//fprintf(stderr, "Dealloc %d bytes (%p).\n", n * sizeof(T), p);
+	}
+	zhunk_allocator() { }
+	zhunk_allocator(const zhunk_allocator &a) { }
+	template <class U>
+	zhunk_allocator(const zhunk_allocator<U> &a) { }
+	~zhunk_allocator() throw() { }
+};
 
 template<typename T>
-using vector_t = std::vector<T, zmalloc_allocator<T>>;
+// hunks are usally taken care of at the end of a level
+template<typename T>
+class HunkData {
+public:
+	using value_type = T;
+	using pointer = T*;
+	using const_pointer = const T*;
+	using refrence = T&;
+	using const_refrence = const T&;
+	HunkData() : _data(nullptr) { std::unique_ptr}
+	HunkData(size_t size, const char* name) : _data((pointer)Hunk_AllocName((int)size, name)) {}
+	HunkData(size_t size) : _data((pointer)Hunk_Alloc((int)size)) {}
+	~HunkData() { _data = nullptr; }
+	refrence operator*() { return *_data; }
+	const_refrence operator*() const { return *_data; }
+	pointer operator->() { return _data; }
+	const_pointer operator>() const { return _data; }
+	pointer data() { return _data; }
+	const_pointer data() const { return _data; }
+
+	template<typename TT>
+	bool operator==(const HunkData<TT>& r) const { return (void*)data() == (void*)r.data(); }
+	template<typename TT>
+	bool operator!=(const HunkData<TT>& r) const { return (void*)data() != (void*)r.data(); }
+private:
+	pointer _data;
+};
+
+
+
+
+using qstring = std::basic_string<char, std::char_traits<char>, zmalloc_allocator<char>>;
+using qstring_view_t = std::string_view;
+
+template<typename T>
+using qvector = std::vector<T, zmalloc_allocator<T>>;
 
 #endif // _ZONE_H_
 
